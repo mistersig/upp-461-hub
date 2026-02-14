@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Web maps activity</title>
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Theme before paint -->
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+
+  <!-- Leaflet (loads only on this activity page; requires internet access) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+
+  <script src="../app.js" defer></script>
+  <script src="../webmap.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html">Datum & GCS</a>
+        <a href="03-projections.html">Projections</a>
+        <a href="03b-webmaps-activity.html" aria-current="page">Web maps</a>
+        <a href="04-distortion.html">Distortion</a>
+        <a href="05-choosing.html">Choosing CRS</a>
+        <a href="06-state-plane.html">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>Optional activity: Web maps & projections</h2>
+
+    <div class="callout">
+      <strong>What you’ll learn</strong>
+      Web basemaps are usually displayed in <strong>Web Mercator (EPSG:3857)</strong>, a projected coordinate system used for fast tiled maps. In this activity, you’ll click a location, see its <strong>latitude/longitude</strong> (geographic coordinates), and then see the corresponding <strong>Web Mercator meters</strong>.
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Why this matters</h3>
+        <ul>
+          <li>Web Mercator makes it easy to tile/zoom maps quickly.</li>
+          <li>But it distorts area (especially near the poles), so it’s not ideal for analysis.</li>
+          <li>A good workflow: use Web Mercator for display, and a local projection for measurement/analysis.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Accessibility note</h3>
+        <p>The interactive map works best with mouse/touch. If you use a keyboard, use the “Enter coordinates” fields below the map to update the marker.</p>
+        <p class="small">This page requires internet access to load the map tiles and Leaflet library.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Map activity</h3>
+      <p>Click the map (or enter coordinates) to place a marker.</p>
+
+      <div class="grid two">
+        <div>
+          <div id="map" class="map" aria-label="Interactive map for selecting a location"></div>
+          <p class="small" style="margin-top:8px">Map data © OpenStreetMap contributors.</p>
+        </div>
+        <div>
+          <form class="card" data-webmap-form>
+            <h4 style="margin-top:0">Enter coordinates (keyboard-friendly)</h4>
+            <label for="lat"><strong>Latitude</strong> (decimal degrees)</label><br>
+            <input id="lat" name="lat" inputmode="decimal" placeholder="e.g., 41.881832" autocomplete="off">
+            <div style="height:10px"></div>
+            <label for="lon"><strong>Longitude</strong> (decimal degrees)</label><br>
+            <input id="lon" name="lon" inputmode="decimal" placeholder="e.g., -87.623177" autocomplete="off">
+            <div class="controls" style="margin-top:12px">
+              <button class="primary" type="submit">Update marker</button>
+            </div>
+            <div class="visually-hidden" aria-live="polite" data-live></div>
+          </form>
+
+          <div class="card">
+            <h4 style="margin-top:0">Selected point</h4>
+            <div class="small">Geographic coordinates (latitude/longitude)</div>
+            <p><strong>Lat:</strong> <span data-out-lat>—</span><br>
+               <strong>Lon:</strong> <span data-out-lon>—</span></p>
+
+            <div class="small">Projected coordinates (Web Mercator / EPSG:3857)</div>
+            <p><strong>X (m):</strong> <span data-out-x>—</span><br>
+               <strong>Y (m):</strong> <span data-out-y>—</span></p>
+
+            <details class="card">
+              <summary><strong>Why Web Mercator?</strong></summary>
+              <p>It’s widely used for web tiles because it keeps angles locally consistent (conformal) and allows a simple global tiling scheme. The tradeoff is that areas inflate dramatically toward the poles, so it’s not a great choice for measuring area.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Reflection</h3>
+      <ul>
+        <li>What happens to the Web Mercator Y value as you move north?</li>
+        <li>Why might Web Mercator be a poor choice for comparing areas between Alaska and Florida?</li>
+        <li>For a city-scale analysis in Illinois, what kind of projection would you choose instead?</li>
+      </ul>
+    </div>
+
+    <p><a href="03-projections.html">Back to Projections →</a></p>
+
+    
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="04-distortion.html" aria-label="Next: Distortion">Next: Distortion →</a></nav>
+<div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

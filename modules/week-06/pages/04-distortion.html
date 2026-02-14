@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Distortion</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html">Datum & GCS</a>
+        <a href="03-projections.html">Projections</a>
+        <a href="03b-webmaps-activity.html">Web maps</a>
+        <a href="04-distortion.html" aria-current="page">Distortion</a>
+        <a href="05-choosing.html">Choosing CRS</a>
+        <a href="06-state-plane.html">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>4) Distortion: what can a projection preserve?</h2>
+
+<div class="card">
+  <p>When you flatten a globe, you can’t preserve everything at once. Projections typically preserve one property well, and distort others.</p>
+  <ul>
+    <li><strong>Conformal</strong>: preserves local shape/angles</li>
+    <li><strong>Equal-area</strong>: preserves area (useful for choropleths)</li>
+    <li><strong>Equidistant</strong>: preserves distance from a point/line (not everywhere)</li>
+    <li><strong>Azimuthal</strong>: preserves direction from a point</li>
+  </ul>
+</div>
+
+<figure>
+  <img src="../assets/tissot.png" alt="Distortion illustration showing circles becoming ellipses">
+  <figcaption>Distortion visual: circles become ellipses when shape/area change.</figcaption>
+</figure>
+
+<div class="callout">
+  <strong>Decision game</strong>
+  If your map’s purpose is comparing sizes (e.g., land cover totals), prioritize <strong>equal-area</strong>.
+  If your map needs accurate bearings or shapes (e.g., navigation-style), prioritize <strong>conformal</strong>.
+</div>
+
+<div class="card">
+  <h3>Mini activity: Web Mercator</h3>
+  <p>Web maps often use Web Mercator for display. What gets distorted most?</p>
+  <details class="card">
+    <summary><strong>Show answer</strong></summary>
+    <p><strong>Area</strong> (especially near the poles). Regions look much larger than they really are.</p>
+  </details>
+</div>
+
+<figure>
+  <img src="../assets/mercator_world.jpg" alt="World map showing Mercator projection distortion">
+  <figcaption>Mercator-type projection: high-latitude areas appear exaggerated.</figcaption>
+</figure>
+
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="05-choosing.html" aria-label="Next: Choosing a CRS">Next: Choosing a CRS →</a></nav>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Choosing CRS</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html">Datum & GCS</a>
+        <a href="03-projections.html">Projections</a>
+        <a href="03b-webmaps-activity.html">Web maps</a>
+        <a href="04-distortion.html">Distortion</a>
+        <a href="05-choosing.html" aria-current="page">Choosing CRS</a>
+        <a href="06-state-plane.html">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>5) Choosing the right CRS</h2>
+
+<div class="card">
+  <h3>Step-by-step checklist</h3>
+  <ol>
+    <li>What is the map’s purpose? (area, distance, direction, shape, display)</li>
+    <li>What is the region? (global vs local; near poles vs mid-latitudes)</li>
+    <li>What software context? (web basemap? engineering drawing? analysis?)</li>
+    <li>Pick CRS that fits: datum + coordinate system + units</li>
+  </ol>
+</div>
+
+<div class="callout">
+  <strong>Common workflow</strong>
+  <ol>
+    <li>Set the map/data frame CRS to your target CRS</li>
+    <li>Define CRS correctly for each dataset (if missing/wrong)</li>
+    <li>Project datasets into the target CRS for analysis</li>
+  </ol>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h3>Example scenarios</h3>
+    <ul>
+      <li>Choropleth comparing county areas → <strong>equal-area</strong></li>
+      <li>Local parcel mapping → local/state plane style CRS</li>
+      <li>Web display with basemaps → Web Mercator (display), but use local CRS for analysis</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Using degrees for distance/area</li>
+      <li>Mixing datums without transforming</li>
+      <li>Projecting twice (or defining incorrectly)</li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="06-state-plane.html" aria-label="Next: State Plane">Next: State Plane →</a></nav>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>UPP 461 • Course Modules</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <div class="brand">
+        <h1 class="title">UPP 461 • Course Modules</h1>
+        <p class="term" id="termLabel">Spring 2026</p>
+      </div>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="toggle" type="button" aria-pressed="false">
+          <span class="toggle-icon" aria-hidden="true">🌙</span>
+          <span class="toggle-text">Dark theme</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <div class="container">
+      <section class="intro" aria-labelledby="start-here">
+        <h2 id="start-here">Start here</h2>
+        <p>
+          Each week, open the module and complete it first. Then attend (or watch) lecture.
+          After that, complete the week’s quiz/lab/discussion as instructed in your course space.
+        </p>
+      </section>
+
+      <section class="weeks" aria-labelledby="weeks-heading">
+        <div class="section-header">
+          <h2 id="weeks-heading">Weekly modules</h2>
+          <p class="muted">Select a week to open the module.</p>
+        </div>
+
+        <ul id="weeksGrid" class="weeks-grid" aria-label="Module list">
+          <!-- Cards are rendered by app.js for easy editing -->
+        </ul>
+
+        <noscript>
+          <div class="notice" role="note">
+            JavaScript is disabled. You can still access modules once you replace the placeholder links in <code>index.html</code>.
+          </div>
+        </noscript>
+      </section>
+
+      <section class="help" aria-labelledby="help-heading">
+        <h2 id="help-heading">Need help?</h2>
+        <p class="muted">
+          Found an issue on this page or a module? Please report it using the bug report link in the footer.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-row">
+      <p class="disclaimer">
+        For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.
+      </p>
+
+      <a class="link" id="bugLink" href="#">
+        Report a bug
+      </a>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

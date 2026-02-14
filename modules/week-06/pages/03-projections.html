@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Projections</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html">Datum & GCS</a>
+        <a href="03-projections.html" aria-current="page">Projections</a>
+        <a href="03b-webmaps-activity.html">Web maps</a>
+        <a href="04-distortion.html">Distortion</a>
+        <a href="05-choosing.html">Choosing CRS</a>
+        <a href="06-state-plane.html">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>3) Projections and Projected Coordinate Systems (PCS)</h2>
+
+<div class="card">
+  <p>A <strong>Projected Coordinate System (PCS)</strong> uses a mathematical <strong>map projection</strong> to turn curved Earth coordinates into a flat map. Values are typically in <strong>meters</strong> or <strong>feet</strong>.</p>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h3>Why project?</h3>
+    <ul>
+      <li>Distance/area calculations need linear units</li>
+      <li>Web maps often use a common projection for fast display</li>
+      <li>Local mapping needs low distortion in your region</li>
+    </ul>
+  <p class="small"><a href="03b-webmaps-activity.html">Activity: Web maps & projections (interactive) →</a></p>
+  </div>
+  <div class="card">
+    <h3>Common projection surfaces</h3>
+    <ul>
+      <li><strong>Cylindrical</strong>: good near the equator</li>
+      <li><strong>Conic</strong>: good for mid-latitudes (east–west regions)</li>
+      <li><strong>Planar/Azimuthal</strong>: good for polar regions</li>
+    </ul>
+  </div>
+</div>
+
+<figure>
+  <img src="../assets/projection_cyl.png" alt="Illustration of a cylindrical projection concept">
+  <figcaption>Concept: projecting Earth onto a developable surface (like a cylinder).</figcaption>
+</figure>
+
+<div class="callout">
+  <strong>Key idea</strong>
+  Every projection introduces distortion. Your job is to choose a projection that preserves what matters for your map.
+</div>
+
+<div class="card">
+  <h3>Mini activity: degrees vs meters</h3>
+  <p>Which is better for measuring a street length?</p>
+  <ul>
+    <li><strong>Geographic Coordinate System (GCS) in degrees</strong> (latitude/longitude)</li>
+    <li><strong>Projected Coordinate System (PCS) in meters/feet</strong></li>
+  </ul>
+  <details class="card">
+    <summary><strong>Show answer</strong></summary>
+    <p><strong>Projected Coordinate System (PCS).</strong> Degrees are angular and not a constant distance across the Earth. A projected coordinate system uses linear units (meters/feet) so distance calculations make sense.</p>
+  </details>
+</div>
+
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="03b-webmaps-activity.html" aria-label="Next: Web maps">Next: Web maps →</a></nav>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

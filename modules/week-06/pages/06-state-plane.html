@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • State Plane</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html">Datum & GCS</a>
+        <a href="03-projections.html">Projections</a>
+        <a href="03b-webmaps-activity.html">Web maps</a>
+        <a href="04-distortion.html">Distortion</a>
+        <a href="05-choosing.html">Choosing CRS</a>
+        <a href="06-state-plane.html" aria-current="page">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>6) State Plane (example: Illinois)</h2>
+
+<div class="card">
+  <p><strong>State Plane Coordinate System (SPCS)</strong> is designed for high-accuracy local mapping within U.S. states. It uses zones to keep distortion small.</p>
+  <ul>
+    <li>Units often in feet or meters (depends on definition)</li>
+    <li>Multiple zones per state</li>
+    <li>Great for engineering / cadastral / local government mapping</li>
+  </ul>
+</div>
+
+<figure>
+  <img src="../assets/spcs_map.png" alt="Illustration of state plane zones concept">
+  <figcaption>State Plane uses zones to minimize distortion within each zone.</figcaption>
+</figure>
+
+<div class="card">
+  <h3>Mini activity</h3>
+  <p>Why use State Plane instead of Web Mercator for local analysis?</p>
+  <details class="card">
+    <summary><strong>Show answer</strong></summary>
+    <p>State Plane is designed to minimize distortion locally and uses linear units, making measurements and analysis more accurate for local areas.</p>
+  </details>
+</div>
+
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="07-quiz.html" aria-label="Next: Quick quiz">Next: Quick quiz →</a></nav>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

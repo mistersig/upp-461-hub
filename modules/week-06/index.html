@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Home</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="pages/01-overview.html">Start here</a>
+        <a href="pages/02-datum-gcs.html">Datum & GCS</a>
+        <a href="pages/03-projections.html">Projections</a>
+        <a href="pages/03b-webmaps-activity.html">Web maps</a>
+        <a href="pages/04-distortion.html">Distortion</a>
+        <a href="pages/05-choosing.html">Choosing CRS</a>
+        <a href="pages/06-state-plane.html">State Plane</a>
+        <a href="pages/08-summary.html">Summary</a>
+        <a href="pages/07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="card">
+  <h2>How to use this module</h2>
+  <ol>
+    <li>Read each section (6 short pages).</li>
+    <li>Try the mini activities.</li>
+    <li>Finish the quick quiz.</li>
+    <li>Bring questions to the live session.</li>
+  </ol>
+  <div class="callout">
+    <strong>Remember:</strong>
+    A <strong>datum</strong> defines the Earth model and how coordinates “sit” on it. A <strong>projection</strong> is how we flatten the curved Earth onto a map.
+  </div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Learning goals</h2>
+    <ul>
+      <li>Explain what a <strong>Coordinate Reference System (CRS)</strong> is.</li>
+      <li>Distinguish <strong>Geographic Coordinate System (GCS)</strong> vs <strong>Projected Coordinate System (PCS)</strong>.</li>
+      <li>Describe what a <strong>datum</strong> does and why changing it can shift data.</li>
+      <li>Choose a projection based on the task (area, distance, direction, shape).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Start</h2>
+    <p><a href="pages/01-overview.html">Start here →</a></p>
+    <p class="small">Tip: Use the Theme button if you prefer dark mode.</p>
+  </div>
+</div>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

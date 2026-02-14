@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRS Module • Datum & GCS</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 6 module">UPP 461 • Week 6</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Spatial Reference Systems (SRS)</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Module navigation">
+        <a href="../index.html">Home</a>
+        <a href="01-overview.html">Start here</a>
+        <a href="02-datum-gcs.html" aria-current="page">Datum & GCS</a>
+        <a href="03-projections.html">Projections</a>
+        <a href="03b-webmaps-activity.html">Web maps</a>
+        <a href="04-distortion.html">Distortion</a>
+        <a href="05-choosing.html">Choosing CRS</a>
+        <a href="06-state-plane.html">State Plane</a>
+        <a href="08-summary.html">Summary</a>
+        <a href="07-quiz.html">Quick quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h2>2) Datum and Geographic Coordinate Systems (GCS)</h2>
+
+<div class="callout">
+  <strong>If you remember only one thing:</strong>
+  A <strong>datum</strong> and a <strong>projection</strong> are different jobs. Datums define the Earth model; projections flatten it.
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h3>Geographic Coordinate System (GCS)</h3>
+    <p>A <strong>Geographic Coordinate System (GCS)</strong> uses latitude/longitude on a curved surface and typically reports values in <strong>degrees</strong>.</p>
+    <ul>
+      <li>Latitude: -90 to 90</li>
+      <li>Longitude: -180 to 180</li>
+      <li>Units are angular (degrees), not distance</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Datum</h3>
+    <p>A datum describes how the Earth is modeled and aligned (ellipsoid + anchor). Different datums can place the “same” coordinate slightly differently on the ground.</p>
+    <p class="small">Examples you may see: NAD 27, NAD 83, WGS 84.</p>
+  </div>
+</div>
+
+<figure>
+  <img src="../assets/latlong_globe.png" alt="Illustration of latitude and longitude on a globe">
+  <figcaption>Latitude and longitude form a grid on a curved Earth.</figcaption>
+</figure>
+
+<div class="card">
+  <h3>Mini activity: DMS ⇄ Decimal Degrees</h3>
+  <p>Many GIS tools accept <strong>decimal degrees</strong>, but you may also see <strong>Degrees–Minutes–Seconds (DMS)</strong>. This converter works both ways—enter either format and convert.</p>
+
+  <form class="card" data-converter>
+    <div class="grid two">
+      <div>
+        <label for="axis"><strong>Axis</strong> (affects N/S/E/W)</label><br>
+        <select id="axis" name="axis">
+          <option value="lat">Latitude</option>
+          <option value="lon">Longitude</option>
+        </select>
+      </div>
+      <div class="small">
+        Tip: In decimal degrees, negative values usually mean <strong>South</strong> or <strong>West</strong>.
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:12px">
+      <fieldset class="card" style="margin:0">
+        <legend><strong>Decimal degrees → DMS</strong></legend>
+        <label for="dec"><strong>Decimal degrees</strong></label><br>
+        <input id="dec" name="dec" inputmode="decimal" placeholder="e.g., 41.881832" autocomplete="off">
+        <div class="controls" style="margin-top:10px">
+          <button class="primary" type="button" data-dec2dms>Convert to DMS</button>
+        </div>
+        <div data-out-dec2dms></div>
+      </fieldset>
+
+      <fieldset class="card" style="margin:0">
+        <legend><strong>DMS → Decimal degrees</strong></legend>
+        <label for="dmsText"><strong>Paste DMS</strong> (optional)</label><br>
+        <input id="dmsText" name="dmsText" placeholder='e.g., 41 52 54.6 N' autocomplete="off">
+        <div class="small" style="margin-top:6px">Or fill degrees/minutes/seconds:</div>
+        <div class="controls" style="margin-top:8px">
+          <input name="deg" inputmode="decimal" placeholder="deg" aria-label="degrees" autocomplete="off">
+          <input name="min" inputmode="decimal" placeholder="min" aria-label="minutes" autocomplete="off">
+          <input name="sec" inputmode="decimal" placeholder="sec" aria-label="seconds" autocomplete="off">
+          <select name="hemi" aria-label="hemisphere">
+            <option value="N">N</option>
+            <option value="S">S</option>
+            <option value="E">E</option>
+            <option value="W">W</option>
+          </select>
+        </div>
+        <div class="controls" style="margin-top:10px">
+          <button class="primary" type="button" data-dms2dec>Convert to decimal</button>
+          <button class="ghost" type="submit">Auto convert</button>
+        </div>
+        <div data-out-dms2dec></div>
+      </fieldset>
+    </div>
+
+    <div class="visually-hidden" aria-live="polite" data-live></div>
+  </form>
+</div>
+
+<hr>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="03-projections.html" aria-label="Next: Projections">Next: Projections →</a></nav>
+    <div class="footer">
+      <div class="footer-row">
+        <div><strong>Disclaimer:</strong> For educational purposes only. Content is simplified for learning.</div>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </div>
+      <div class="small">Last updated: 2026-02-13</div>
+    </div>
+  </main>
+</body>
+</html>

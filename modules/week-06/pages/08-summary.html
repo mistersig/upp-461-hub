@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 6 • Summary</title>
+<link href="../style.css" rel="stylesheet"/>
+<script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme','light');
+      }
+    })();
+  </script>
+<script defer="" src="../app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 6 module" class="course-home" href="../index.html">UPP 461 • Week 6</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Summary</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+            Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+<nav aria-label="Module navigation" class="nav">
+<a href="../index.html">Home</a>
+<a href="01-overview.html">Start here</a>
+<a href="02-datum-gcs.html">Datum &amp; GCS</a>
+<a href="03-projections.html">Projections</a>
+<a href="03b-webmaps-activity.html">Web maps</a>
+<a href="04-distortion.html">Distortion</a>
+<a href="05-choosing.html">Choosing CRS</a>
+<a href="06-state-plane.html">State Plane</a>
+<a aria-current="page" href="08-summary.html">Summary</a>
+<a href="07-quiz.html">Quick quiz</a>
+</nav>
+</div>
+</header>
+<main class="container" id="main">
+
+
+
+
+
+
+
+
+<section class="card">
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>CRS vs projection vs datum:</strong> a Coordinate Reference System (CRS) includes both the coordinate system and how it relates to the Earth.</li>
+<li><strong>GCS vs PCS:</strong> Geographic Coordinate Systems use latitude/longitude; Projected Coordinate Systems use linear units (meters/feet) on a flat map.</li>
+<li><strong>Web Mercator is a choice:</strong> it’s common for web maps, but not always appropriate for measurement or analysis.</li>
+</ul>
+</section><section class="card">
+<h2>Common pitfalls to avoid</h2>
+<ul>
+<li>Mixing layers with different CRS without reprojecting correctly.</li>
+<li>Measuring distance/area in a CRS that distorts the results.</li>
+<li>Assuming a basemap’s CRS matches your data.</li>
+</ul>
+</section><section class="card">
+<h2>What to do next</h2>
+<ol>
+<li>Revisit any section where you felt unsure.</li>
+<li>Retake the quick quiz and read the explanations.</li>
+<li>In your next lab, always confirm CRS before analysis.</li>
+</ol>
+<nav class="pager" aria-label="Section navigation"><a class="btn primary next" href="07-quiz.html">Go to quick quiz →</a></nav>
+</section></main>
+</body>
+</html>
