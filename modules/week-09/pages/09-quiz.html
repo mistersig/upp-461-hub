@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • Quick quiz</title>
+<link href="../style.css" rel="stylesheet"/>
+<script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container">
+<div class="layout">
+<aside class="sidebar">
+<div class="card">
+<nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a href="03-policy-natural-experiments.html">Policy + natural experiments</a><a href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a href="06-advanced-techniques.html">Beyond the basics</a><a href="09-summary.html">Summary</a><a aria-current="page" href="09-quiz.html">Quick quiz</a></nav>
+</div>
+</aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Quick quiz</h2>
+</div>
+<div class="card">
+<p><strong>Quick quiz:</strong> Check your understanding of spatial analysis concepts and core GIS operations.</p>
+<p class="small">Nothing is graded here; use it to identify what to review before class/lab.</p>
+</div>
+<form class="card" data-quiz="">
+<div aria-live="polite" class="visually-hidden" data-live=""></div><fieldset class="card" data-answer="b" data-question="1"><legend><strong>1)</strong> Which best describes a spatial question?</legend><label><input name="1" type="radio" value="a"/> Any question that uses numbers</label><label><input name="1" type="radio" value="b"/> A question where location/relationships matter and can be answered with spatial analysis</label><label><input name="1" type="radio" value="c"/> A question about software menus</label><label><input name="1" type="radio" value="d"/> Any question answered with a spreadsheet</label><div data-why-correct="" hidden="">Spatial questions depend on location, distribution, association, interaction, or change—so spatial relationships affect the answer.</div><div data-why-wrong="" hidden="">The key feature is that space/location changes the answer. Numbers or spreadsheets alone don’t make a question spatial.</div></fieldset><fieldset class="card" data-answer="c" data-question="2"><legend><strong>2)</strong> Which geoprocessing category does Buffer belong to?</legend><label><input name="2" type="radio" value="a"/> Extraction</label><label><input name="2" type="radio" value="b"/> Overlay</label><label><input name="2" type="radio" value="c"/> Proximity</label><label><input name="2" type="radio" value="d"/> Generalization</label><div data-why-correct="" hidden="">Buffers create zones based on distance, which is a proximity relationship.</div><div data-why-wrong="" hidden="">Extraction reduces features (clip). Overlay combines layers by overlap (intersect/union).</div></fieldset><fieldset class="card" data-answer="b" data-question="3"><legend><strong>3)</strong> Clip is often described as a “cookie cutter” tool because it…</legend><label><input name="3" type="radio" value="a"/> Adds new attributes to a table</label><label><input name="3" type="radio" value="b"/> Extracts features within the extent of another layer and reduces the dataset</label><label><input name="3" type="radio" value="c"/> Calculates travel time on a network</label><label><input name="3" type="radio" value="d"/> Finds clusters statistically</label><div data-why-correct="" hidden="">Clip outputs only the input features within the clip boundary—reducing the dataset and creating clean edges.</div><div data-why-wrong="" hidden="">Those other actions are different tools/methods (joins, networks, hotspots).</div></fieldset><fieldset class="card" data-answer="a" data-question="4"><legend><strong>4)</strong> Intersect and Union differ mainly because Intersect uses AND logic and Union uses OR logic. Which statement matches that?</legend><label><input name="4" type="radio" value="a"/> Intersect keeps only overlap; Union keeps all areas from both layers</label><label><input name="4" type="radio" value="b"/> Intersect keeps everything; Union keeps overlap only</label><label><input name="4" type="radio" value="c"/> They are identical</label><label><input name="4" type="radio" value="d"/> Union only works on points</label><div data-why-correct="" hidden="">Intersect = overlap (AND). Union = all parts from both inputs (OR).</div><div data-why-wrong="" hidden="">Reversing the logic will give very different outputs and often the wrong answer for policy questions.</div></fieldset><fieldset class="card" data-answer="b" data-question="5"><legend><strong>5)</strong> Dissolve is most appropriate when you want to…</legend><label><input name="5" type="radio" value="a"/> Cut a dataset to a boundary</label><label><input name="5" type="radio" value="b"/> Combine adjacent polygons into larger regions based on a shared field, often summarizing attributes</label><label><input name="5" type="radio" value="c"/> Measure distance to the nearest feature</label><label><input name="5" type="radio" value="d"/> Join tables using a text key</label><div data-why-correct="" hidden="">Dissolve generalizes/aggregates polygons using a common field and can summarize attributes (e.g., sum population).</div><div data-why-wrong="" hidden="">Clip cuts, proximity tools measure distance/buffers, and attribute joins use matching IDs.</div></fieldset><fieldset class="card" data-answer="c" data-question="6"><legend><strong>6)</strong> A core rule of spatial joins is: whatever feature type you start the spatial join with, you end with…</legend><label><input name="6" type="radio" value="a"/> Always points</label><label><input name="6" type="radio" value="b"/> Always polygons</label><label><input name="6" type="radio" value="c"/> The target layer’s geometry type</label><label><input name="6" type="radio" value="d"/> A table only</label><div data-why-correct="" hidden="">Spatial joins produce an output of the target layer type, with new fields joined/aggregated from the join layer.</div><div data-why-wrong="" hidden="">Points/polygons aren’t guaranteed; it depends on which layer is the target.</div></fieldset><fieldset class="card" data-answer="b" data-question="7"><legend><strong>7)</strong> You want to count how many clinics fall within each community area polygon. What should be the target layer in a spatial join?</legend><label><input name="7" type="radio" value="a"/> Clinics (points)</label><label><input name="7" type="radio" value="b"/> Community areas (polygons)</label><label><input name="7" type="radio" value="c"/> Either one; output is the same</label><label><input name="7" type="radio" value="d"/> Neither; use dissolve</label><div data-why-correct="" hidden="">If you want results per community area, make community areas the target so the output is polygons with a clinic count field.</div><div data-why-wrong="" hidden="">If clinics are the target, you’d get point output (one row per clinic), not one row per community area.</div></fieldset><fieldset class="card" data-answer="b" data-question="8"><legend><strong>8)</strong> Why can spatial joins fail near Lake Michigan when joining Chicago census tracts to community areas?</legend><label><input name="8" type="radio" value="a"/> Tracts are always missing IDs</label><label><input name="8" type="radio" value="b"/> Some tract polygons spill into the lake, causing intersect/centroid logic to misassign tracts</label><label><input name="8" type="radio" value="c"/> Community areas don’t have geometry</label><label><input name="8" type="radio" value="d"/> Buffers can’t be used in Chicago</label><div data-why-correct="" hidden="">Geometries that extend into “no data” areas can break simple spatial rules. You often need to clip first or choose a defensible rule and validate.</div><div data-why-wrong="" hidden="">The failure is geometric/logic-based, not because Chicago data lacks geometry or because buffers are impossible.</div></fieldset><fieldset class="card" data-answer="a" data-question="9"><legend><strong>9)</strong> If your real question is “within a 15-minute transit ride,” what method is usually more appropriate than a simple Euclidean buffer?</legend><label><input name="9" type="radio" value="a"/> Network analysis (travel time/service area)</label><label><input name="9" type="radio" value="b"/> Dissolve</label><label><input name="9" type="radio" value="c"/> Clip</label><label><input name="9" type="radio" value="d"/> Union</label><div data-why-correct="" hidden="">Travel time depends on the network (roads/transit), not straight-line distance, so network analysis is the better fit.</div><div data-why-wrong="" hidden="">Clip/dissolve/union don’t model travel time; they manipulate geometries but don’t represent movement constraints.</div></fieldset><fieldset class="card" data-answer="b" data-question="10"><legend><strong>10)</strong> Which is an example of a “natural experiment” in policy evaluation?</legend><label><input name="10" type="radio" value="a"/> Randomly assigning neighborhoods to receive a new policy</label><label><input name="10" type="radio" value="b"/> A policy change implemented earlier in some states than others, creating place-based variation</label><label><input name="10" type="radio" value="c"/> A laboratory experiment</label><label><input name="10" type="radio" value="d"/> A map design choice</label><div data-why-correct="" hidden="">Natural experiments arise from real-world variation not controlled by the researcher (across places or time).</div><div data-why-wrong="" hidden="">Random assignment is a controlled experiment; map design is not a causal evaluation method.</div></fieldset>
+<div class="controls">
+<button class="primary" type="submit">Grade quiz</button>
+<button data-reset="" type="button">Clear</button>
+</div>
+<div aria-label="Quiz feedback" data-feedback="" id="feedback"></div>
+</form>
+<div class="next-row">
+<a class="btn next" href="09-summary.html">Back to Summary →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>

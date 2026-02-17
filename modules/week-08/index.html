@@ -3,73 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 8</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+  <title>UPP 461 • Week 8 • Start here</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
         <div class="course-links">
           <a class="course-home" href="index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
           <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
         </div>
-        <h1>Week 8 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
       </div>
-
       <div class="controls" aria-label="Header controls">
         <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
           Theme: <span data-theme-label>Light</span>
         </button>
       </div>
     </div>
+  </div>
+</header>
 
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
-  </header>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="index.html" aria-current="page">Start here</a><a href="pages/02-projects-and-pm.html">Projects + project management</a><a href="pages/03-scope-roles-risk.html">Scope, roles, risk</a><a href="pages/04-frameworks-waterfall-agile-hybrid.html">Frameworks: Waterfall, Agile, Hybrid</a><a href="pages/05-tools-plans-logs-kanban.html">Tools: plans, logs, Kanban</a><a href="pages/06-case-study-grocery-store.html">Case study + final project workflow</a><a href="pages/07-summary.html">Summary</a><a href="pages/07-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
+    <main id="main" class="main" tabindex="-1">
+      
+<section class="card">
+  <h2>Start here</h2>
+  <p class="lede">Run GIS work like a real project: clear scope, roles, milestones, and documentation — while staying flexible when data or stakeholder needs change.</p>
+  <p><a class="btn primary" href="pages/02-projects-and-pm.html">Start Lesson 1 →</a></p>
+</section>
 
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
+<section class="grid two">
+  <div class="card">
+    <h2>Learning goals</h2>
+    <ul>
+      <li>Define what makes something a <strong>project</strong> (temporary + unique deliverable).</li>
+      <li>Compare <strong>Waterfall</strong>, <strong>Agile</strong>, and <strong>Hybrid</strong> approaches.</li>
+      <li>Use artifacts: <strong>charter</strong>, <strong>plan</strong>, <strong>log</strong>, <strong>Kanban</strong>.</li>
+      <li>Apply a hybrid lifecycle to your final project workflow.</li>
+    </ul>
+  </div>
+  <figure class="card">
+    <img src="./assets/hero_planning.jpg" alt="Photo of a planning board used to organize tasks and milestones for a project." />
+    <figcaption class="muted">Tip: Click images to enlarge.</figcaption>
+  </figure>
+</section>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
-    </div>
-  </footer>
+<section class="card">
+  <h2>How to use this module</h2>
+  <ol>
+    <li>Read each lesson page (left navigation).</li>
+    <li>Use the checklists and templates to map these ideas onto your final project.</li>
+    <li>Take the quick quiz to confirm key ideas and common pitfalls.</li>
+  </ol>
+</section>
 
-  <script src="../../shared/module.js" defer></script>
+      <div class="footer">
+  <div class="footer-row">
+    <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+    <a class="bug-link" data-bug-report href="#">Report a bug</a>
+  </div>
+  <div class="small">Last updated: 2026-02-15</div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="./app.js"></script>
 </body>
 </html>

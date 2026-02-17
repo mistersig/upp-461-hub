@@ -1,9 +1,22 @@
-UPP 461 • Week 08 — Geocoding & Address Data
+README — UPP 461 Week 8 (Project Management in GIS)
 
-This is a placeholder module scaffold that matches the Week 6 system:
-- WCAG-minded HTML structure (skip link, logical headings)
-- Light default theme + accessible dark toggle (shared/module.css + shared/module.js)
-- Standard nav labels: Start here • Summary • Quick quiz
-- Footer disclaimer + bug report mailto (replace REPLACE_EMAIL)
+Drop-in path (hub):
+/modules/week-08/
 
-When you’re ready to build this week for real, use MODULE_BUILDER_PROMPT.md and upload the PPTX.
+Hub-safe links
+- week-08/index.html uses Home: ../../index.html
+- week-08/pages/*.html uses Home: ../../../index.html
+- All links are relative (no leading slashes).
+
+Bug report
+- Replace REPLACE_EMAIL (search/replace) to activate the “Report a bug” email template.
+
+Accessibility notes
+- Keyboard focus styles (:focus-visible)
+- Skip link to main
+- Reduced motion respected
+- Theme toggle is keyboard accessible + announces state
+- Click-to-enlarge images are also keyboard accessible; Escape closes and focus is trapped in the modal.
+
+Add to hub list
+- Add link to modules/week-08/index.html in the hub’s /app.js weeks array.

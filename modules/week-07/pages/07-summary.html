@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Summary</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-data-prep-etl.html">Data prep &amp; ETL</a><a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="04-interoperability-formats.html">Interoperability &amp; formats</a><a href="05-census-data.html">U.S. Census data</a><a href="06-joins-normalization.html">Joins + normalization</a><a aria-current="page" href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Summary</h2></div>
+<section class="card">
+<h2>What you should be able to do</h2>
+<ul>
+<li>Describe ETL and identify what gets done during <strong>Transform</strong>.</li>
+<li>Clean a CSV so it has consistent types, categories, and a reliable join key.</li>
+<li>Choose Decennial Census vs ACS appropriately and interpret MOE.</li>
+<li>Use TIGER boundary files + tabular tables together using GEOID.</li>
+<li>Spot normalization problems (atomic values, primary key, functional dependence).</li>
+</ul>
+</section>
+<section>
+<h2>Common mistakes (avoid these)</h2>
+<ul>
+<li>Joining on a field that <em>looks</em> right but isn’t stable or unique.</li>
+<li>Mixing geography levels (tract vs block group) or years/vintages.</li>
+<li>Treating ACS estimates like exact counts (ignoring MOE).</li>
+</ul>
+</section>
+<p><a class="btn primary" href="07-quiz.html">Take the Quick quiz</a></p>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Quick quiz" class="btn primary next" href="07-quiz.html">Next: Quick quiz →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

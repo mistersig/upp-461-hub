@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • Beyond the basics</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a href="03-policy-natural-experiments.html">Policy + natural experiments</a><a href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a aria-current="page" href="06-advanced-techniques.html">Beyond the basics</a><a href="09-summary.html">Summary</a><a href="09-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Beyond the basics</h2>
+</div>
+<div class="card">
+<p>This week focuses on the basics. But it helps to know what “advanced spatial analysis” usually means in GIS and planning research.</p>
+</div>
+<h2>An overview of advanced techniques</h2>
+<figure class="figure">
+<img alt="Overview graphic of advanced spatial analysis techniques such as network analysis and hotspot detection." src="../assets/slide35_img1.jpg"/>
+<figcaption>Beyond geoprocessing: methods that model movement, surfaces, clustering, and spatial relationships statistically.</figcaption>
+</figure>
+<div class="grid two">
+<div class="card">
+<h3>Network analysis</h3>
+<ul>
+<li>Travel time / service areas</li>
+<li>Routing (shortest path)</li>
+<li>Accessibility metrics</li>
+</ul>
+</div>
+<div class="card">
+<h3>Spatial interpolation</h3>
+<ul>
+<li>Estimate values between measurement points</li>
+<li>Creates a surface (e.g., pollution, temperature)</li>
+<li>Requires careful assumptions/validation</li>
+</ul>
+</div>
+<div class="card">
+<h3>Hotspots / cluster analysis</h3>
+<ul>
+<li>Detect statistically significant clustering</li>
+<li>Useful for targeting and prioritization</li>
+</ul>
+</div>
+<div class="card">
+<h3>Spatial regression</h3>
+<ul>
+<li>Models outcomes with spatial dependence</li>
+<li>Addresses “nearby places aren’t independent”</li>
+</ul>
+</div>
+</div>
+<details>
+<summary>Check yourself: which technique fits?</summary>
+<div class="card">
+<p><strong>Prompt:</strong> “What areas are within a 15-minute transit ride of a clinic?”</p>
+<p><strong>Best fit:</strong> network analysis (travel time / service area), not Euclidean buffers.</p>
+</div>
+</details>
+<h2>In-class exercise prep</h2>
+<div class="card">
+<ul>
+<li>Bring your questions about clip/dissolve/buffer and spatial joins.</li>
+<li>Be ready to explain your choice of tool as a sentence: <em>“I used X because my question asks Y.”</em></li>
+</ul>
+</div>
+<div class="next-row">
+<a class="btn next" href="09-summary.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div></div>
+<script src="../app.js"></script></body>
+</html>

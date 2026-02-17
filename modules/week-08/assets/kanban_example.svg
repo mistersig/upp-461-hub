@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="k1">
+<title id="k1">Example Kanban board with columns To Do, In Progress, Waiting, Done.</title>
+<defs><style><![CDATA[
+text{font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:22px;fill:#0f172a}
+rect.col{stroke:#0f172a;stroke-width:4;fill:#f3f4f6;rx:18;ry:18}
+rect.card{stroke:#334155;stroke-width:3;fill:#ffffff;rx:14;ry:14}
+]]></style></defs>
+<rect class="col" x="30" y="60" width="220" height="420"/><text x="140" y="40" text-anchor="middle">To Do</text>
+<rect class="col" x="270" y="60" width="220" height="420"/><text x="380" y="40" text-anchor="middle">In Progress</text>
+<rect class="col" x="510" y="60" width="220" height="420"/><text x="620" y="40" text-anchor="middle">Waiting</text>
+<rect class="col" x="750" y="60" width="200" height="420"/><text x="850" y="40" text-anchor="middle">Done</text>
+<rect class="card" x="60" y="100" width="160" height="70"/><text x="140" y="140" text-anchor="middle">Define scope</text>
+<rect class="card" x="60" y="190" width="160" height="70"/><text x="140" y="230" text-anchor="middle">Collect data</text>
+<rect class="card" x="300" y="120" width="160" height="70"/><text x="380" y="160" text-anchor="middle">Join tables</text>
+<rect class="card" x="540" y="120" width="160" height="70"/><text x="620" y="160" text-anchor="middle">Stakeholder</text>
+<rect class="card" x="780" y="120" width="140" height="70"/><text x="850" y="160" text-anchor="middle">Map v1</text>
+</svg>

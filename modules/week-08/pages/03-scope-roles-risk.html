@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 8 • Scope, roles, risk</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a><a href="02-projects-and-pm.html">Projects + project management</a><a href="03-scope-roles-risk.html" aria-current="page">Scope, roles, risk</a><a href="04-frameworks-waterfall-agile-hybrid.html">Frameworks: Waterfall, Agile, Hybrid</a><a href="05-tools-plans-logs-kanban.html">Tools: plans, logs, Kanban</a><a href="06-case-study-grocery-store.html">Case study + final project workflow</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      
+<section class="card">
+  <h2>Scope, roles, and risk</h2>
+  <p class="lede">Most GIS project pain comes from unclear scope, unclear ownership, or untracked risks (especially the “silent failures”).</p>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h3>Core elements of a GIS project</h3>
+    <ul>
+      <li><strong>Scope</strong>: what you will and will not deliver</li>
+      <li><strong>Time</strong>: milestones and due dates</li>
+      <li><strong>Cost / resources</strong>: people, compute, data, licenses</li>
+      <li><strong>Quality</strong>: accuracy, completeness, reproducibility</li>
+      <li><strong>Risk</strong>: what could go wrong (and how you’ll reduce it)</li>
+    </ul>
+  </div>
+  <figure class="card">
+    <img src="../assets/triple_constraint.svg" alt="Triangle diagram showing scope, time, and cost as constraints that affect quality and value."/>
+    <figcaption class="muted">Tradeoffs are normal — make them explicit and document decisions.</figcaption>
+  </figure>
+</section>
+
+<section class="card">
+  <h3>Typical roles</h3>
+  <ul>
+    <li><strong>Project Manager (PM)</strong>: scope, timeline, stakeholder communication</li>
+    <li><strong>Data / ETL owner</strong>: sources, cleaning, joins, metadata</li>
+    <li><strong>Analysis owner</strong>: methods, validation, sensitivity checks</li>
+    <li><strong>Cartography / UX owner</strong>: readability + accessibility</li>
+    <li><strong>QA / documentation owner</strong>: reproducibility + final packaging</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h3>Risk and “silent failures”</h3>
+  <p>In GIS, some failures look like “the map is fine” until you validate.</p>
+  <ul>
+    <li>Join keys mismatch (types, leading zeros, vintage)</li>
+    <li>Mixed coordinate reference systems</li>
+    <li>Unclear definitions (what counts as a “priority neighborhood”?)</li>
+    <li>Missing documentation / reproducibility</li>
+  </ul>
+  <p class="callout"><strong>Practice:</strong> write down 2 risks for your final project and 1 mitigation for each.</p>
+</section>
+
+      <div class="pager">
+  <a class="btn primary next" href="04-frameworks-waterfall-agile-hybrid.html">Next section →</a>
+</div>
+      <div class="footer">
+  <div class="footer-row">
+    <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+    <a class="bug-link" data-bug-report href="#">Report a bug</a>
+  </div>
+  <div class="small">Last updated: 2026-02-15</div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

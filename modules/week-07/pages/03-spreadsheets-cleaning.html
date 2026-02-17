@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Spreadsheets &amp; cleaning</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-data-prep-etl.html">Data prep &amp; ETL</a><a aria-current="page" href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="04-interoperability-formats.html">Interoperability &amp; formats</a><a href="05-census-data.html">U.S. Census data</a><a href="06-joins-normalization.html">Joins + normalization</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Spreadsheets &amp; data cleaning</h2></div>
+<section>
+<h2>Common spreadsheet problems that break GIS</h2>
+<ul>
+<li><strong>Mixed data types:</strong> numbers stored as text (e.g., “1,234” with commas).</li>
+<li><strong>Nulls &amp; placeholders:</strong> blanks, “N/A”, “-999”, “Unknown” used inconsistently.</li>
+<li><strong>Non-atomic cells:</strong> multiple values in one cell (e.g., “A;B;C”).</li>
+<li><strong>Inconsistent categories:</strong> “IL”, “Illinois”, “Ill.” in the same field.</li>
+<li><strong>Bad identifiers:</strong> join key not unique, missing leading zeros, or changes meaning over time.</li>
+</ul>
+</section>
+<section class="card">
+<h2>Cleaning moves (practical checklist)</h2>
+<ol>
+<li><strong>Freeze headers</strong> and confirm every column has one clear meaning.</li>
+<li><strong>Normalize text:</strong> trim spaces, standardize case, standardize categories.</li>
+<li><strong>Confirm types:</strong> IDs should be stored as text when leading zeros matter (common for GEOID).</li>
+<li><strong>Find duplicates:</strong> your join key must be unique on at least one side of a join.</li>
+<li><strong>Make cells atomic:</strong> split multi-value cells into separate rows or a related table.</li>
+</ol>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> Why might you store GEOID as <em>text</em> instead of a number?</summary>
+<p><strong>Answer:</strong> Leading zeros matter. If GEOID is treated as a number, leading zeros can be dropped and joins will fail.</p>
+</details>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Interoperability &amp; formats" class="btn primary next" href="04-interoperability-formats.html">Next: Interoperability &amp; formats →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

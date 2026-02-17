@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 8 • Tools</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a><a href="02-projects-and-pm.html">Projects + project management</a><a href="03-scope-roles-risk.html">Scope, roles, risk</a><a href="04-frameworks-waterfall-agile-hybrid.html">Frameworks: Waterfall, Agile, Hybrid</a><a href="05-tools-plans-logs-kanban.html" aria-current="page">Tools: plans, logs, Kanban</a><a href="06-case-study-grocery-store.html">Case study + final project workflow</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      
+<section class="card">
+  <h2>Tools: charter, plan, log, Kanban</h2>
+  <p class="lede">Tools don’t replace thinking — they make coordination visible and protect reproducibility.</p>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h3>Project charter</h3>
+    <p><strong>Purpose:</strong> define the “why” and “what.”</p>
+    <ul>
+      <li>Goal + scope (and what you will NOT do)</li>
+      <li>Stakeholders + decision-makers</li>
+      <li>Success metrics</li>
+      <li>Constraints and assumptions</li>
+    </ul>
+  </div>
+  <figure class="card">
+    <img src="../assets/planning_tools.jpg" alt="Graphic showing project planning tools used to organize tasks, timelines, and collaboration."/>
+  </figure>
+</section>
+
+<section class="grid three">
+  <div class="card">
+    <h3>Project plan</h3>
+    <p>Milestones, deliverables, dependencies, deadlines.</p>
+  </div>
+  <div class="card">
+    <h3>Project log</h3>
+    <p>Technical steps, decisions, “what we tried,” reproducibility.</p>
+  </div>
+  <div class="card">
+    <h3>Kanban board</h3>
+    <p>Status visibility: To Do / In Progress / Waiting / Done.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Example Kanban</h3>
+  <figure>
+    <img src="../assets/kanban_example.svg" alt="Example Kanban board with columns To Do, In Progress, Waiting, and Done."/>
+  </figure>
+</section>
+
+<section class="card">
+  <h3>Mini activity</h3>
+  <ol>
+    <li>List 6 tasks for your final project.</li>
+    <li>Pick 2 that are blocked by dependencies (“Waiting”).</li>
+    <li>Pick 1 you can do today (“In Progress”).</li>
+  </ol>
+  <p class="callout"><strong>Tip:</strong> Keep tasks small enough to complete in 1–2 work sessions.</p>
+</section>
+
+      <div class="pager">
+  <a class="btn primary next" href="06-case-study-grocery-store.html">Next section →</a>
+</div>
+      <div class="footer">
+  <div class="footer-row">
+    <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+    <a class="bug-link" data-bug-report href="#">Report a bug</a>
+  </div>
+  <div class="small">Last updated: 2026-02-15</div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

@@ -12,12 +12,12 @@ const weeks = [
   { week: 3, title: "Week 3", url: "modules/week-03/index.html" },
   { week: 4, title: "Week 4", url: "modules/week-04/index.html" },
   { week: 5, title: "Week 5", url: "modules/week-05/index.html" },
-  { week: 6, title: "Week 6 - ", url: "modules/week-06/index.html" },
-  { week: 7, title: "Week 7", url: "modules/week-07/index.html" },
-  { week: 8, title: "Week 8", url: "modules/week-08/index.html" },
-  { week: 9, title: "Week 9", url: "modules/week-09/index.html" },
-  { week: 10, title: "Week 10", url: "modules/week-10/index.html" },
-  { week: 11, title: "Week 11", url: "modules/week-11/index.html" },
+  { week: 6, title: "Week 6 - Spatial Reference Systems", url: "modules/week-06/index.html" },
+  { week: 7, title: "Week 7 - Data preparation & Interoperability", url: "modules/week-07/index.html" },
+  { week: 8, title: "Week 8 - Project Management in GIS", url: "modules/week-08/index.html" },
+  { week: 9, title: "Week 9 - Spatial Analysis", url: "modules/week-09/index.html" },
+  { week: 10, title: "Week 10 - Final Project Proposal Presentations", url: "modules/week-10/index.html" },
+  { week: 11, title: "Week 11 - Geocoding", url: "modules/week-11/index.html" },
   { week: 12, title: "Week 12", url: "modules/week-12/index.html" },
 ];
 

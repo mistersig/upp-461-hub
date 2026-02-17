@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Interoperability &amp; formats</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-data-prep-etl.html">Data prep &amp; ETL</a><a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a aria-current="page" href="04-interoperability-formats.html">Interoperability &amp; formats</a><a href="05-census-data.html">U.S. Census data</a><a href="06-joins-normalization.html">Joins + normalization</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Interoperability &amp; formats</h2></div>
+<section>
+<h2>Standards: Open Geospatial Consortium (OGC)</h2>
+<p>The <strong>Open Geospatial Consortium (OGC)</strong> develops standards so different GIS tools and services can exchange data reliably (think: consistent ways to describe geometry, services, and common formats).</p>
+</section>
+<section class="card">
+<h2>Common GIS file types (and what to watch)</h2>
+<figure class="figure">
+<img alt="Diagram explaining that a Shapefile is a set of companion files such as .shp, .shx, .dbf, and .prj, and listing common gotchas." src="../assets/shapefile_parts.png"/>
+<figcaption>Shapefile is multiple files. Keep them together—or use GeoPackage when possible.</figcaption>
+</figure>
+<dl class="defs">
+<dt>Comma-Separated Values (CSV)</dt><dd>Great for tables. Watch: types, delimiters, encoding, and join keys.</dd>
+<dt>Shapefile</dt><dd>Very common legacy vector format. Watch: multiple companion files (.shp/.shx/.dbf/.prj), field name limits, and encoding.</dd>
+<dt>GeoPackage</dt><dd>A modern single-file container (SQLite). Often better than Shapefile for projects.</dd>
+<dt>GeoJSON</dt><dd>Common for web mapping. Watch: size and precision; not ideal for very large datasets.</dd>
+</dl>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> Why can a Shapefile “break” if you only move the <code>.shp</code>?</summary>
+<p><strong>Answer:</strong> A Shapefile is a set of multiple files. If you don’t move the companion files (especially <code>.dbf</code>, <code>.shx</code>, and <code>.prj</code>), attributes and spatial indexing/projection info can be lost.</p>
+</details>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: U.S. Census data" class="btn primary next" href="05-census-data.html">Next: U.S. Census data →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • Policy + natural experiments</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a aria-current="page" href="03-policy-natural-experiments.html">Policy + natural experiments</a><a href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a href="06-advanced-techniques.html">Beyond the basics</a><a href="09-summary.html">Summary</a><a href="09-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Policy + natural experiments</h2>
+</div>
+<div class="card">
+<p><strong>Why it matters:</strong> planning and policy decisions happen <em>somewhere</em>. Spatial analysis links data to where decisions land.</p>
+</div>
+<h2>Spatial thinking = policy insight</h2>
+<div class="grid two">
+<div class="card">
+<ul>
+<li>Policies have geographic impacts (who benefits, who is burdened).</li>
+<li>Access and exposure are spatial (distance, travel time, adjacency).</li>
+<li>Equity questions often become spatial questions.</li>
+</ul>
+</div>
+<div class="card">
+<p><strong>Example goal</strong> (site selection): Identify priority neighborhoods for a city-owned grocery store under a food equity initiative using spatial data and stakeholder input.</p>
+</div>
+</div>
+<figure class="figure">
+<img alt="Graphic related to why spatial analysis matters for policy." src="../assets/slide06_img1.jpg"/>
+<figcaption>Spatial analysis helps connect place-based patterns to policy action.</figcaption>
+</figure>
+<h2>Turning spatial data into policy action</h2>
+<figure class="figure">
+<img alt="Diagram showing steps from framing a question to communicating results." src="../assets/slide07_img1.jpg"/>
+<figcaption>A common workflow: frame the question → collect spatial data → analyze relationships → communicate clearly.</figcaption>
+</figure>
+<details>
+<summary>Check yourself: what would you need for the grocery-store question?</summary>
+<div class="card">
+<ul>
+<li><strong>Demand:</strong> population, income, household structure.</li>
+<li><strong>Access:</strong> existing grocery locations, transit, walking distance.</li>
+<li><strong>Constraints:</strong> zoning, parcels, ownership, infrastructure.</li>
+<li><strong>Stakeholders:</strong> community input to validate criteria.</li>
+</ul>
+</div>
+</details>
+<h2>Natural experiments (policy evaluation)</h2>
+<div class="card">
+<p><strong>Natural experiments</strong> occur when policy variation happens without researcher control (variation across places or time).</p>
+<ul>
+<li>Examples: changes in benefits, legalization, minimum wage, healthcare expansion.</li>
+<li>Key idea: you compare outcomes across places/groups exposed vs not exposed (with careful validation).</li>
+</ul>
+</div>
+<figure class="figure">
+<img alt="Illustration introducing natural experiments in policy evaluation." src="../assets/slide08_img1.png"/>
+<figcaption>Natural experiments: policy variation can create comparison groups—if the setup is valid.</figcaption>
+</figure>
+<h2>Policy example: Paycheck Protection Program (PPP)</h2>
+<div class="card">
+<p>PPP changed over time (phases) and across lender types—creating potential comparison points.</p>
+<ul>
+<li>Early phases prioritized speed and larger banks.</li>
+<li>Later rules aimed to target smaller businesses and underserved borrowers.</li>
+</ul>
+</div>
+<figure class="figure">
+<img alt="Comparison graphic of PPP phases and targeting changes." src="../assets/slide11_img1.jpg"/>
+<figcaption>PPP phases can illustrate policy evolution and how targeting can shift across geographies.</figcaption>
+</figure>
+<details>
+<summary>Check yourself: what would you validate before calling it a “natural experiment”?</summary>
+<div class="card">
+<ul>
+<li>Are comparison groups similar enough (or can you adjust)?</li>
+<li>Is the timing and geography of the policy variation clear?</li>
+<li>Could other events explain the difference?</li>
+</ul>
+</div>
+</details>
+<div class="next-row">
+<a class="btn next" href="04-geoprocessing-tools.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div></div>
+<script src="../app.js"></script></body>
+</html>

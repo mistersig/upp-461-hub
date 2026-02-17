@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • U.S. Census data</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-data-prep-etl.html">Data prep &amp; ETL</a><a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="04-interoperability-formats.html">Interoperability &amp; formats</a><a aria-current="page" href="05-census-data.html">U.S. Census data</a><a href="06-joins-normalization.html">Joins + normalization</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>U.S. Census data</h2></div>
+<section>
+<h2>Decennial Census vs American Community Survey (ACS)</h2>
+<ul>
+<li><strong>Decennial Census:</strong> full count (every 10 years).</li>
+<li><strong>ACS:</strong> sample survey → estimates for 1-year and 5-year periods, with <strong>Margin of Error (MOE)</strong>.</li>
+</ul>
+<figure class="figure">
+<img alt="Excerpt from a U.S. Census Bureau ACS guide illustrating ACS estimate and margin of error concepts." src="../assets/s16_01_6be5400e45.png"/>
+<figcaption>ACS estimates include uncertainty (MOE). Always interpret the MOE alongside the estimate.</figcaption>
+</figure>
+</section>
+<section class="card">
+<h2>Census geography: why it matters</h2>
+<p>Census variables are available at different geographic levels. Your choice of geography (tract, block group, etc.) affects what you can map and how reliable it is.</p>
+<div class="two-col">
+<figure class="figure">
+<img alt="Diagram showing a standard hierarchy of census geographic entities from nation down to smaller units." src="../assets/s18_01_da11498562.jpg"/>
+<figcaption>Standard hierarchy of Census geographic entities.</figcaption>
+</figure>
+<figure class="figure">
+<img alt="Graphic describing census geography levels including blocks, block groups, and tracts." src="../assets/s19_01_7f78d055fc.jpg"/>
+<figcaption>Blocks, block groups, and tracts (typical population ranges).</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2>TIGER boundaries + tabular tables</h2>
+<p>The Census provides:</p>
+<ul>
+<li><strong>Tabular data</strong> (tables you download; often CSV)</li>
+<li><strong>Spatial boundaries</strong> (vector files, often from <strong>TIGER</strong>)</li>
+</ul>
+<figure class="figure">
+<img alt="TIGER diagram and definition describing Census Bureau TIGER products as spatial extracts including roads and legal/statistical areas." src="../assets/s24_01_bb18973ba2.jpg"/>
+<figcaption>TIGER provides official boundary files for Census geographies.</figcaption>
+</figure>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> If you map ACS data, what should you do before making strong claims?</summary>
+<p><strong>Answer:</strong> Check MOE and understand the variable definition + geography level. Small geographies can have large uncertainty.</p>
+</details>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Joins + normalization" class="btn primary next" href="06-joins-normalization.html">Next: Joins + normalization →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

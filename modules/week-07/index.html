@@ -1,75 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 7</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Start here</title>
+<link href="./style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="course-links">
-          <a class="course-home" href="index.html" aria-label="Go to the start of the Week 7 module">UPP 461 • Week 7</a>
-          <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
-        </div>
-        <h1>Week 7 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
-      </div>
 
-      <div class="controls" aria-label="Header controls">
-        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
-          Theme: <span data-theme-label>Light</span>
-        </button>
-      </div>
-    </div>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a aria-current="page" href="index.html">Start here</a><a href="pages/02-data-prep-etl.html">Data prep &amp; ETL</a><a href="pages/03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="pages/04-interoperability-formats.html">Interoperability &amp; formats</a><a href="pages/05-census-data.html">U.S. Census data</a><a href="pages/06-joins-normalization.html">Joins + normalization</a><a href="pages/07-summary.html">Summary</a><a href="pages/07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Start here</h2><p class=""><strong>Week 7:</strong> Data Preparation &amp; Interoperability — Spreadsheets &amp; data cleaning, Shapefiles, U.S. Census data</p></div>
+<section>
+<h2>Learning goals</h2>
+<ul>
+<li>Explain <strong>Extract, Transform, Load (ETL)</strong> in a GIS workflow.</li>
+<li>Clean a spreadsheet so it’s <strong>machine-readable</strong> and join-ready.</li>
+<li>Choose the right Census product (<strong>Decennial Census</strong> vs <strong>American Community Survey (ACS)</strong>) and interpret <strong>Margin of Error (MOE)</strong>.</li>
+<li>Join Census tables to boundaries using a stable key (typically <strong>Geographic Identifier (GEOID)</strong>).</li>
+<li>Use a normalization checklist (Codd-style rules) to spot table problems before GIS breaks.</li>
+</ul>
+</section>
+<section class="card">
+<h2>Required reading / materials</h2>
+<ul>
+<li>Bolsta dChapter 8 Introduction to GIS</li>
+</ul>
+</section>
+<section class="card">
+<h2>What matters most this week</h2>
+<p>Data interoperability + interacting with the Census website (access issues noted). Focus: complete the workflow and explain your choices (variables, geography level, join key).</p>
+</section>
+<section class="card">
+<h2>Common pain points we’ll tackle</h2>
+<ul>
+<li>Following the full workflow end-to-end (download → clean → join → map → interpret).</li>
+<li>Working with U.S. Census data (geographies, GEOID, ACS vs Decennial, margins of error).</li>
+<li>Codd’s rules / normalization concepts.</li>
+</ul>
+</section>
+<section>
+<h2>Key vocabulary (first-use expansions)</h2>
+<dl class="defs">
+<dt>Extract, Transform, Load (ETL)</dt><dd>A workflow for bringing data from a source into a usable analysis-ready format.</dd>
+<dt>Open Geospatial Consortium (OGC)</dt><dd>An international standards organization for geospatial data/services interoperability.</dd>
+<dt>American Community Survey (ACS)</dt><dd>A sample survey that produces estimates (with MOE), not full-count totals.</dd>
+<dt>Topologically Integrated Geographic Encoding and Referencing (TIGER)</dt><dd>Boundary + feature datasets from the U.S. Census Bureau (roads, boundaries, etc.).</dd>
+<dt>Geographic Identifier (GEOID)</dt><dd>A stable code used to join Census tables to boundaries (e.g., tract GEOID).</dd>
+<dt>Margin of Error (MOE)</dt><dd>Uncertainty range around an estimate (ACS uses MOE at a stated confidence level).</dd>
+</dl>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> What’s the main difference between ACS and Decennial Census?</summary>
+<p><strong>Answer:</strong> Decennial Census is intended to count the whole population once every 10 years. ACS is a sample survey producing estimates over 1-year or 5-year periods, and those estimates have MOE.</p>
+</details>
 
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
-  </header>
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Data prep &amp; ETL" class="btn primary next" href="pages/02-data-prep-etl.html">Next: Data prep &amp; ETL →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
-
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
-    </div>
-  </footer>
-
-  <script src="../../shared/module.js" defer></script>
-</body>
+<script src="./app.js"></script></body>
 </html>

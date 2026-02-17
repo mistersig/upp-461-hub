@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="420" viewBox="0 0 940 420" role="img" aria-labelledby="h1">
+<title id="h1">Hybrid project cycle: Initiation, Planning and Execution, Monitoring and Control, Closure.</title>
+<defs><style><![CDATA[
+text{font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:22px;fill:#0f172a}
+rect{stroke:#0f172a;stroke-width:4;fill:#f3f4f6;rx:18;ry:18}
+path{stroke:#0f172a;stroke-width:5;fill:none}
+]]></style></defs>
+<rect x="40" y="80" width="200" height="120"/><text x="140" y="145" text-anchor="middle">Initiation</text>
+<rect x="270" y="60" width="400" height="160"/><text x="470" y="135" text-anchor="middle">Planning &amp; Execution</text>
+<rect x="700" y="80" width="200" height="120"/><text x="800" y="145" text-anchor="middle">Monitoring &amp; Control</text>
+<rect x="370" y="250" width="200" height="120"/><text x="470" y="315" text-anchor="middle">Closure</text>
+<path d="M240 140 L270 140"/>
+<path d="M670 140 L700 140"/>
+<path d="M800 200 C800 260 650 280 570 285"/>
+<path d="M370 285 C290 285 140 260 140 200"/>
+<path d="M140 200 C140 240 210 260 300 275"/>
+</svg>

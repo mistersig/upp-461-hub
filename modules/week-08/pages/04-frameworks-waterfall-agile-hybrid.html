@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 8 • Frameworks</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a><a href="02-projects-and-pm.html">Projects + project management</a><a href="03-scope-roles-risk.html">Scope, roles, risk</a><a href="04-frameworks-waterfall-agile-hybrid.html" aria-current="page">Frameworks: Waterfall, Agile, Hybrid</a><a href="05-tools-plans-logs-kanban.html">Tools: plans, logs, Kanban</a><a href="06-case-study-grocery-store.html">Case study + final project workflow</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      
+<section class="card">
+  <h2>Frameworks: Waterfall, Agile, Hybrid</h2>
+  <p class="lede">Frameworks are ways to organize work. In GIS, a hybrid approach is often best: structured milestones + iterative analysis.</p>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h3>Waterfall (predictive)</h3>
+    <ul>
+      <li>Best when requirements are stable</li>
+      <li>Clear phases: define → build → test → deliver</li>
+      <li>Risk: late discovery of data problems</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Agile (adaptive)</h3>
+    <ul>
+      <li>Best when requirements evolve</li>
+      <li>Short sprints + frequent demos</li>
+      <li>Risk: scope creep without guardrails</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Hybrid (common fit for GIS)</h3>
+  <p>Use structured planning for fixed components (deadlines, compliance, deliverables) and agile iteration for evolving components (analysis, stakeholder feedback, data discovery).</p>
+  <figure>
+    <img src="../assets/hybrid_cycle.svg" alt="Diagram of a hybrid project cycle: initiation, planning and execution, monitoring and control, and closure."/>
+    <figcaption class="muted">Hybrid keeps you moving while still documenting decisions and scope changes.</figcaption>
+  </figure>
+</section>
+
+<section class="card">
+  <h3>Misconception check</h3>
+  <p><strong>True or False:</strong> Agile means “no planning.”</p>
+  <details class="check">
+  <summary>Show answer</summary>
+  <p><strong>Answer:</strong> False. Agile uses lightweight planning, prioritization, and frequent checkpoints.</p>
+</details>
+  <figure>
+    <img src="../assets/frameworks.jpg" alt="Illustration showing different project planning frameworks and how teams choose an approach."/>
+  </figure>
+</section>
+
+      <div class="pager">
+  <a class="btn primary next" href="05-tools-plans-logs-kanban.html">Next section →</a>
+</div>
+      <div class="footer">
+  <div class="footer-row">
+    <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+    <a class="bug-link" data-bug-report href="#">Report a bug</a>
+  </div>
+  <div class="small">Last updated: 2026-02-15</div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

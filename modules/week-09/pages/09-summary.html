@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • Summary</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a href="03-policy-natural-experiments.html">Policy + natural experiments</a><a href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a href="06-advanced-techniques.html">Beyond the basics</a><a aria-current="page" href="09-summary.html">Summary</a><a href="09-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Summary</h2>
+</div>
+<div class="card">
+<p><strong>Summary:</strong> Spatial analysis is about answering questions where location and relationships matter—then communicating results clearly for planning/policy decisions.</p>
+</div>
+<h2>Key takeaways</h2>
+<div class="card">
+<ul>
+<li>Spatial analysis starts with a <strong>well-framed spatial question</strong>.</li>
+<li>Geoprocessing tools map to question types: extraction (clip), proximity (buffer), overlay (intersect/union), aggregation (dissolve).</li>
+<li><strong>Spatial joins</strong> join attributes based on relationships (within/intersects/closest) and can aggregate counts.</li>
+<li>Always validate outputs—especially near edges (water, enclaves) and when assumptions (centroid rules) matter.</li>
+<li>Advanced techniques extend the toolbox: networks, interpolation, hotspots, spatial regression.</li>
+</ul>
+</div>
+<h2>Quick workflow checklist</h2>
+<div class="card">
+<ol>
+<li>Define the decision + what “success” means.</li>
+<li>Choose layers and confirm projections/units.</li>
+<li>Run operations that match the question (document choices).</li>
+<li>Validate with maps + counts + spot checks.</li>
+<li>Communicate results: clear map, plain-language interpretation, limitations.</li>
+</ol>
+</div>
+<h2>Common pitfalls</h2>
+<div class="card">
+<ul>
+<li>Using <strong>buffers</strong> when travel time is the real question (consider networks).</li>
+<li>Using <strong>clip</strong> when you needed full features for analysis.</li>
+<li>Spatial join logic mismatch (wrong target layer or wrong relationship).</li>
+<li>Skipping validation—especially around boundaries (e.g., “tracts spill into the lake”).</li>
+</ul>
+</div>
+<div class="next-row">
+<a class="btn next" href="09-quiz.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div></div>
+<script src="../app.js"></script></body>
+</html>

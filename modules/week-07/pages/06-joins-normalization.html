@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Joins + normalization</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-data-prep-etl.html">Data prep &amp; ETL</a><a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="04-interoperability-formats.html">Interoperability &amp; formats</a><a href="05-census-data.html">U.S. Census data</a><a aria-current="page" href="06-joins-normalization.html">Joins + normalization</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Joins + normalization</h2></div>
+<section>
+<h2>Join by attribute (Join by Attribute)</h2>
+<p>To map Census tables, you typically join a <strong>CSV</strong> to a boundary layer using a shared key (often <strong>GEOID</strong>).</p>
+<ul>
+<li>One side must have a <strong>unique identifier</strong> (no duplicates).</li>
+<li>The key must match exactly (types, leading zeros, formatting).</li>
+</ul>
+</section>
+<section class="card">
+<h2>Common join failure modes</h2>
+<ul>
+<li><strong>Leading zeros dropped</strong> (treating IDs as numbers).</li>
+<li><strong>Duplicates</strong> in the join key (causes one-to-many surprises).</li>
+<li><strong>Different geography levels</strong> (tract table joined to block group boundaries).</li>
+<li><strong>Stale boundaries</strong> (different vintage/year).</li>
+</ul>
+</section>
+<section>
+<h2>Codd-style normalization checklist (adapted for GIS data)</h2>
+<div class="two-col">
+<figure class="figure">
+<img alt="Checklist figure showing normalization rules such as unique rows, one subject per column, and atomic values." src="../assets/s28_01_fc0c87e5a0.png"/>
+<figcaption>Checklist: unique rows, single subject columns, atomic cells.</figcaption>
+</figure>
+<figure class="figure">
+<img alt="Checklist figure emphasizing primary key, functional dependence, and relating tables via identifiers." src="../assets/s29_01_692eaa015a.png"/>
+<figcaption>Checklist: primary key, functional dependence, related tables via identifiers.</figcaption>
+</figure>
+</div>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> You see “Chicago, IL; Evanston, IL” in one cell. What’s the normalization problem?</summary>
+<p><strong>Answer:</strong> The cell is not atomic (it contains multiple values). Split into separate rows or a related table.</p>
+</details>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Summary" class="btn primary next" href="07-summary.html">Next: Summary →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

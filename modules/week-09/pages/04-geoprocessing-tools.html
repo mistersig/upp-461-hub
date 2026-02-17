@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • Geoprocessing tools</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a href="03-policy-natural-experiments.html">Policy + natural experiments</a><a aria-current="page" href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a href="06-advanced-techniques.html">Beyond the basics</a><a href="09-summary.html">Summary</a><a href="09-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Geoprocessing tools</h2>
+</div>
+<div class="card">
+<p><strong>Geoprocessing</strong> is spatial data processing: you run GIS operations that transform input layers into new outputs for analysis or preparation.</p>
+</div>
+<h2>Three categories you should recognize</h2>
+<div class="grid three">
+<div class="card">
+<h3>Extraction</h3>
+<p>Reduce your dataset to the relevant area/features.</p>
+<p class="small">Example: <strong>Clip</strong></p>
+</div>
+<div class="card">
+<h3>Overlay</h3>
+<p>Combine layers based on overlap.</p>
+<p class="small">Examples: <strong>Intersect</strong>, <strong>Union</strong></p>
+</div>
+<div class="card">
+<h3>Proximity</h3>
+<p>Relationships based on distance.</p>
+<p class="small">Example: <strong>Buffer</strong></p>
+</div>
+</div>
+<h2>Clip (extraction)</h2>
+<div class="card">
+<p><strong>Clip</strong> is the “cookie cutter” tool: it extracts features within the extent of a clip layer and reduces the dataset.</p>
+<p class="small">Clip often improves cartography (“clean edges”), but be careful when analysis needs full features/attributes.</p>
+</div>
+<figure class="figure">
+<img alt="Animated illustration of clipping as a cookie-cutter operation." src="../assets/slide17_img1.gif"/>
+<figcaption>Clip reduces a dataset to a defined boundary (cartographic and/or analytical preprocessing).</figcaption>
+</figure>
+<h2>Clip vs Select by Location</h2>
+<figure class="figure">
+<img alt="Graphic comparing clip versus select by location." src="../assets/slide18_img1.png"/>
+<figcaption>Clip creates a new cut dataset (clean edges). Select by location selects full features (can leave dangling edges).</figcaption>
+</figure>
+<details>
+<summary>Check yourself: when is Select by Location better?</summary>
+<div class="card">
+<p>If you need the <strong>full geometry</strong> and attributes of selected features (e.g., geocoding workflows, network analysis inputs), selecting may be preferable.</p>
+</div>
+</details>
+<h2>Dissolve (generalization / aggregation)</h2>
+<div class="card">
+<ul>
+<li>Combines adjacent polygons based on a shared field (fewer features).</li>
+<li>Often used to create regions and summarize attributes (e.g., sum population).</li>
+</ul>
+</div>
+<figure class="figure">
+<img alt="Dissolve example graphic showing states dissolved into regions." src="../assets/slide20_img1.png"/>
+<figcaption>Dissolve groups features by a field to create larger units and optionally summarize attributes.</figcaption>
+</figure>
+<h2>Buffers (proximity)</h2>
+<div class="card">
+<p><strong>Buffers</strong> create zones around points/lines/polygons to represent influence, access, or exposure within a distance.</p>
+</div>
+<figure class="figure">
+<img alt="Map-style example of a polygon buffer around environmental releases." src="../assets/slide22_img1.png"/>
+<figcaption>Buffers help answer “within X distance” proximity questions.</figcaption>
+</figure>
+<h2>Overlay: Intersect (AND) vs Union (OR)</h2>
+<figure class="figure">
+<img alt="Diagram explaining intersect as AND and union as OR overlay." src="../assets/slide24_img1.png"/>
+<figcaption>Overlay logic: Intersect keeps overlap (AND). Union keeps all areas from both layers (OR).</figcaption>
+</figure>
+<details>
+<summary>Check yourself: which tool would you use?</summary>
+<div class="card">
+<p><strong>Goal:</strong> Find buildings exposed to flood zones.</p>
+<p><strong>Likely tool:</strong> <strong>Intersect</strong> (AND) to keep only overlapping building areas.</p>
+</div>
+</details>
+<div class="next-row">
+<a class="btn next" href="05-spatial-joins.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div></div>
+<script src="../app.js"></script></body>
+</html>

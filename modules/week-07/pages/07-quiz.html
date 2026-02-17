@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 7 • Quick quiz</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 7 module">UPP 461 • Week 7</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Data Preparation &amp; Interoperability</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+          <a href="02-data-prep-etl.html">Data prep &amp; ETL</a>
+          <a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a>
+          <a href="04-interoperability-formats.html">Interoperability &amp; formats</a>
+          <a href="05-census-data.html">U.S. Census data</a>
+          <a href="06-joins-normalization.html">Joins + normalization</a>
+          <a href="07-summary.html">Summary</a>
+          <a href="07-quiz.html" aria-current="page">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+
+      <section class="card">
+        <h2>Quick quiz</h2>
+        <p>Try these questions. After you grade the quiz, you’ll get feedback for each question:</p>
+        <ul>
+          <li><strong>Why the correct answer is correct</strong></li>
+          <li><strong>Why a wrong choice is wrong</strong></li>
+        </ul>
+      </section>
+
+      <form class="card" data-quiz>
+        <div class="visually-hidden" aria-live="polite" data-live></div>
+
+        <fieldset class="card" data-question="1" data-answer="b">
+          <legend><strong>1)</strong> Which step in Extract, Transform, Load (ETL) most directly involves cleaning column types and fixing missing values?</legend>
+          <label><input type="radio" name="1" value="a"> Extract</label>
+          <label><input type="radio" name="1" value="b"> Transform</label>
+          <label><input type="radio" name="1" value="c"> Load</label>
+          <label><input type="radio" name="1" value="d"> None of the above</label>
+          <div hidden data-why-correct>
+            Transform is where you standardize types, fix missing values, clean categories, and otherwise make data analysis-ready.
+          </div>
+          <div hidden data-why-wrong>
+            Extract is about getting data out of a source, and Load is about writing the (already-prepared) data into a destination. “None” is incorrect because cleaning is a core part of Transform.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="2" data-answer="b">
+          <legend><strong>2)</strong> Why is Geographic Identifier (GEOID) often stored as text instead of a number?</legend>
+          <label><input type="radio" name="2" value="a"> Text joins are always faster than numeric joins</label>
+          <label><input type="radio" name="2" value="b"> GEOID may include leading zeros that must be preserved</label>
+          <label><input type="radio" name="2" value="c"> GIS cannot join on numeric fields</label>
+          <label><input type="radio" name="2" value="d"> Because GEOID is not unique</label>
+          <div hidden data-why-correct>
+            Leading zeros matter (especially for state/county/tract codes). Treating GEOID as a number can drop zeros and break joins.
+          </div>
+          <div hidden data-why-wrong>
+            Join performance depends on the software/database (text is not “always faster”), GIS can join numeric fields, and GEOID is designed to be a stable unique identifier at a specific geography level.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="3" data-answer="b">
+          <legend><strong>3)</strong> American Community Survey (ACS) data are best described as…</legend>
+          <label><input type="radio" name="3" value="a"> A complete count of the population every 10 years</label>
+          <label><input type="radio" name="3" value="b"> A sample survey producing estimates over 1-year/5-year periods with margin of error</label>
+          <label><input type="radio" name="3" value="c"> A private dataset sold by the Census Bureau</label>
+          <label><input type="radio" name="3" value="d"> Only a set of boundary files</label>
+          <div hidden data-why-correct>
+            ACS is a sample survey. It produces estimates for defined time periods and includes Margin of Error (MOE).
+          </div>
+          <div hidden data-why-wrong>
+            The complete 10-year count is the Decennial Census; ACS is public (not a private paid dataset); and boundary files are spatial products (often from TIGER), not the ACS tables themselves.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="4" data-answer="b">
+          <legend><strong>4)</strong> You joined an ACS tract table to block group boundaries and the map looks wrong. What’s the most likely issue?</legend>
+          <label><input type="radio" name="4" value="a"> Your theme toggle is set to dark mode</label>
+          <label><input type="radio" name="4" value="b"> You mixed geography levels (tract data joined to block group geometries)</label>
+          <label><input type="radio" name="4" value="c"> ACS variables are not mappable</label>
+          <label><input type="radio" name="4" value="d"> GEOID is never used for joins</label>
+          <div hidden data-why-correct>
+            Tract tables and block group boundaries represent different units. Mixing levels causes mismatched joins or misleading maps.
+          </div>
+          <div hidden data-why-wrong>
+            Theme settings don’t affect joins; ACS variables are commonly mapped (you must interpret uncertainty); and GEOID is a standard join key for Census data.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="5" data-answer="a">
+          <legend><strong>5)</strong> Which is a classic “not atomic” (non-atomic) value problem in a spreadsheet?</legend>
+          <label><input type="radio" name="5" value="a"> A cell contains “Chicago, IL; Evanston, IL”</label>
+          <label><input type="radio" name="5" value="b"> A cell contains the number 42</label>
+          <label><input type="radio" name="5" value="c"> A column is named “POP_2020”</label>
+          <label><input type="radio" name="5" value="d"> A row contains a primary key value</label>
+          <div hidden data-why-correct>
+            Atomic means one value per cell. Multiple values in one cell should be split into separate rows or a related table.
+          </div>
+          <div hidden data-why-wrong>
+            Single values like “42” are atomic; column naming isn’t a normalization violation by itself; and having a primary key is good practice.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="6" data-answer="a">
+          <legend><strong>6)</strong> Topologically Integrated Geographic Encoding and Referencing (TIGER) is best described as…</legend>
+          <label><input type="radio" name="6" value="a"> A Census Bureau source for boundary/features datasets (roads, legal/statistical areas)</label>
+          <label><input type="radio" name="6" value="b"> The formula used to compute ACS margin of error</label>
+          <label><input type="radio" name="6" value="c"> A spreadsheet cleaning tool</label>
+          <label><input type="radio" name="6" value="d"> A synonym for the American Community Survey</label>
+          <div hidden data-why-correct>
+            TIGER products are spatial extracts from the Census Bureau’s database (boundaries, roads, and other features).
+          </div>
+          <div hidden data-why-wrong>
+            TIGER is data (spatial features), not the ACS estimation process, not a cleaning tool, and not the same thing as ACS.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="7" data-answer="b">
+          <legend><strong>7)</strong> In the normalization checklist, which field is most important to identify first?</legend>
+          <label><input type="radio" name="7" value="a"> A field that looks interesting</label>
+          <label><input type="radio" name="7" value="b"> A primary key that uniquely identifies each row</label>
+          <label><input type="radio" name="7" value="c"> A field with the most decimals</label>
+          <label><input type="radio" name="7" value="d"> A field that is empty in many rows</label>
+          <div hidden data-why-correct>
+            A primary key anchors the table: each row represents one entity, and other fields should depend on that key.
+          </div>
+          <div hidden data-why-wrong>
+            “Interesting,” “most decimals,” or “many blanks” might be worth investigating later, but normalization starts by defining what a row represents (the key).
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="8" data-answer="b">
+          <legend><strong>8)</strong> If you map an ACS estimate, what’s a responsible next step before making strong claims?</legend>
+          <label><input type="radio" name="8" value="a"> Ignore the Margin of Error (MOE) to keep the map simple</label>
+          <label><input type="radio" name="8" value="b"> Check the MOE and confirm the variable definition + geography level</label>
+          <label><input type="radio" name="8" value="c"> Convert every field to text</label>
+          <label><input type="radio" name="8" value="d"> Delete all rows with nulls</label>
+          <div hidden data-why-correct>
+            ACS estimates have uncertainty. Interpreting MOE and variable definitions (and matching geography) helps avoid overclaiming based on noisy or mismatched data.
+          </div>
+          <div hidden data-why-wrong>
+            Ignoring uncertainty can be misleading; converting everything to text is unnecessary; and deleting nulls without understanding them can bias results.
+          </div>
+        </fieldset>
+
+        <div class="controls">
+          <button class="primary" type="submit">Grade quiz</button>
+          <button type="button" data-reset>Clear</button>
+        </div>
+
+        <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+      </form>
+
+      <div class="pager">
+        <a class="btn primary next" href="../index.html">Back to Start here →</a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-row">
+          <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+          <a class="bug-link" data-bug-report href="#">Report a bug</a>
+        </div>
+        <div class="small">Last updated: 2026-02-15</div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

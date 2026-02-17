@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 8 • Quick quiz</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+          <a href="02-projects-and-pm.html">Projects + project management</a>
+          <a href="03-scope-roles-risk.html">Scope, roles, risk</a>
+          <a href="04-frameworks-waterfall-agile-hybrid.html">Frameworks: Waterfall, Agile, Hybrid</a>
+          <a href="05-tools-plans-logs-kanban.html">Tools: plans, logs, Kanban</a>
+          <a href="06-case-study-grocery-store.html">Case study + final project workflow</a>
+          <a href="07-summary.html">Summary</a>
+          <a href="07-quiz.html" aria-current="page">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+
+      <section class="card">
+        <h2>Quick quiz</h2>
+        <p>Answer the questions below and then grade the quiz. You’ll get feedback for each question (why correct + why wrong). Nothing is saved.</p>
+      </section>
+
+      <form class="card" data-quiz>
+        <div class="visually-hidden" aria-live="polite" data-live></div>
+
+        <fieldset class="card" data-question="1" data-answer="b">
+          <legend><strong>1)</strong> Which statement best describes a project (as opposed to ongoing operations)?</legend>
+          <label><input type="radio" name="1" value="a"> A repeating process with no end date</label>
+          <label><input type="radio" name="1" value="b"> A temporary effort that produces a unique deliverable</label>
+          <label><input type="radio" name="1" value="c"> Any task that uses software</label>
+          <label><input type="radio" name="1" value="d"> Only work done by a “Project Manager”</label>
+          <div hidden data-why-correct>
+            A project is temporary and creates a unique deliverable (a map, model, dashboard, workflow, report, etc.).
+          </div>
+          <div hidden data-why-wrong>
+            Operations are ongoing and repetitive; software use doesn’t define a project; and projects can be led by different roles (not only someone with a PM title).
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="2" data-answer="c">
+          <legend><strong>2)</strong> In a project charter, which item most clearly defines boundaries and prevents scope creep?</legend>
+          <label><input type="radio" name="2" value="a"> The final map colors</label>
+          <label><input type="radio" name="2" value="b"> A list of everyone’s favorite tools</label>
+          <label><input type="radio" name="2" value="c"> “In scope” and “out of scope” statements</label>
+          <label><input type="radio" name="2" value="d"> A screenshot of a previous project</label>
+          <div hidden data-why-correct>
+            Clear scope boundaries (what you will and will not deliver) are the strongest guardrail against uncontrolled additions.
+          </div>
+          <div hidden data-why-wrong>
+            Colors and screenshots are presentation details, and tool preferences aren’t scope boundaries. A charter should make scope explicit.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="3" data-answer="d">
+          <legend><strong>3)</strong> In the classic triple constraint, which item is NOT one of the three corners?</legend>
+          <label><input type="radio" name="3" value="a"> Scope</label>
+          <label><input type="radio" name="3" value="b"> Time</label>
+          <label><input type="radio" name="3" value="c"> Cost / resources</label>
+          <label><input type="radio" name="3" value="d"> Stakeholder enthusiasm</label>
+          <div hidden data-why-correct>
+            The classic triple constraint is Scope, Time, and Cost/Resources (tradeoffs affect quality/value).
+          </div>
+          <div hidden data-why-wrong>
+            Stakeholder enthusiasm matters for project success, but it is not one of the classic three constraint corners.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="4" data-answer="a">
+          <legend><strong>4)</strong> Which is an example of a GIS “silent failure” risk?</legend>
+          <label><input type="radio" name="4" value="a"> Join keys mismatch (type, leading zeros, or different vintages)</label>
+          <label><input type="radio" name="4" value="b"> The instructor changes a slide background color</label>
+          <label><input type="radio" name="4" value="c"> You add a title to the map layout</label>
+          <label><input type="radio" name="4" value="d"> You alphabetize a list of tasks</label>
+          <div hidden data-why-correct>
+            Join/key issues can produce maps that look “fine” but are wrong. You often catch them only through validation.
+          </div>
+          <div hidden data-why-wrong>
+            The other choices are not data-integrity risks; they don’t silently invalidate an analysis.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="5" data-answer="a">
+          <legend><strong>5)</strong> A predictive (Waterfall) approach is usually best when…</legend>
+          <label><input type="radio" name="5" value="a"> Requirements are stable and deliverables can be defined up front</label>
+          <label><input type="radio" name="5" value="b"> Work is highly exploratory and changes weekly</label>
+          <label><input type="radio" name="5" value="c"> Stakeholders demand a demo every 1–2 weeks</label>
+          <label><input type="radio" name="5" value="d"> The team cannot agree on the project goal</label>
+          <div hidden data-why-correct>
+            Waterfall fits when you can plan sequential phases and change is limited.
+          </div>
+          <div hidden data-why-wrong>
+            Exploratory work and frequent demos align better with adaptive approaches. If the goal is unclear, you need initiation/scoping work first.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="6" data-answer="b">
+          <legend><strong>6)</strong> In an adaptive (Agile) approach, a “sprint” is…</legend>
+          <label><input type="radio" name="6" value="a"> A one-time kickoff meeting</label>
+          <label><input type="radio" name="6" value="b"> A short, time-boxed work cycle that ends with a review/demo</label>
+          <label><input type="radio" name="6" value="c"> A document that lists all project risks</label>
+          <label><input type="radio" name="6" value="d"> A step that happens only after deployment</label>
+          <div hidden data-why-correct>
+            Sprints are short iterations (often 1–2 weeks) that produce a reviewable increment and inform next priorities.
+          </div>
+          <div hidden data-why-wrong>
+            A kickoff is a meeting; risk lists are separate artifacts; and sprints happen throughout the project, not only at the end.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="7" data-answer="b">
+          <legend><strong>7)</strong> Which artifact is most focused on capturing technical steps, decisions, and “what we tried” for reproducibility?</legend>
+          <label><input type="radio" name="7" value="a"> Project charter</label>
+          <label><input type="radio" name="7" value="b"> Project log</label>
+          <label><input type="radio" name="7" value="c"> Kanban board</label>
+          <label><input type="radio" name="7" value="d"> Stakeholder map</label>
+          <div hidden data-why-correct>
+            A project log records technical steps and decisions so work can be reproduced, audited, and handed off.
+          </div>
+          <div hidden data-why-wrong>
+            A charter defines purpose/scope; Kanban shows status flow; stakeholder maps show relationships. None of those are step-by-step technical documentation.
+          </div>
+        </fieldset>
+
+        <fieldset class="card" data-question="8" data-answer="c">
+          <legend><strong>8)</strong> In the hybrid lifecycle described in this module, which activity belongs in <em>Monitoring &amp; Control</em>?</legend>
+          <label><input type="radio" name="8" value="a"> Defining the project’s goal and success metrics</label>
+          <label><input type="radio" name="8" value="b"> Writing the final deliverable and handoff document</label>
+          <label><input type="radio" name="8" value="c"> Weekly check-ins + tracking work on a Kanban board (To Do / In Progress / Waiting / Done)</label>
+          <label><input type="radio" name="8" value="d"> Brainstorming possible project topics</label>
+          <div hidden data-why-correct>
+            Monitoring & control keeps the project on track: status checks, blocker visibility, and adjustments based on progress and feedback.
+          </div>
+          <div hidden data-why-wrong>
+            Goals and success metrics belong in initiation; final handoff belongs in closure; and brainstorming topics is pre-initiation.
+          </div>
+        </fieldset>
+
+        <div class="controls">
+          <button class="primary" type="submit">Grade quiz</button>
+          <button type="button" data-reset>Clear</button>
+        </div>
+
+        <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+      </form>
+
+      <div class="pager">
+        <a class="btn primary next" href="../index.html">Back to Start →</a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-row">
+          <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+          <a class="bug-link" data-bug-report href="#">Report a bug</a>
+        </div>
+        <div class="small">Last updated: 2026-02-15</div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

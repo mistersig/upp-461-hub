@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 7 • Data prep &amp; ETL</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 7 module" class="course-home" href="../index.html">UPP 461 • Week 7</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Data Preparation &amp; Interoperability</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a aria-current="page" href="02-data-prep-etl.html">Data prep &amp; ETL</a><a href="03-spreadsheets-cleaning.html">Spreadsheets &amp; cleaning</a><a href="04-interoperability-formats.html">Interoperability &amp; formats</a><a href="05-census-data.html">U.S. Census data</a><a href="06-joins-normalization.html">Joins + normalization</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1"><div class="card"><h2>Data preparation &amp; ETL</h2></div>
+<section>
+<h2>What is data preparation in GIS?</h2>
+<p>Data preparation is the work of cleaning, transforming, and formatting data so it’s ready for analysis, mapping, and integration with other datasets. In practice, this is often an <strong>ETL</strong> pipeline.</p>
+</section>
+<section class="card">
+<h2>ETL: Extract → Transform → Load</h2>
+<figure class="figure">
+<img alt="Diagram showing ETL: Extract to Transform to Load, with examples of transform tasks like fixing types and creating join keys." src="../assets/etl_diagram.png"/>
+<figcaption>ETL is a repeatable workflow: extract data, transform it into a clean join-ready form, then load it into GIS.</figcaption>
+</figure>
+<ol>
+<li><strong>Extract:</strong> get data from its source (CSV, database, API, PDF table, etc.).</li>
+<li><strong>Transform:</strong> clean + standardize (types, missing values, columns, geometry validity, projections, naming, etc.).</li>
+<li><strong>Load:</strong> bring it into your GIS project / database in a consistent format.</li>
+</ol>
+</section>
+<section>
+<h2>Interoperability: why it matters</h2>
+<p>Interoperability is the ability for different systems and formats to work together: your GIS software, a database, a web map, and datasets from multiple organizations.</p>
+<ul>
+<li><strong>Data integration:</strong> join or combine sources without messy manual steps.</li>
+<li><strong>Efficiency:</strong> repeatable workflows beat “click until it works.”</li>
+<li><strong>Collaboration:</strong> shared standards make cross-team work possible.</li>
+</ul>
+</section>
+<details class="check">
+<summary><strong>Check yourself:</strong> Which ETL step is most likely to include cleaning column types and fixing missing values?</summary>
+<p><strong>Answer:</strong> Transform.</p>
+</details>
+
+<hr/><nav aria-label="Section navigation" class="pager"><a aria-label="Next: Spreadsheets &amp; cleaning" class="btn primary next" href="03-spreadsheets-cleaning.html">Next: Spreadsheets &amp; cleaning →</a></nav><div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div></main>
+</div></div>
+
+
+<script src="../app.js"></script></body>
+</html>

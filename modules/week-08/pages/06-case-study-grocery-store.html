@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 8 • Case study</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="course-links">
+          <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 8 module">UPP 461 • Week 8</a>
+          <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+        </div>
+        <h1>Project Management</h1>
+        <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+      </div>
+      <div class="controls" aria-label="Header controls">
+        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          Theme: <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a><a href="02-projects-and-pm.html">Projects + project management</a><a href="03-scope-roles-risk.html">Scope, roles, risk</a><a href="04-frameworks-waterfall-agile-hybrid.html">Frameworks: Waterfall, Agile, Hybrid</a><a href="05-tools-plans-logs-kanban.html">Tools: plans, logs, Kanban</a><a href="06-case-study-grocery-store.html" aria-current="page">Case study + final project workflow</a><a href="07-summary.html">Summary</a><a href="07-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      
+<section class="card">
+  <h2>Case study + your final project workflow</h2>
+  <p class="lede">Case: identify priority neighborhoods for a city-owned grocery store in Chicago under a food equity initiative.</p>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h3>Case study goal</h3>
+    <p><strong>Goal:</strong> Use spatial data and stakeholder input to support evidence-based site selection.</p>
+    <h4>Constraints to clarify</h4>
+    <ul>
+      <li>Timeline and decision deadline</li>
+      <li>What data is available (and at what geography?)</li>
+      <li>Definition of “need” (metrics + thresholds)</li>
+      <li>Stakeholder priorities (equity, access, cost)</li>
+    </ul>
+  </div>
+  <figure class="card">
+    <img src="../assets/lifecycle.jpg" alt="Project lifecycle illustration showing phases from initiation to closure."/>
+  </figure>
+</section>
+
+<section class="card">
+  <h3>Hybrid lifecycle: what happens in each phase?</h3>
+  <div class="grid two">
+    <div class="card">
+      <h4>Initiation</h4>
+      <ul>
+        <li>Define problem + success metrics</li>
+        <li>Identify stakeholders</li>
+        <li>Confirm constraints (timeline, data access)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Planning &amp; execution</h4>
+      <ul>
+        <li>Build a milestone plan</li>
+        <li>Iterate on analysis and maps (demos)</li>
+        <li>Document data and decisions in a project log</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Monitoring &amp; control</h4>
+      <ul>
+        <li>Weekly check-ins</li>
+        <li>Kanban board (To Do / In Progress / Waiting / Done)</li>
+        <li>Midpoint stakeholder validation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Closure</h4>
+      <ul>
+        <li>Deliver final map/report + methods</li>
+        <li>Handoff documentation</li>
+        <li>Reflect: what would you improve?</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="card">
+    <img src="../assets/monitoring_kanban.jpg" alt="Illustration of a status board used to monitor tasks and progress."/>
+  </figure>
+</section>
+
+<section class="card">
+  <h3>Project charter quick builder</h3>
+  <p>Use this to draft a charter paragraph you can copy into your final project docs.</p>
+  <form id="charterForm">
+    <div class="form-row">
+      <label for="cGoal">Goal (one sentence)</label>
+      <textarea id="cGoal" name="cGoal" rows="2"></textarea>
+    </div>
+    <div class="form-row">
+      <label for="cStakeholders">Stakeholders (comma-separated)</label>
+      <input id="cStakeholders" name="cStakeholders" type="text"/>
+    </div>
+    <div class="form-row">
+      <label for="cDeliverables">Deliverables (comma-separated)</label>
+      <input id="cDeliverables" name="cDeliverables" type="text"/>
+    </div>
+    <div class="form-row">
+      <label for="cSuccess">Success metrics (comma-separated)</label>
+      <input id="cSuccess" name="cSuccess" type="text"/>
+    </div>
+    <button class="btn primary" type="button" id="buildCharterBtn">Build charter text</button>
+    <div class="form-row">
+      <label for="cOutput">Output (copy/paste)</label>
+      <textarea id="cOutput" name="cOutput" rows="5" readonly></textarea>
+    </div>
+    <p class="muted">This is a learning aid — refine wording to match your project.</p>
+  </form>
+</section>
+
+<section class="card">
+  <h3>Next steps</h3>
+  <ul>
+    <li>Read the summary page</li>
+    <li>Take the quick quiz</li>
+    <li>Bring your draft charter to class for feedback</li>
+  </ul>
+</section>
+
+      <div class="pager">
+  <a class="btn primary next" href="07-summary.html">Next section →</a>
+</div>
+      <div class="footer">
+  <div class="footer-row">
+    <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+    <a class="bug-link" data-bug-report href="#">Report a bug</a>
+  </div>
+  <div class="small">Last updated: 2026-02-15</div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

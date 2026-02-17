@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 9 • What is spatial analysis?</title>
+<link href="../style.css" rel="stylesheet"/><script>// Set theme before paint to avoid flash (default: light)
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {}
+})();</script>
+</head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 9 module" class="course-home" href="../index.html">UPP 461 • Week 9</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Spatial Analysis</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+          Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container"><div class="layout"><aside class="sidebar"><div class="card"><nav aria-label="Module navigation" class="nav"><a href="../index.html">Start here</a><a aria-current="page" href="02-what-is-spatial-analysis.html">What is spatial analysis?</a><a href="03-policy-natural-experiments.html">Policy + natural experiments</a><a href="04-geoprocessing-tools.html">Geoprocessing tools</a><a href="05-spatial-joins.html">Spatial joins</a><a href="06-advanced-techniques.html">Beyond the basics</a><a href="09-summary.html">Summary</a><a href="09-quiz.html">Quick quiz</a></nav></div></aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">What is spatial analysis?</h2>
+</div>
+<div class="card">
+<p><strong>Spatial analysis</strong> is the set of methods we use to answer questions where <em>location and spatial relationships</em> matter.</p>
+<p class="small">In practice, you’re turning spatial data into evidence that can support a planning or policy decision.</p>
+</div>
+<h2>Five types of geographic questions</h2>
+<div class="card">
+<p>GIS helps answer questions about:</p>
+<ul>
+<li><strong>Location</strong>: Where is it? Why is it here?</li>
+<li><strong>Distribution</strong>: Clustered or dispersed? Where are boundaries?</li>
+<li><strong>Association</strong>: What else occurs with it (or is absent)?</li>
+<li><strong>Interaction</strong>: How much movement/connection occurs between places?</li>
+<li><strong>Change</strong>: How does it change over time and space?</li>
+</ul>
+</div>
+<figure class="figure">
+<img alt="Slide graphic illustrating the concept of spatial analysis and spatial questions." src="../assets/slide12_img1.jpg"/>
+<figcaption>A visual reminder: spatial analysis connects data, place, and relationships to decision-making.</figcaption>
+</figure>
+<h2>What makes a question “spatial”?</h2>
+<div class="card">
+<p>A <strong>spatial question</strong> is one that depends on the spatial dimensions of a phenomenon, and can be answered using spatial analysis techniques.</p>
+<p class="small">If you removed the map and the answer would be the same, it might not be spatial.</p>
+</div>
+<details>
+<summary>Check yourself: classify the question</summary>
+<div class="card">
+<p><strong>Question:</strong> “Are air-quality complaints clustered near major arterials?”</p>
+<p><strong>Type:</strong> Distribution (clustered vs dispersed) + Association (near arterials).</p>
+</div>
+</details>
+<h2>From question → method</h2>
+<div class="card">
+<p>Common translation patterns:</p>
+<ul>
+<li>“Near” → <strong>Buffer</strong> / <strong>Within a distance</strong></li>
+<li>“Inside” / “overlaps” → <strong>Intersect</strong> / <strong>Within</strong></li>
+<li>“Combine areas by category” → <strong>Dissolve</strong></li>
+<li>“Count points in polygons” → <strong>Spatial join</strong> (aggregate/count)</li>
+</ul>
+</div>
+<div class="next-row">
+<a class="btn next" href="03-policy-natural-experiments.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-15</div>
+</div>
+</main>
+</div></div>
+<script src="../app.js"></script></body>
+</html>
