@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Choosing a method</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-choropleth.html">Choropleth basics</a>
+            <a href="03-color-ramps.html">Color ramps</a>
+            <a href="04-classification.html">Classification</a>
+            <a href="05-choosing-method.html" aria-current="page">Choosing a method</a>
+            <a href="06-normalization.html">Normalization</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Choosing a method</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>How to choose a method</h3>
+          <ol>
+            <li>Explore the distribution (histogram / summary stats).</li>
+            <li>Start with <strong>Natural breaks</strong> to see clusters.</li>
+            <li>Try <strong>Quantile</strong> and <strong>Equal interval</strong> for comparison.</li>
+            <li>Use 5–7 classes by default.</li>
+            <li>Pick the option you can justify in a caption.</li>
+          </ol>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Quantile example</h3>
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide21_29_591335b8.png" alt="Quantile classification map of percent population change."/>
+          <figcaption class="small">Quantile map: equal number of areas in each class.</figcaption>
+        </figure>          
+          </div>
+          <div class="card">
+            <h3>Equal interval example</h3>
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide22_31_41de702b.png" alt="Equal interval classification map of percent population change."/>
+          <figcaption class="small">Equal interval map: equal-width bins across the value range.</figcaption>
+        </figure>          
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Natural breaks intuition</h3>
+          <p class="small">Jenks chooses breaks to minimize within-class variance. Break widths vary, but patterns can be clearer for skewed data.</p>
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide19_23_f2ab4ecd.png" alt="Histogram with vertical break lines for Jenks natural breaks."/>
+          <figcaption class="small">Breaks align to clusters in the distribution.</figcaption>
+        </figure>        
+        </div>
+
+        <div class="card">
+          <h3>Mini practice</h3>
+          <ul>
+            <li>Is there a meaningful midpoint (needs diverging ramp)?</li>
+            <li>Is the distribution skewed (Jenks may help)?</li>
+            <li>Can you explain the legend to a non‑GIS reader?</li>
+          </ul>
+        </div>
+
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="04-classification.html">← Classification</a>
+          <span></span>
+          <a class="btn next" href="06-normalization.html">Normalization →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

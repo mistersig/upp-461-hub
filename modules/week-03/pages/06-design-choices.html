@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Design choices</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+            <a href="02-graphicacy.html">Graphicacy</a>
+            <a href="03-map-design-principles.html">Map design principles</a>
+            <a href="04-color-accessibility.html">Color + accessibility</a>
+            <a href="05-layout-elements.html">Layout elements</a>
+            <a href="06-design-choices.html" aria-current="page">Design choices</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Design choices</h2>
+      </div>
+
+      
+<div class="card">
+  <h3>Design choices in GIS</h3>
+  <ul>
+    <li>Drawing order and transparency</li>
+    <li>Labeling strategy (and when to convert to annotation)</li>
+    <li>Legend design and wording</li>
+    <li>Margins, neatlines, and whitespace</li>
+    <li>Insets / locator maps</li>
+  </ul>
+</div>
+
+
+<div class="card" data-widget="hierarchy">
+  <h3>Try it: hierarchy planner</h3>
+  <p class="small">Move items up/down. Higher items get more visual weight in the preview.</p>
+
+  <div class="hierarchy-grid">
+    <div class="hierarchy-controls">
+      <ol class="reorder" data-reorder aria-label="Reorder map elements">
+        <li data-key="map">Map frame</li>
+        <li data-key="title">Title</li>
+        <li data-key="legend">Legend</li>
+        <li data-key="credits">Credits</li>
+        <li data-key="scale">Scale</li>
+        <li data-key="north">North arrow</li>
+      </ol>
+
+      <div class="toolbar">
+        <button class="btn" type="button" data-move="up">Move up</button>
+        <button class="btn" type="button" data-move="down">Move down</button>
+        <button class="btn" type="button" data-hierarchy-check>Check</button>
+      </div>
+
+      <p class="small" data-hierarchy-out aria-live="polite"></p>
+      <p class="small muted">Tip: the <strong>map frame</strong> and <strong>title</strong> usually lead. Support elements follow.</p>
+    </div>
+
+    <div class="hierarchy-preview">
+      <p class="small">Preview</p>
+      <div class="hierarchy-canvas" data-hierarchy-canvas aria-label="Map layout preview">
+        <div class="hc-el hc-map" data-key="map">Map</div>
+        <div class="hc-el hc-title" data-key="title">Title</div>
+        <div class="hc-el hc-legend" data-key="legend">Legend</div>
+        <div class="hc-el hc-credits" data-key="credits">Credits</div>
+        <div class="hc-el hc-scale" data-key="scale">Scale</div>
+        <div class="hc-el hc-north" data-key="north">N</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid two">
+
+  <figure class="media card">
+    <img src="../assets/slide26_0633b113.jpg" alt="Example comparing neatline versus no neatline." data-lightbox />
+    <figcaption class="small">Neatline vs no neatline: use a frame only when it helps clarity.</figcaption>
+  </figure>
+  <figure class="media card">
+    <img src="../assets/slide28_324eaa89.png" alt="Example of transparency to push basemap into background." data-lightbox />
+    <figcaption class="small">Transparency can reduce competition from basemaps.</figcaption>
+  </figure>
+</div>
+
+<div class="card">
+  <h3>Insets and locator maps</h3>
+  <p>Insets help readers understand where a detailed map fits within a larger area.</p>
+  <figure class="media">
+    <img src="../assets/slide31_8cb4f80d.jpg" alt="Example of a locator map and inset in a layout." data-lightbox />
+  </figure>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="05-layout-elements.html">← Previous</a>
+          <a class="btn" href="07-summary.html">Next →</a>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

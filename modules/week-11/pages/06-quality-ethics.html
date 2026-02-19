@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • Quality + ethics</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html">What is geocoding?</a>
+            <a href="04-data-and-locators.html">Data + locators</a>
+            <a href="05-how-geocoding-works.html">How geocoding works</a>
+            <a href="06-quality-ethics.html" aria-current="page">Quality + ethics</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Quality + ethics</h2>
+        </div>
+
+        <section class="card">
+          <p class="lede">Treat geocoding as a <strong>data quality problem</strong>. Your map is only as good as your inputs and your reference data.</p>
+        </section>
+
+        <h2>Common problems: address table</h2>
+        <section class="card">
+          <ul>
+            <li>Street name variations (<em>Fifth Avenue</em> vs <em>5th Ave</em>)</li>
+            <li>Misspellings</li>
+            <li>Wrong address numbers</li>
+            <li>Missing or incorrect direction (N/S/E/W)</li>
+            <li>Wrong street type (Rd vs St)</li>
+            <li>PO Boxes (not a street location)</li>
+            <li>Incorrect ZIP codes</li>
+          </ul>
+          <div class="callout">
+            <strong>Fix</strong>
+            Clean and standardize <em>before</em> geocoding. Otherwise you’ll spend time rematching and guessing later.
+          </div>
+        </section>
+
+        <h2>Common problems: reference database</h2>
+        <section class="card">
+          <ul>
+            <li>New streets not included yet</li>
+            <li>Street name changes or closures</li>
+            <li>Missing address ranges or gaps</li>
+            <li>Out-of-date ZIP/place attributes</li>
+          </ul>
+          <p class="small">Reference data can be “right” for one year and wrong for the next.</p>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/local_ref_table.png" alt="Attribute table for a street dataset showing left and right address ranges and ZIP codes."/>
+          <figcaption class="muted">Street segments store address ranges separately for the left and right side.</figcaption>
+        </figure>
+
+        <h2>How to assess quality</h2>
+        <section class="grid two">
+          <div class="card">
+            <h3>Match rate</h3>
+            <p><strong>Match rate</strong> (hit rate) is the percentage of input records that were matched.</p>
+            <p class="small">Rule of thumb: <strong>85–87%</strong> can be “good” for large datasets — but always inspect what didn’t match.</p>
+          </div>
+          <div class="card">
+            <h3>Positional accuracy</h3>
+            <p><strong>Positional accuracy</strong> measures how far the geocoded point is from the true location.</p>
+            <p class="small">Interpolation-based addresses can be off by tens of meters (or more), especially on long segments.</p>
+          </div>
+        </section>
+
+        <details>
+          <summary>Check yourself: what’s “good enough” depends on…?</summary>
+          <div class="card">
+            <p><strong>Answer:</strong> your use case. A citywide hotspot map might tolerate block-level error; a parcel-specific enforcement action might not.</p>
+          </div>
+        </details>
+
+        <h2>Online geocoding services (pros + cons)</h2>
+        <section class="grid two">
+          <div class="card">
+            <h3>Pros</h3>
+            <ul>
+              <li>Fast and easy to access</li>
+              <li>Often free or inexpensive for small jobs</li>
+              <li>Useful for quick exploration</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Cons</h3>
+            <ul>
+              <li><strong>Privacy/confidentiality</strong> (you’re sending addresses to a third party)</li>
+              <li>Accuracy varies; error handling may be opaque</li>
+              <li>Terms of service and rate limits</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="next-row">
+          <a class="btn next" href="07-summary.html">Next section →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

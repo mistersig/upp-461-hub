@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 5 • Select by attribute</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 5 module">UPP 461 • Week 5</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Attribute tables, queries, and joins</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-attribute-tables.html">Attribute tables</a>
+            <a href="03-sql-queries.html">SQL + where clauses</a>
+            <a href="04-select-by-attribute.html" aria-current="page">Select by attribute</a>
+            <a href="05-select-by-location.html">Select by location</a>
+            <a href="06-joins-and-relates.html">Joins + relates</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Select by attribute</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>Select by Attribute</h3>
+          <ol>
+            <li>Confirm field names + types in the attribute table.</li>
+            <li>Build the expression in the query builder.</li>
+            <li>Choose selection type (new/add/remove/subset).</li>
+            <li>Export the selection if you need a new dataset.</li>
+          </ol>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide17_10_28d44340.png" alt="Screenshot of Select By Attributes tool."/>
+          <figcaption class="small">Select By Attributes in ArcGIS Pro.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide18_12_7cb5edfa.png" alt="Screenshot showing a query expression in the builder."/>
+          <figcaption class="small">Example where clause in a query builder.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide20_16_b15202e6.png" alt="Screenshot showing export selected features options."/>
+          <figcaption class="small">Export selected features to create a new dataset.</figcaption>
+        </figure>
+
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="03-sql-queries.html">← SQL + where clauses</a>
+          <span></span>
+          <a class="btn next" href="05-select-by-location.html">Select by location →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

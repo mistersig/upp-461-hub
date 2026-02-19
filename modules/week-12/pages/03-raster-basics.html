@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Raster basics</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html">Data models</a>
+            <a href="03-raster-basics.html" aria-current="page">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html">Resampling + scope</a>
+            <a href="06-interpolation.html">Interpolation + IDW</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Raster basics</h2>
+        </div>
+
+        
+        <div class="card">
+          <h3>Raster basics</h3>
+          <p>Each raster cell stores a value. That value might be:</p>
+          <ul>
+            <li><strong>Discrete (categorical):</strong> land cover type, zoning class, soil class.</li>
+            <li><strong>Continuous (numeric):</strong> elevation, temperature, slope, distance.</li>
+          </ul>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Cells and zoom</h3>
+            <p class="small">A raster “looks smooth” when zoomed out, but it is always a grid under the hood.</p>
+            <img src="../assets/raster_zoom.png" alt="Raster grid shown at full extent with a zoomed-in inset revealing individual cells.">
+          </div>
+          <div class="card">
+            <h3>Cell values + attribute table</h3>
+            <p class="small">Categorical rasters often have an attribute table that maps codes to meaning (type, area, etc.).</p>
+            <img src="../assets/reclass_attr_table.png" alt="Example raster attribute table mapping codes to land types with counts and areas.">
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Fine vs coarse</h3>
+            <p class="small">Compare how the same area can be represented with different cell sizes.</p>
+            <img src="../assets/raster_grid_fine.jpg" alt="Example of a fine-resolution raster grid with many small cells.">
+          </div>
+          <div class="card">
+            <h3>Coarser grid</h3>
+            <p class="small">Coarser rasters generalize more and can “lose” small features.</p>
+            <img src="../assets/raster_grid_coarse.jpg" alt="Example of a coarse-resolution raster grid with larger cells.">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>NoData vs 0</h3>
+          <p><strong>NoData</strong> means “unknown / not measured / outside coverage.” A value of <strong>0</strong> is a real measurement or category (depending on the raster).</p>
+          <p class="small">Why it matters: many raster tools treat NoData as “do not compute,” which can change your outputs.</p>
+        </div>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="02-data-models.html">← Data models</a>
+          <a class="btn next" href="04-map-algebra.html">Map algebra + reclass →</a>
+        </div>
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

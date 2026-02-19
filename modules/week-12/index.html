@@ -1,75 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 12</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Start here</title>
+  <link href="style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="course-links">
-          <a class="course-home" href="index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
-          <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
         </div>
-        <h1>Week 12 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
-      </div>
-
-      <div class="controls" aria-label="Header controls">
-        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
-          Theme: <span data-theme-label>Light</span>
-        </button>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
       </div>
     </div>
-
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
   </header>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="index.html" aria-current="page">Start here</a>
+            <a href="pages/02-data-models.html">Data models</a>
+            <a href="pages/03-raster-basics.html">Raster basics</a>
+            <a href="pages/04-map-algebra.html">Map algebra + reclass</a>
+            <a href="pages/05-resampling-scope.html">Resampling + scope</a>
+            <a href="pages/06-interpolation.html">Interpolation + IDW</a>
+            <a href="pages/07-summary.html">Summary</a>
+            <a href="pages/08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Start here</h2>
+        </div>
 
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
+        
+        <div class="card">
+          <p><strong>What you’ll learn:</strong> how raster data stores information, how raster processing works (map algebra, reclassification, resampling), and how continuous surfaces can be created with interpolation (IDW).</p>
+          <ul>
+            <li>Recognize the raster data model and its key properties (cell size, extent, NoData, attribute tables).</li>
+            <li>Explain map algebra and common raster operations (local/focal/zonal/global).</li>
+            <li>Choose appropriate reclassification and resampling approaches.</li>
+            <li>Describe interpolation and how IDW works (including the effect of the power parameter).</li>
+          </ul>
+          <p class="small"><strong>Estimated time:</strong> 20–30 minutes. Bring questions to class.</p>
+        </div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
+        <div class="grid two">
+          <div class="card">
+            <h3>Key idea</h3>
+            <p>Raster analysis is “math on grids.” Once you understand how cells represent the world, many tools become variations of the same few patterns.</p>
+            <ul class="small">
+              <li><strong>Local:</strong> cell-by-cell</li>
+              <li><strong>Focal:</strong> neighborhood window</li>
+              <li><strong>Zonal:</strong> summarize within zones</li>
+              <li><strong>Global:</strong> whole raster</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Before you start</h3>
+            <p class="small">If you see an image, you can click it to enlarge (keyboard accessible).</p>
+            <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> at the bottom of the page.</p>
+          </div>
+        </div>
+
+        <div class="next-row">
+          <a class="btn next" href="pages/02-data-models.html">Start →</a>
+        </div>
+
+        
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
     </div>
-  </footer>
+  </div>
 
-  <script src="../../shared/module.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>

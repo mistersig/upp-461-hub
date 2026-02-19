@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-choropleth.html">Choropleth basics</a>
+            <a href="03-color-ramps.html">Color ramps</a>
+            <a href="04-classification.html">Classification</a>
+            <a href="05-choosing-method.html">Choosing a method</a>
+            <a href="06-normalization.html">Normalization</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Check your understanding of choropleth mapping choices.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> A sequential color ramp is best for…</legend>
+            <label><input type="radio" name="1" value="a"/> Nominal categories (e.g., land use types)</label>
+            <label><input type="radio" name="1" value="b"/> Ordered quantities (low → high)</label>
+            <label><input type="radio" name="1" value="c"/> Showing direction from a midpoint (below/above 0)</label>
+            <label><input type="radio" name="1" value="d"/> Random data with no order</label>
+            <div data-why-correct hidden>Sequential ramps encode magnitude in a single hue (light→dark).</div>
+            <div data-why-wrong hidden>Categorical uses different hues; diverging is for midpoint comparisons.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="a">
+            <legend><strong>2)</strong> A diverging ramp is most appropriate when…</legend>
+            <label><input type="radio" name="2" value="a"/> There is a meaningful midpoint (e.g., change from 0)</label>
+            <label><input type="radio" name="2" value="b"/> You want to maximize the number of colors</label>
+            <label><input type="radio" name="2" value="c"/> The data are categories</label>
+            <label><input type="radio" name="2" value="d"/> You are mapping totals by county size</label>
+            <div data-why-correct hidden>Diverging ramps emphasize direction away from a central value.</div>
+            <div data-why-wrong hidden>More colors isn’t better; categories need distinct hues; totals need normalization.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="c">
+            <legend><strong>3)</strong> Quantile classification guarantees…</legend>
+            <label><input type="radio" name="3" value="a"/> Equal-width intervals</label>
+            <label><input type="radio" name="3" value="b"/> No outliers</label>
+            <label><input type="radio" name="3" value="c"/> Equal number of features per class</label>
+            <label><input type="radio" name="3" value="d"/> Identical breaks across datasets</label>
+            <div data-why-correct hidden>Quantile forces equal counts per class.</div>
+            <div data-why-wrong hidden>Equal interval is equal-width; outliers can still exist; breaks depend on the data.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="b">
+            <legend><strong>4)</strong> Equal interval classification can struggle when…</legend>
+            <label><input type="radio" name="4" value="a"/> Data are normally distributed</label>
+            <label><input type="radio" name="4" value="b"/> Data are highly skewed / peaked</label>
+            <label><input type="radio" name="4" value="c"/> You use 5 classes</label>
+            <label><input type="radio" name="4" value="d"/> Values are numeric</label>
+            <div data-why-correct hidden>Skew can push most features into 1–2 bins and leave empty bins.</div>
+            <div data-why-wrong hidden>Normal distributions are usually fine; the issue is skew and empty bins.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="d">
+            <legend><strong>5)</strong> Why avoid mapping raw counts on different-sized areas?</legend>
+            <label><input type="radio" name="5" value="a"/> Counts are always wrong</label>
+            <label><input type="radio" name="5" value="b"/> Counts can’t be classified</label>
+            <label><input type="radio" name="5" value="c"/> Counts require diverging colors</label>
+            <label><input type="radio" name="5" value="d"/> Counts mostly map “size” (population/area), not intensity</label>
+            <div data-why-correct hidden>Normalize to rates/densities so the map compares like with like.</div>
+            <div data-why-wrong hidden>The core issue is comparability—counts track size more than intensity.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="a">
+            <legend><strong>6)</strong> A good default number of classes for choropleths is…</legend>
+            <label><input type="radio" name="6" value="a"/> 5–7</label>
+            <label><input type="radio" name="6" value="b"/> 12–15</label>
+            <label><input type="radio" name="6" value="c"/> 2</label>
+            <label><input type="radio" name="6" value="d"/> 20+</label>
+            <div data-why-correct hidden>Humans can reliably distinguish only a limited number of shades.</div>
+            <div data-why-wrong hidden>Too many classes reduces readability.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="c">
+            <legend><strong>7)</strong> Which is an example of normalization?</legend>
+            <label><input type="radio" name="7" value="a"/> Total population</label>
+            <label><input type="radio" name="7" value="b"/> Number of crimes</label>
+            <label><input type="radio" name="7" value="c"/> Crimes per 1,000 residents</label>
+            <label><input type="radio" name="7" value="d"/> Number of parks</label>
+            <div data-why-correct hidden>Rates compare areas fairly by using a denominator.</div>
+            <div data-why-wrong hidden>Totals are not normalized by a denominator.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="07-summary.html">← Summary</a>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

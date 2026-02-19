@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 5 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 5 module">UPP 461 • Week 5</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Attribute tables, queries, and joins</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-attribute-tables.html">Attribute tables</a>
+            <a href="03-sql-queries.html">SQL + where clauses</a>
+            <a href="04-select-by-attribute.html">Select by attribute</a>
+            <a href="05-select-by-location.html">Select by location</a>
+            <a href="06-joins-and-relates.html">Joins + relates</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Check your understanding before class.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> In an attribute table, a row usually represents…</legend>
+            <label><input type="radio" name="1" value="a"/> A field (one attribute type)</label>
+            <label><input type="radio" name="1" value="b"/> A record for one feature</label>
+            <label><input type="radio" name="1" value="c"/> The map projection</label>
+            <label><input type="radio" name="1" value="d"/> A spatial relationship</label>
+            <div data-why-correct hidden>A row (record) contains all attributes for one feature.</div>
+            <div data-why-wrong hidden>Fields are columns; projections and spatial relationships are not rows.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="c">
+            <legend><strong>2)</strong> Which where clause correctly selects Cook County when <span class="mono">COUNTYFP</span> is text?</legend>
+            <label><input type="radio" name="2" value="a"/> COUNTYFP = 31</label>
+            <label><input type="radio" name="2" value="b"/> COUNTYFP = 031</label>
+            <label><input type="radio" name="2" value="c"/> COUNTYFP = '031'</label>
+            <label><input type="radio" name="2" value="d"/> COUNTYFP LIKE 031</label>
+            <div data-why-correct hidden>Text values usually need quotes, and leading zeros matter for codes like FIPS.</div>
+            <div data-why-wrong hidden>Without quotes you may lose leading zeros or get type mismatch.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="a">
+            <legend><strong>3)</strong> Using AND instead of OR usually makes a selection…</legend>
+            <label><input type="radio" name="3" value="a"/> Smaller / more strict</label>
+            <label><input type="radio" name="3" value="b"/> Larger / less strict</label>
+            <label><input type="radio" name="3" value="c"/> Exactly the same</label>
+            <label><input type="radio" name="3" value="d"/> Random</label>
+            <div data-why-correct hidden>AND requires both conditions to be true, reducing matches.</div>
+            <div data-why-wrong hidden>OR matches either condition, often increasing matches.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="d">
+            <legend><strong>4)</strong> Which selection type keeps the current selection and adds new matches?</legend>
+            <label><input type="radio" name="4" value="a"/> New selection</label>
+            <label><input type="radio" name="4" value="b"/> Remove from selection</label>
+            <label><input type="radio" name="4" value="c"/> Select subset</label>
+            <label><input type="radio" name="4" value="d"/> Add to selection</label>
+            <div data-why-correct hidden>“Add to selection” unions new matches with existing selection.</div>
+            <div data-why-wrong hidden>New replaces; remove subtracts; subset narrows.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="b">
+            <legend><strong>5)</strong> “Within a distance of” is conceptually like…</legend>
+            <label><input type="radio" name="5" value="a"/> A table join</label>
+            <label><input type="radio" name="5" value="b"/> Selecting within a buffer distance</label>
+            <label><input type="radio" name="5" value="c"/> Sorting by a field</label>
+            <label><input type="radio" name="5" value="d"/> Reprojecting data</label>
+            <div data-why-correct hidden>It’s a proximity rule—like selecting features inside a buffer around the source.</div>
+            <div data-why-wrong hidden>Joins/sorting/projection are not spatial proximity rules.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="a">
+            <legend><strong>6)</strong> For a join to work reliably, join fields must…</legend>
+            <label><input type="radio" name="6" value="a"/> Match in values and compatible field types</label>
+            <label><input type="radio" name="6" value="b"/> Have the same field name only</label>
+            <label><input type="radio" name="6" value="c"/> Be in the same order</label>
+            <label><input type="radio" name="6" value="d"/> Be created in the same project</label>
+            <div data-why-correct hidden>Type + formatting (text vs number, zeros, spaces) affect matching.</div>
+            <div data-why-wrong hidden>Names and ordering do not guarantee key matching.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="c">
+            <legend><strong>7)</strong> After a join, most joined fields are null. Best first move?</legend>
+            <label><input type="radio" name="7" value="a"/> Change basemap</label>
+            <label><input type="radio" name="7" value="b"/> Reproject the layer</label>
+            <label><input type="radio" name="7" value="c"/> Check key fields (type, zeros, spaces, duplicates)</label>
+            <label><input type="radio" name="7" value="d"/> Convert to raster</label>
+            <div data-why-correct hidden>Nulls usually mean the key values didn’t match due to formatting/type issues.</div>
+            <div data-why-wrong hidden>Basemaps/projection/raster conversion don’t fix key mismatches.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="07-summary.html">← Summary</a>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

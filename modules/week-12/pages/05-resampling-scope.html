@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Resampling + scope</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html">Data models</a>
+            <a href="03-raster-basics.html">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html" aria-current="page">Resampling + scope</a>
+            <a href="06-interpolation.html">Interpolation + IDW</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Resampling + scope</h2>
+        </div>
+
+        
+        <div class="card">
+          <h3>Resampling</h3>
+          <p><strong>Resampling</strong> changes a raster’s cell size (or alignment). You typically resample when:</p>
+          <ul>
+            <li>Aligning multiple rasters before overlay / map algebra.</li>
+            <li>Changing resolution for performance or analysis needs.</li>
+          </ul>
+          <p class="small"><strong>Important:</strong> use <em>nearest neighbor</em> for categorical data; use <em>bilinear/cubic</em> for continuous data.</p>
+        </div>
+
+        <div class="card">
+          <h3>Resampling diagram</h3>
+          <img src="../assets/resampling_diagram.png" alt="Diagram illustrating resampling of raster data when changing cell size or alignment.">
+        </div>
+
+        <div class="card">
+          <h3>Spatial scope of raster operations</h3>
+          <p>Raster functions can be categorized by the spatial extent used to compute each output cell:</p>
+          <ul>
+            <li><strong>Local:</strong> output cell depends only on the input cell(s) at the same location.</li>
+            <li><strong>Focal:</strong> output cell depends on a neighborhood window around the cell.</li>
+            <li><strong>Zonal:</strong> output depends on the zone the cell belongs to (and statistics within that zone).</li>
+            <li><strong>Global:</strong> output depends on the entire raster (or a very large region), e.g., distance transforms.</li>
+          </ul>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Local (cell-by-cell)</h3>
+            <img src="../assets/local_operation.png" alt="3D diagram illustrating a local raster operation: one output cell from the corresponding input cell(s).">
+          </div>
+          <div class="card">
+            <h3>Focal (neighborhood)</h3>
+            <img src="../assets/focal_operation.png" alt="3D diagram illustrating a focal raster operation: one output cell computed from a neighborhood window.">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Zonal (within zones)</h3>
+          <img src="../assets/zonal_or_global_operation.png" alt="3D diagram illustrating a zonal raster operation across zones or regions.">
+        </div>
+
+        <section class="card" data-scope-demo aria-label="Scope classifier activity">
+          <h3>Check yourself: which scope is it?</h3>
+          <p class="small">Pick the scope that best matches each scenario, then click <strong>Check</strong>.</p>
+
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <div class="grid two">
+            <div class="card" data-scope-item data-correct="local">
+              <p><strong>Scenario A:</strong> Add two rasters together <em>cell-by-cell</em> (e.g., elevation + sea-level-rise).</p>
+              <label class="small">Choose scope:
+                <select>
+                  <option value="">Select…</option>
+                  <option value="local">Local</option>
+                  <option value="focal">Focal</option>
+                  <option value="zonal">Zonal</option>
+                  <option value="global">Global</option>
+                </select>
+              </label>
+              <div class="controls">
+                <button type="button" data-check>Check</button>
+              </div>
+              <div data-out></div>
+            </div>
+
+            <div class="card" data-scope-item data-correct="focal">
+              <p><strong>Scenario B:</strong> Smooth a raster using a 3×3 mean filter.</p>
+              <label class="small">Choose scope:
+                <select>
+                  <option value="">Select…</option>
+                  <option value="local">Local</option>
+                  <option value="focal">Focal</option>
+                  <option value="zonal">Zonal</option>
+                  <option value="global">Global</option>
+                </select>
+              </label>
+              <div class="controls">
+                <button type="button" data-check>Check</button>
+              </div>
+              <div data-out></div>
+            </div>
+
+            <div class="card" data-scope-item data-correct="zonal">
+              <p><strong>Scenario C:</strong> Compute mean elevation <em>within each watershed polygon</em>.</p>
+              <label class="small">Choose scope:
+                <select>
+                  <option value="">Select…</option>
+                  <option value="local">Local</option>
+                  <option value="focal">Focal</option>
+                  <option value="zonal">Zonal</option>
+                  <option value="global">Global</option>
+                </select>
+              </label>
+              <div class="controls">
+                <button type="button" data-check>Check</button>
+              </div>
+              <div data-out></div>
+            </div>
+
+            <div class="card" data-scope-item data-correct="global">
+              <p><strong>Scenario D:</strong> Compute Euclidean distance to the nearest hospital for every cell.</p>
+              <label class="small">Choose scope:
+                <select>
+                  <option value="">Select…</option>
+                  <option value="local">Local</option>
+                  <option value="focal">Focal</option>
+                  <option value="zonal">Zonal</option>
+                  <option value="global">Global</option>
+                </select>
+              </label>
+              <div class="controls">
+                <button type="button" data-check>Check</button>
+              </div>
+              <div data-out></div>
+            </div>
+          </div>
+        </section>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="04-map-algebra.html">← Map algebra + reclass</a>
+          <a class="btn next" href="06-interpolation.html">Interpolation + IDW →</a>
+        </div>
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

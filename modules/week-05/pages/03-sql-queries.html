@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 5 • SQL + where clauses</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 5 module">UPP 461 • Week 5</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Attribute tables, queries, and joins</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-attribute-tables.html">Attribute tables</a>
+            <a href="03-sql-queries.html" aria-current="page">SQL + where clauses</a>
+            <a href="04-select-by-attribute.html">Select by attribute</a>
+            <a href="05-select-by-location.html">Select by location</a>
+            <a href="06-joins-and-relates.html">Joins + relates</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">SQL + where clauses</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>SQL / “where clauses”</h3>
+          <p>A <strong>where clause</strong> selects rows using comparisons and boolean logic.</p>
+          <ul>
+            <li><strong>Comparisons:</strong> =, &gt;, &lt;, &gt;=, &lt;=, !=</li>
+            <li><strong>Boolean:</strong> AND, OR, NOT</li>
+            <li><strong>Pattern:</strong> LIKE (varies by platform)</li>
+          </ul>
+          <p class="small"><strong>Remember:</strong> text values usually need quotes (e.g., <code>'031'</code>).</p>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide09_03_5fdad946.jpg" alt="Table describing SQL clauses such as SELECT, FROM, WHERE, ORDER BY."/>
+          <figcaption class="small">SQL clause structure (conceptual).</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide12_04_1903f28d.png" alt="Table of common query operators and examples."/>
+          <figcaption class="small">Common operators and examples.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide14_06_e650fe98.png" alt="Venn diagrams illustrating AND, OR, and NOT logic."/>
+          <figcaption class="small">Boolean logic changes your selection.</figcaption>
+        </figure>
+
+<div class="card" id="sql-demo">
+          <h3>Try it: build a where clause</h3>
+          <p class="small">Practice the logic on a tiny sample table.</p>
+          <div class="callout" role="note" aria-label="Practice table note">
+            <strong>Practice table:</strong> Use the rows below to visualize what you’re querying.
+            <span class="small">Tip: <code>STATEFP</code> and <code>COUNTYFP</code> are stored as text (often with leading zeros), so write queries like <code>STATEFP = '17'</code>.</span>
+          </div>
+
+          <h4 id="practice-table">Mini attribute table (sample)</h4>
+          <div class="table-wrap" role="region" aria-labelledby="practice-table" tabindex="0">
+            <table>
+              <caption>Sample records for the “Build a where clause” practice (fictional)</caption>
+              <thead><tr><th scope="col">ID</th><th scope="col">NAME</th><th scope="col">STATEFP</th><th scope="col">COUNTYFP</th><th scope="col">POP</th><th scope="col">MED_AGE</th></tr></thead>
+              <tbody><tr><td>001</td><td>Cook Tract A</td><td>17</td><td>031</td><td>5200</td><td>34.2</td></tr><tr><td>002</td><td>Cook Tract B</td><td>17</td><td>031</td><td>12000</td><td>29.8</td></tr><tr><td>003</td><td>DuPage Sample</td><td>17</td><td>043</td><td>8000</td><td>40.1</td></tr><tr><td>004</td><td>Cook Tract C</td><td>17</td><td>031</td><td>3000</td><td>41.5</td></tr><tr><td>005</td><td>Cook Central</td><td>17</td><td>031</td><td>15000</td><td>27.5</td></tr><tr><td>006</td><td>Kane Sample</td><td>17</td><td>093</td><td>9500</td><td>36.6</td></tr><tr><td>007</td><td>Not Illinois</td><td>18</td><td>031</td><td>4000</td><td>33.0</td></tr></tbody>
+            </table>
+          </div>
+
+
+          <div class="grid two">
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">Condition A</h4>
+              <div class="form-row">
+                <label for="sql-field-a">Field</label>
+                <select id="sql-field-a">
+                  <option value="COUNTYFP">COUNTYFP (text)</option>
+                  <option value="STATEFP">STATEFP (text)</option>
+                  <option value="POP">POP (number)</option>
+                  <option value="MED_AGE">MED_AGE (number)</option>
+                  <option value="NAME">NAME (text)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="sql-op-a">Operator</label>
+                <select id="sql-op-a">
+                  <option value="=">=</option>
+                  <option value="!=">!=</option>
+                  <option value=">">&gt;</option>
+                  <option value=">=">&gt;=</option>
+                  <option value="<">&lt;</option>
+                  <option value="<=">&lt;=</option>
+                  <option value="LIKE">LIKE (contains)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="sql-val-a">Value</label>
+                <input id="sql-val-a" type="text" placeholder="e.g., 031 or Cook"/>
+              </div>
+            </div>
+
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">Condition B (optional)</h4>
+              <div class="form-row">
+                <label for="sql-logic">Combine with</label>
+                <select id="sql-logic">
+                  <option value="AND">AND</option>
+                  <option value="OR">OR</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="sql-field-b">Field</label>
+                <select id="sql-field-b">
+                  <option value="">(none)</option>
+                  <option value="COUNTYFP">COUNTYFP (text)</option>
+                  <option value="STATEFP">STATEFP (text)</option>
+                  <option value="POP">POP (number)</option>
+                  <option value="MED_AGE">MED_AGE (number)</option>
+                  <option value="NAME">NAME (text)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="sql-op-b">Operator</label>
+                <select id="sql-op-b">
+                  <option value="=">=</option>
+                  <option value="!=">!=</option>
+                  <option value=">">&gt;</option>
+                  <option value=">=">&gt;=</option>
+                  <option value="<">&lt;</option>
+                  <option value="<=">&lt;=</option>
+                  <option value="LIKE">LIKE (contains)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="sql-val-b">Value</label>
+                <input id="sql-val-b" type="text" placeholder="e.g., 17 or 5000"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="next-row">
+            <button class="btn" type="button" data-sql-run>Run</button>
+            <button class="btn ghost" type="button" data-sql-reset>Reset</button>
+          </div>
+
+          <div class="card" style="background: var(--surface); margin-top: 1rem;">
+            <h4 class="small">Results</h4>
+            <div class="small" data-sql-expression aria-live="polite"></div>
+            <div class="small" data-sql-results aria-live="polite" style="margin-top:.5rem;"></div>
+          </div>
+        </div>
+
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="02-attribute-tables.html">← Attribute tables</a>
+          <span></span>
+          <a class="btn next" href="04-select-by-attribute.html">Select by attribute →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

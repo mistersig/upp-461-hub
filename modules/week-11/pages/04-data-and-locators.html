@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • Data + locators</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html">What is geocoding?</a>
+            <a href="04-data-and-locators.html" aria-current="page">Data + locators</a>
+            <a href="05-how-geocoding-works.html">How geocoding works</a>
+            <a href="06-quality-ethics.html">Quality + ethics</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Data + locators</h2>
+        </div>
+
+        <section class="card">
+          <p class="lede">Address geocoding needs <strong>two inputs</strong>: (1) your address table and (2) a reference database (street network with address ranges).</p>
+        </section>
+
+        <h2>1) Address table (your dataset)</h2>
+        <section class="card">
+          <p>Your table can be a spreadsheet (<code>.csv</code>, <code>.xls</code>) or database. It should include (at minimum):</p>
+          <ul>
+            <li>Street number + street name (and ideally type)</li>
+            <li>City / place</li>
+            <li>State</li>
+            <li>ZIP (optional but helpful)</li>
+          </ul>
+          <div class="callout">
+            <strong>Rule</strong>
+            Include a <strong>unique ID</strong> field so you can join results back to your original records.
+          </div>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/address_table_example.png" alt="Example address table with columns like company, address, ZIP, latitude, and longitude."/>
+          <figcaption class="muted">A typical input table: one row per record, one address per row.</figcaption>
+        </figure>
+
+        <h2>2) Reference database (streets + address ranges)</h2>
+        <section class="card">
+          <p>A reference dataset is a spatial layer (feature class) that includes attributes the geocoder can match against.</p>
+          <ul>
+            <li><strong>Street name</strong> and <strong>type</strong> (St, Ave, Blvd…)</li>
+            <li><strong>Address ranges</strong> (from/to) for left and right sides of segments</li>
+            <li>Optional helpers: ZIP codes, city/place, prefixes/suffixes (N/S/E/W)</li>
+          </ul>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/tiger_fields.png" alt="List of common TIGER/Line street segment fields such as street name, type, and left/right address ranges."/>
+          <figcaption class="muted">Example: fields commonly used for address locators (street name, type, from/to ranges, ZIP by side).</figcaption>
+        </figure>
+
+        <h2>Common reference layers</h2>
+        <section class="grid two">
+          <figure class="card">
+            <img src="../assets/street_centerlines_example.png" alt="Map showing a dense network of street centerlines."/>
+            <figcaption class="muted"><strong>Street centerlines</strong> are the most common reference for interpolation-based geocoding.</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="../assets/zip_polygons_example.png" alt="Map showing ZIP code polygon boundaries."/>
+            <figcaption class="muted"><strong>ZIP polygons</strong> can support coarser matching (e.g., ZIP centroids), but are less precise.</figcaption>
+          </figure>
+        </section>
+
+        <h2>TIGER vs local streets (tradeoffs)</h2>
+        <section class="grid two">
+          <div class="card">
+            <h3>U.S. Census TIGER/Line</h3>
+            <ul>
+              <li>National coverage, easy to access</li>
+              <li>Often “good enough” for classroom or broad analysis</li>
+              <li>May be less current in fast-changing areas</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Local jurisdictions (city/county/state)</h3>
+            <ul>
+              <li>Often more up-to-date (frequent updates)</li>
+              <li>Can be more accurate for city infrastructure work</li>
+              <li>Stops at jurisdiction boundaries; may require requests</li>
+            </ul>
+          </div>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/local_ref_map.png" alt="Map of a local street dataset with labeled streets."/>
+          <figcaption class="muted">Local datasets often come with detailed attributes and better positional accuracy within the jurisdiction.</figcaption>
+        </figure>
+
+        <details>
+          <summary>Check yourself: which method should I use?</summary>
+          <div class="card">
+            <p><strong>Scenario A:</strong> Your table has a field called <code>GEOID</code> that matches a census tract layer.</p>
+            <p class="small"><strong>Answer:</strong> Use a <strong>table join</strong> (shared key).</p>
+            <hr/>
+            <p><strong>Scenario B:</strong> Your table has <code>latitude</code> and <code>longitude</code> columns.</p>
+            <p class="small"><strong>Answer:</strong> Use <strong>Display XY</strong> (or “XY Table to Point”).</p>
+            <hr/>
+            <p><strong>Scenario C:</strong> Your table has only street addresses.</p>
+            <p class="small"><strong>Answer:</strong> Use <strong>geocoding</strong> (with a reference database + address locator).</p>
+          </div>
+        </details>
+
+        <h2>ArcGIS workflow (high level)</h2>
+        <section class="card">
+          <ol>
+            <li>Acquire an address table</li>
+            <li>Clean + standardize addresses</li>
+            <li>Acquire a reference dataset</li>
+            <li>Create an address locator (field mapping + thresholds)</li>
+            <li>Geocode addresses and review unmatched/ties</li>
+          </ol>
+        </section>
+
+        <div class="next-row">
+          <a class="btn next" href="05-how-geocoding-works.html">Next section →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

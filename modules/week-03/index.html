@@ -1,75 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 3</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Start here</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="course-links">
-          <a class="course-home" href="index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
-          <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
         </div>
-        <h1>Week 3 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
-      </div>
-
-      <div class="controls" aria-label="Header controls">
-        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
-          Theme: <span data-theme-label>Light</span>
-        </button>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
       </div>
     </div>
-
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
   </header>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="index.html" aria-current="page">Start here</a>
+            <a href="pages/02-graphicacy.html">Graphicacy</a>
+            <a href="pages/03-map-design-principles.html">Map design principles</a>
+            <a href="pages/04-color-accessibility.html">Color + accessibility</a>
+            <a href="pages/05-layout-elements.html">Layout elements</a>
+            <a href="pages/06-design-choices.html">Design choices</a>
+            <a href="pages/07-summary.html">Summary</a>
+            <a href="pages/08-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Start here</h2>
+      </div>
 
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
+      
+<div class="card">
+  <h3>What you’ll be able to do</h3>
+  <ul>
+    <li>Explain <strong>graphicacy</strong> and why it matters in GIS communication.</li>
+    <li>Apply <strong>figure–ground</strong>, contrast, and hierarchy to make the map’s message obvious.</li>
+    <li>Choose color schemes that match the data type (categorical vs quantitative) and remain <strong>accessible</strong>.</li>
+    <li>Build a layout using core map elements (title, legend, scale, credits) and justify what you include or omit.</li>
+  </ul>
+  <p class="small">This module supports lecture and in-class activities. It’s not a substitute for attending class.</p>
+</div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
-    </div>
-  </footer>
+<div class="grid two">
+  <div class="card">
+    <h3>How to use this module</h3>
+    <ol>
+      <li>Work through pages in order (left nav or Next buttons).</li>
+      <li>Try the interactives — they’re designed to reveal common mistakes.</li>
+      <li>Take the Quick Quiz at the end for a score + explanations.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>Key idea</h3>
+    <p><strong>Visual design in maps is about directing attention and controlling focus.</strong></p>
+    <p class="small">Your map is an argument: what’s important should “pop,” and everything else should support it without competing.</p>
+  </div>
+</div>
 
-  <script src="../../shared/module.js" defer></script>
+<div class="card">
+  <h3>Preview</h3>
+  <div class="grid two">
+    <figure class="media">
+      <img src="assets/slide06_5bbae697.png" alt="Example map design illustrating figure–ground and contrast." data-lightbox />
+      <figcaption class="small">We’ll practice figure–ground and contrast.</figcaption>
+    </figure>
+    <figure class="media">
+      <img src="assets/slide18_ce7c247f.png" alt="Example map layout with title, legend, scale, and credits." data-lightbox />
+      <figcaption class="small">We’ll build a clean, readable layout.</figcaption>
+    </figure>
+  </div>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <span></span>
+          <a class="btn" href="pages/02-graphicacy.html">Next →</a>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>

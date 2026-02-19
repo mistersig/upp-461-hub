@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UPP 461 • Week 11 • Addresses + standards</title>
+<link href="../style.css" rel="stylesheet"/>
+<script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<div class="container">
+<div class="header-row">
+<div>
+<div class="course-links">
+<a aria-label="Go to the start of the Week 11 module" class="course-home" href="../index.html">UPP 461 • Week 11</a>
+<a aria-label="Go to course home" class="course-exit" href="../../../index.html">Home</a>
+</div>
+<h1>Geocoding</h1>
+<p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+</div>
+<div aria-label="Header controls" class="controls">
+<button aria-label="Toggle theme" aria-pressed="false" class="ghost" data-theme-toggle="" type="button">
+            Theme: <span data-theme-label="">Light</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="container">
+<div class="layout">
+<aside class="sidebar">
+<div class="card">
+<nav aria-label="Module navigation" class="nav">
+<a href="../index.html">Start here</a>
+<a aria-current="page" href="02-addresses-and-standards.html">Addresses + standards</a>
+<a href="03-what-is-geocoding.html">What is geocoding?</a>
+<a href="04-data-and-locators.html">Data + locators</a>
+<a href="05-how-geocoding-works.html">How geocoding works</a>
+<a href="06-quality-ethics.html">Quality + ethics</a>
+<a href="07-summary.html">Summary</a>
+<a href="08-quiz.html">Quick quiz</a>
+</nav>
+</div>
+</aside>
+<main class="main" id="main" tabindex="-1">
+<div class="main-head">
+<h2 class="kicker">Addresses + standards</h2>
+</div>
+<section class="card">
+<p class="lede">Before we geocode, we need to ask: <strong>what is an address</strong>, and who gets counted as “addressable”?</p>
+<blockquote class="callout">
+<p>“An address, today, is an identity… In the modern world, in short, you are your address.”</p>
+<p class="small">— Deirdre Mask, <em>The Address Book</em></p>
+</blockquote>
+</section>
+<h2>What’s in an address?</h2>
+<section class="card">
+<p>An address is a <strong>structured description of location</strong> that people and institutions can agree on.</p>
+<ul>
+<li><strong>Human readable</strong>: designed for mail delivery, navigation, and service access.</li>
+<li><strong>Machine usable</strong>: can be parsed into components and matched to reference data.</li>
+<li><strong>Contextual</strong>: what “counts” as an address varies across places and systems.</li>
+</ul>
+</section>
+<h2>Why addresses matter (and who gets left out)</h2>
+<section class="grid two">
+<div class="card">
+<h3>Addresses as access</h3>
+<ul>
+<li>School enrollment, voting, utilities, banking</li>
+<li>Eligibility for services and benefits</li>
+<li>Being “findable” by institutions</li>
+</ul>
+</div>
+<div class="card">
+<h3>Addresses as power</h3>
+<ul>
+<li>Many people live without formal addresses</li>
+<li>Invisible to datasets and decision systems</li>
+<li>Emergency response and recovery can fail</li>
+</ul>
+</div>
+</section>
+<details>
+<summary>Check yourself: what’s the planning implication?</summary>
+<div class="card">
+<p><strong>Prompt:</strong> If a community has informal addressing, what might happen when the city tries to allocate resources using address-based data (permits, inspections, service requests)?</p>
+<p class="small"><strong>Takeaway:</strong> Address systems shape who is legible in administrative data — and that affects equity, enforcement, and service delivery.</p>
+</div>
+</details>
+<h2>Addressing “models” (very simplified)</h2>
+<section class="grid two">
+<div class="card">
+<h3>Common in many “Eastern” systems</h3>
+<ul>
+<li>Location described by <strong>areas</strong> (districts/blocks/buildings)</li>
+<li>Numbers may not reflect distance along a street</li>
+<li>Navigation often relies on landmarks + local knowledge</li>
+</ul>
+</div>
+<div class="card">
+<h3>Common in many “Western” systems</h3>
+<ul>
+<li>Street name + <strong>address number</strong></li>
+<li>Numbers often follow a predictable pattern (odds/evens)</li>
+<li>Supports interpolation-based geocoding on street segments</li>
+</ul>
+</div>
+</section>
+<p class="small">These are broad generalizations. Real addressing systems are diverse and often hybrid.</p>
+<h2>Addresses in emergencies</h2>
+<section class="card">
+<ul>
+<li>Dispatch and routing require <strong>fast, unambiguous locations</strong>.</li>
+<li>After disasters, informal or changing addresses can complicate aid delivery.</li>
+<li>Good addressing + good reference data can save time and lives.</li>
+</ul>
+</section>
+<h2>Standards (why they matter)</h2>
+<section class="card">
+<p>Standards help different systems interpret the same address consistently.</p>
+<ul>
+<li><strong>U.S.:</strong> FGDC + the National Address Database (NAD)</li>
+<li><strong>Global:</strong> Universal Postal Union (UPU)</li>
+<li><strong>Geospatial:</strong> Open Geospatial Consortium (OGC) (addressing + geocoding service patterns)</li>
+</ul>
+<div class="callout">
+<strong>Practical point</strong>
+            The more your input data matches standard formats, the higher your match rate (and the less time you spend cleaning).
+          </div>
+</section><section class="card"><h3>Addresses in emergencies and equity</h3><p class="muted">Table version (from the lecture deck). Scroll horizontally if needed.</p><div aria-labelledby="tbl-emerg-caption" class="table-wrap" role="region" tabindex="0"><table><caption id="tbl-emerg-caption">How addresses support response, recovery, and equitable visibility</caption><thead><tr><th scope="col">Function</th><th scope="col">Why It Matters</th></tr></thead><tbody><tr><td>911 Dispatch</td><td>Locates callers quickly via GIS address databases</td></tr><tr><td>Disaster Response</td><td>Maps flooded homes, collapsed buildings, evacuation routes</td></tr><tr><td>Public Alerts</td><td>Sends warnings to specific address zones</td></tr><tr><td>Recovery &amp; Aid</td><td>Ties addresses to insurance, FEMA, and relief records</td></tr><tr><td>Equity</td><td>Ensures marginalized areas aren’t invisible to the state</td></tr></tbody></table></div></section><section class="card"><h3>Modern street addressing: Europe → U.S.</h3><p class="muted">Table version (from the lecture deck). Scroll horizontally if needed.</p><div aria-labelledby="tbl-europe-caption" class="table-wrap" role="region" tabindex="0"><table><caption id="tbl-europe-caption">Comparing early modern addressing motivations and legacies (simplified)</caption><thead><tr><th scope="col">Theme</th><th scope="col">Paris (France)</th><th scope="col">Vienna (Austria)</th><th scope="col">England (UK)</th><th scope="col">United States (inherited)</th></tr></thead><tbody><tr><td>Motivation</td><td>Enlightenment order, policing, taxation</td><td>Imperial control, conscription, taxation</td><td>Postal efficiency, trade, urban growth</td><td>Postal delivery, property, urban grids</td></tr><tr><td>Period of Adoption</td><td>Mid-1700s–1800s</td><td>1770s (Maria Theresa &amp; Joseph II)</td><td>1760s–1800s (Post Office &amp; local councils)</td><td>1790s onward (Post Office &amp; city planning)</td></tr><tr><td>Authority Type</td><td>Centralized monarchy</td><td>Imperial bureaucracy</td><td>Local government &amp; postal service</td><td>Federal postal service &amp; municipalities</td></tr><tr><td>Symbolism</td><td>Rational modernity</td><td>Bureaucratic surveillance</td><td>Utility, civic identity</td><td>Democracy, equality of service (“every address matters”)</td></tr><tr><td>Primary Driver</td><td>Policing and modernization</td><td>Military administration</td><td>Communication and commerce</td><td>Postal network &amp; national integration</td></tr><tr><td>Legacy</td><td>Street order and modern identity</td><td>State population control</td><td>Modern postal grid and naming conventions</td><td>Global leader in addressing and parcel logistics</td></tr></tbody></table></div></section><section class="card"><h3>Address systems around the world</h3><p class="muted">Table version (from the lecture deck). Scroll horizontally if needed.</p><div aria-labelledby="tbl-global-caption" class="table-wrap" role="region" tabindex="0"><table><caption id="tbl-global-caption">Global address logics (simplified)</caption><thead><tr><th scope="col">Country</th><th scope="col">Logic</th><th scope="col">Example</th><th scope="col">Key Idea</th></tr></thead><tbody><tr><td>Japan</td><td>Block-based (no street names)</td><td>Tokyo -&gt; Ward -&gt; Block -&gt; Building</td><td>Community-centered, historical</td></tr><tr><td>Korea</td><td>Shifted from land parcel to street names (2014)</td><td>163 Seoulsiripdae-ro, Dongdaemun District, Seoul, South Korea</td><td>Modernized for logistics &amp; global use</td></tr><tr><td>China</td><td>Hierarchical administrative</td><td>Beijing, Chaoyang, Jianguo Rd 88</td><td>State-centered, administrative hierarchy</td></tr></tbody></table></div></section><section class="card"><h3>History of addresses (quick reference)</h3><p>These tables summarize how different address systems developed and why addressing matters for services and equity.</p></section>
+<div class="next-row">
+<a class="btn next" href="03-what-is-geocoding.html">Next section →</a>
+</div>
+<div class="footer">
+<div class="footer-row">
+<div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+<a class="bug-link" data-bug-report="" href="#">Report a bug</a>
+</div>
+<div class="small">Last updated: 2026-02-18</div>
+</div>
+</main>
+</div>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>

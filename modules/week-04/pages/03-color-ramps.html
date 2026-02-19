@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Color ramps</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-choropleth.html">Choropleth basics</a>
+            <a href="03-color-ramps.html" aria-current="page">Color ramps</a>
+            <a href="04-classification.html">Classification</a>
+            <a href="05-choosing-method.html">Choosing a method</a>
+            <a href="06-normalization.html">Normalization</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Color ramps</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>Color should match the data</h3>
+          <ul>
+            <li><strong>Categorical:</strong> different hues (distinct colors)</li>
+            <li><strong>Quantitative:</strong> light→dark (value/saturation of the same hue)</li>
+            <li><strong>Diverging:</strong> two directions away from a meaningful midpoint (e.g., change from 0)</li>
+          </ul>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide06_02_ce7c247f.png" alt="Swatches labeled Category, Quantity, Divergent."/>
+          <figcaption class="small">Different ramp types for different kinds of data.</figcaption>
+        </figure>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Do</h3>
+            <ul class="small">
+              <li>Use change in <strong>value/saturation</strong> to indicate magnitude</li>
+              <li>Keep classes to ~5–7 for readability</li>
+              <li>Ensure enough contrast between classes</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Don’t</h3>
+            <ul class="small">
+              <li>Avoid rainbow schemes for quantities</li>
+              <li>Avoid too many classes</li>
+              <li>Avoid “muddy” ramps where classes look identical</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide09_05_2bc62cbc.jpg" alt="Two maps showing different color choices for quantities."/>
+          <figcaption class="small">Color choice changes interpretability.</figcaption>
+        </figure>
+
+        <div class="card" id="ramp-demo">
+          <h3>Try it: preview a ramp</h3>
+          <div class="grid two">
+            <div>
+              <div class="form-row">
+                <label for="ramp-type">Ramp type</label>
+                <select id="ramp-type">
+                  <option value="sequential">Sequential (low → high)</option>
+                  <option value="diverging">Diverging (below/above midpoint)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="ramp-classes"># of classes</label>
+                <select id="ramp-classes">
+                  <option>5</option><option>6</option><option selected>7</option><option>8</option><option>9</option>
+                </select>
+              </div>
+              <div data-ramp-guidance></div>
+            </div>
+            <div>
+              <div class="swatch-row" aria-label="Color ramp preview" data-ramp-out></div>
+              <p class="small">Aim for a ramp that stays readable in grayscale and for color‑vision differences.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide10_06_b2c918c1.png" alt="Monochromatic scale from light to dark."/>
+          <figcaption class="small">Monochromatic ramps are easy to read.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide12_09_72d2bdb1.png" alt="Map example with a light-to-dark ramp."/>
+          <figcaption class="small">Contrast helps patterns stand out.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide12_11_4516038e.png" alt="Map example where classes are hard to distinguish."/>
+          <figcaption class="small">Not enough contrast makes patterns disappear.</figcaption>
+        </figure>
+
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="02-choropleth.html">← Choropleth basics</a>
+          <span></span>
+          <a class="btn next" href="04-classification.html">Classification →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

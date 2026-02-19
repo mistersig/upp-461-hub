@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • Summary</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html">What is geocoding?</a>
+            <a href="04-data-and-locators.html">Data + locators</a>
+            <a href="05-how-geocoding-works.html">How geocoding works</a>
+            <a href="06-quality-ethics.html">Quality + ethics</a>
+            <a href="07-summary.html" aria-current="page">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Summary</h2>
+        </div>
+
+        <section class="card">
+          <p class="lede">Geocoding turns address text into coordinates — but the output is only as trustworthy as the input and reference data.</p>
+        </section>
+
+        <h2>Key takeaways</h2>
+        <section class="card">
+          <ul>
+            <li><strong>Addresses are social infrastructure.</strong> They enable service access and institutional recognition — and can exclude people without formal addresses.</li>
+            <li><strong>Geocoding is a pipeline:</strong> preprocessing → matching → interpolating.</li>
+            <li><strong>You need two inputs:</strong> an address table + a reference database (streets with address ranges).</li>
+            <li><strong>Interpolation is an estimate</strong> along a street segment (not necessarily a rooftop location).</li>
+            <li><strong>Validate results</strong> using match rate and spot-check positional accuracy.</li>
+            <li><strong>Think about privacy</strong> before using online geocoding services with sensitive addresses.</li>
+          </ul>
+        </section>
+
+        <h2>ArcGIS checklist</h2>
+        <section class="card">
+          <ol>
+            <li>Inspect your table: one record per row, unique ID, consistent address fields.</li>
+            <li>Clean + standardize: fix common spelling/type/ZIP issues.</li>
+            <li>Choose reference data: TIGER for broad coverage; local for better updates/accuracy.</li>
+            <li>Create a locator: map fields correctly; set match thresholds.</li>
+            <li>Geocode + review: rematch “unmatched” and “tied” candidates; document decisions.</li>
+            <li>Report quality: match rate + known limitations for your analysis.</li>
+          </ol>
+        </section>
+
+        <div class="next-row">
+          <a class="btn next" href="08-quiz.html">Go to quick quiz →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

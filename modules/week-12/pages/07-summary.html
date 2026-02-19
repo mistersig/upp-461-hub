@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Summary</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html">Data models</a>
+            <a href="03-raster-basics.html">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html">Resampling + scope</a>
+            <a href="06-interpolation.html">Interpolation + IDW</a>
+            <a href="07-summary.html" aria-current="page">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Summary</h2>
+        </div>
+
+        
+        <div class="card">
+          <h3>Summary</h3>
+          <ul>
+            <li><strong>Raster</strong> represents space as a grid of cells; each cell stores a value.</li>
+            <li><strong>Resolution</strong> (cell size) is a tradeoff: more detail vs. more storage and compute.</li>
+            <li><strong>Map algebra</strong> is “grid math” — unary, binary, and conditional overlays.</li>
+            <li><strong>Reclassification</strong> remaps values into new classes (an analytical choice).</li>
+            <li><strong>Resampling</strong> changes cell size/alignment; choose methods based on data type.</li>
+            <li>Raster operations have a <strong>scope</strong>: local, focal, zonal, or global.</li>
+            <li><strong>Interpolation</strong> (e.g., IDW) estimates values between measured points; parameters matter.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Bring to class</h3>
+          <ul>
+            <li>One example where raster is the right model (and why).</li>
+            <li>One question about resampling or interpolation you want clarified.</li>
+          </ul>
+        </div>
+
+        <div class="next-row">
+          <a class="btn next" href="08-quiz.html">Take the quick quiz →</a>
+        </div>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="06-interpolation.html">← Interpolation + IDW</a>
+          <a class="btn next" href="08-quiz.html">Quick quiz →</a>
+        </div>
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Interpolation + IDW</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html">Data models</a>
+            <a href="03-raster-basics.html">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html">Resampling + scope</a>
+            <a href="06-interpolation.html" aria-current="page">Interpolation + IDW</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Interpolation + IDW</h2>
+        </div>
+
+        
+        <div class="card">
+          <h3>Interpolation</h3>
+          <p><strong>Interpolation</strong> estimates values at unknown locations based on known measurements.</p>
+          <p class="small">Big idea: because of spatial dependence (near things are more related than far things), we can predict between measured points — but the method and parameters matter.</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Example: sample points</h3>
+            <p class="small">Discrete measurements (points) can be interpolated to a continuous surface (raster).</p>
+            <img src="../assets/sample_points_map.png" alt="Map showing many sample points across a region (example measurements).">
+          </div>
+          <div class="card">
+            <h3>Contour map idea</h3>
+            <p class="small">Contours are one way to visualize a continuous surface derived from measurements.</p>
+            <img src="../assets/contour_map.png" alt="Contour map derived from elevation benchmarks.">
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Benchmarks (known values)</h3>
+            <img src="../assets/benchmark_points.png" alt="Map showing elevation benchmark points labeled with values.">
+          </div>
+          <div class="card">
+            <h3>IDW intuition</h3>
+            <p><strong>Inverse Distance Weighting (IDW)</strong> predicts a value as a weighted average, where closer points get more weight.</p>
+            <p class="small">The <strong>power</strong> parameter controls how quickly influence falls off with distance.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>IDW example figure</h3>
+          <img src="../assets/idw_formula.png" alt="IDW example showing distances from an interpolated point to known points and a weighted average calculation.">
+        </div>
+
+        <div class="card">
+          <h3>IDW surface example</h3>
+          <img src="../assets/idw_grid_example.png" alt="Example showing point measurements and an interpolated raster grid, with highlighted cells influenced by nearby points.">
+        </div>
+
+        <form class="card" data-idw>
+          <h3>Interactive: IDW power parameter</h3>
+          <p class="small">Move the slider. Watch how the weights and estimate change.</p>
+
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <label>
+            Power (<span class="mono">p</span>): 
+            <input type="range" min="1" max="6" step="1" value="2" data-idw-power>
+            <span class="mono" data-idw-power-label>2</span>
+          </label>
+
+          <div data-idw-out></div>
+        </form>
+
+        <div class="card">
+          <h3>Common pitfalls</h3>
+          <ul>
+            <li><strong>Garbage in, garbage out:</strong> interpolation won’t fix biased sampling.</li>
+            <li><strong>Parameter sensitivity:</strong> power, search radius, and number of neighbors change results.</li>
+            <li><strong>Over-interpretation:</strong> interpolated surfaces look “precise” even when uncertainty is high.</li>
+          </ul>
+        </div>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="05-resampling-scope.html">← Resampling + scope</a>
+          <a class="btn next" href="07-summary.html">Summary →</a>
+        </div>
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

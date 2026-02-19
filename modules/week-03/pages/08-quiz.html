@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Quick quiz</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+            <a href="02-graphicacy.html">Graphicacy</a>
+            <a href="03-map-design-principles.html">Map design principles</a>
+            <a href="04-color-accessibility.html">Color + accessibility</a>
+            <a href="05-layout-elements.html">Layout elements</a>
+            <a href="06-design-choices.html">Design choices</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html" aria-current="page">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Quick quiz</h2>
+      </div>
+
+      
+<div class="card">
+  <h3>Quick quiz</h3>
+  <p class="small">Answer the questions below. You’ll get a score and short explanations.</p>
+</div>
+
+<div class="card quiz" data-quiz>
+  <div class="quiz-meta">
+    <span class="pill">7 questions</span>
+    <span class="pill">Auto-graded</span>
+  </div>
+
+  <div data-quiz-mount></div>
+
+  <div class="toolbar">
+    <button class="btn" type="button" data-quiz-submit>Submit</button>
+    <button class="ghost" type="button" data-quiz-reset>Reset</button>
+    <span class="small" data-quiz-score aria-live="polite"></span>
+  </div>
+
+  <script type="application/json" id="quiz-data">[{"q": "Which statement best describes the figure\u2013ground effect?", "choices": ["Using GPS to place features accurately", "Using visual differences so important features stand out from background", "Only using warm colors on maps", "Putting all layers in the legend"], "answer": 1, "why": "Figure\u2013ground uses contrast, size, line weight, and drawing order to make the key message \u201cpop.\u201d"}, {"q": "For quantitative data (low \u2192 high), which color strategy is usually best?", "choices": ["Different hues for each class", "Same hue with changing value/saturation", "Random bright colors", "Only black and white"], "answer": 1, "why": "Quantitative data reads best as a single-hue ramp where value/saturation increases with magnitude."}, {"q": "Why do many cartographers avoid red\u2013green diverging color schemes?", "choices": ["They are illegal to use in GIS software", "They print too well in black and white", "They can be hard to distinguish for many color-blind users", "They always show the wrong values"], "answer": 2, "why": "Red\u2013green combinations are a common problem for color vision deficiency, reducing readability."}, {"q": "A transit diagram (like a subway map) often omits which element, and why?", "choices": ["Legend, because no symbols are used", "Scale, because the diagram is not drawn to scale and distances aren\u2019t the goal", "Title, because readers don\u2019t need context", "Credits, because data sources never matter"], "answer": 1, "why": "Transit maps prioritize connectivity and readability; scale is usually not meaningful."}, {"q": "What is a good reason to include a locator inset map?", "choices": ["To make the legend bigger", "To show where the mapped area sits within a larger region", "To replace the main map", "To avoid adding a title"], "answer": 1, "why": "Insets provide geographic context\u2014especially when the main map is zoomed in."}, {"q": "Which element should usually be one of the first things a reader sees?", "choices": ["North arrow", "Data source text", "Title", "Neatline"], "answer": 2, "why": "A descriptive title quickly tells the reader what/where/when."}, {"q": "If labels are hard to read, the best first fix is usually to\u2026", "choices": ["Make the basemap more detailed", "Increase contrast (e.g., darker labels or lighter background) and simplify competing layers", "Remove the title", "Use only warm colors"], "answer": 1, "why": "Legibility usually improves by increasing value contrast and reducing visual competition."}]</script>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="07-summary.html">← Previous</a>
+          <span></span>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

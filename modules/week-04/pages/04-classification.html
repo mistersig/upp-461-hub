@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Classification</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-choropleth.html">Choropleth basics</a>
+            <a href="03-color-ramps.html">Color ramps</a>
+            <a href="04-classification.html" aria-current="page">Classification</a>
+            <a href="05-choosing-method.html">Choosing a method</a>
+            <a href="06-normalization.html">Normalization</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Classification</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>Data classification = bins + legend</h3>
+          <p>Classification places values into ranges (bins). The breaks you choose affect the story your map tells.</p>
+          <ul>
+            <li>Histograms reveal skew and clusters</li>
+            <li>Breaks should be interpretable and defensible</li>
+            <li>Try multiple methods and compare results</li>
+          </ul>
+        </div>
+
+
+        
+
+        <div class="card" id="class-demo">
+          <h3>Try it: classification sandbox</h3>
+          <p class="small">Pick a dataset, a method, and a number of classes. Compare balance and breakpoints.</p>
+
+          <div class="grid">
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">1) Choose settings</h4>
+              <div class="grid auto">
+                <div class="form-row">
+                  <label for="class-dataset">Dataset</label>
+                  <select id="class-dataset">
+                    <option>Hotel room prices ($)</option>
+                    <option>Home values (log scale)</option>
+                    <option>Skewed counts</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="class-method">Method</label>
+                  <select id="class-method">
+                    <option value="jenks">Natural breaks (Jenks)</option>
+                    <option value="quantile">Quantile (equal frequency)</option>
+                    <option value="equal">Equal interval</option>
+                    <option value="manual">Manual (starter)</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="class-classes"># of classes</label>
+                  <select id="class-classes">
+                    <option>4</option><option>5</option><option selected>6</option><option>7</option><option>8</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">2) Output</h4>
+              <div data-class-counts></div>
+              <div style="margin-top: .75rem;" data-class-breaks></div>
+            </div>
+          </div>
+
+          <div class="callout" role="note">
+            <strong>Interpretation tip:</strong>
+            <span class="small">Quantile forces equal counts per class (balanced), but can split identical values. Equal interval is easy to explain, but can create empty classes on skewed data. Jenks often reveals clusters.</span>
+          </div>
+        </div>
+
+
+<figure class="figure">
+          <img class="zoomable" src="../assets/slide20_27_58811933.png" alt="Histogram of logarithm of home values."/>
+          <figcaption class="small">Histograms show distribution before you pick breaks.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide18_18_04531d8e.png" alt="Histogram plus four classification examples."/>
+          <figcaption class="small">Same data can look different under different classification methods.</figcaption>
+        </figure>
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="03-color-ramps.html">← Color ramps</a>
+          <span></span>
+          <a class="btn next" href="05-choosing-method.html">Choosing a method →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

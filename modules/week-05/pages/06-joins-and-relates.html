@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 5 • Joins + relates</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 5 module">UPP 461 • Week 5</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Attribute tables, queries, and joins</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-attribute-tables.html">Attribute tables</a>
+            <a href="03-sql-queries.html">SQL + where clauses</a>
+            <a href="04-select-by-attribute.html">Select by attribute</a>
+            <a href="05-select-by-location.html">Select by location</a>
+            <a href="06-joins-and-relates.html" aria-current="page">Joins + relates</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Joins + relates</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>Joins + relates</h3>
+          <p>Joins attach fields from one table to another using a shared key field.</p>
+          <div class="table-wrap" role="region" aria-label="Join vs relate comparison" tabindex="0">
+            <table class="table">
+              <thead><tr><th>Tool</th><th>Relationship</th><th>Use when…</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Join</strong></td><td>One-to-one / many-to-one</td><td>You want fields to appear in the target table.</td></tr>
+                <tr><td><strong>Relate</strong></td><td>One-to-many</td><td>Each target feature can match multiple records.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small"><strong>Key rule:</strong> key values must match exactly (type, zeros, spaces).</p>
+        </div>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide36_35_59fa906f.png" alt="Diagram showing two tables joined via a matching key field."/>
+          <figcaption class="small">A join links rows through a shared key.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide47_47_4eccb3eb.png" alt="Screenshot of Add Join tool dialog."/>
+          <figcaption class="small">Add Join: choose both tables and the key fields.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide44_43_530dce6f.png" alt="Screenshot showing field types for join keys."/>
+          <figcaption class="small">First check: field types and formats.</figcaption>
+        </figure>
+
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide44_44_ec9eb96d.png" alt="Screenshot of Field Calculator used to create a new key field."/>
+          <figcaption class="small">Common fix: build a cleaned join key with Field Calculator.</figcaption>
+        </figure>
+
+<div class="card" id="join-demo">
+          <h3>Try it: join troubleshooting</h3>
+          <p class="small">Pick a scenario and see what to check first.</p>
+
+          <div class="form-row">
+            <label for="join-scenario">Scenario</label>
+            <select id="join-scenario">
+              <option value="clean">Clean keys (best case)</option>
+              <option value="leadingZeros">Leading zeros (text vs number)</option>
+              <option value="dupes">Duplicates in the join table</option>
+              <option value="whitespace">Hidden spaces</option>
+            </select>
+          </div>
+
+          <div class="next-row">
+            <button class="btn" type="button" data-join-run>Show result</button>
+          </div>
+
+          <div class="card" style="background: var(--surface); margin-top: 1rem;">
+            <h4 class="small">Result</h4>
+            <div class="small" data-join-result aria-live="polite"></div>
+          </div>
+        </div>
+
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="05-select-by-location.html">← Select by location</a>
+          <span></span>
+          <a class="btn next" href="07-summary.html">Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

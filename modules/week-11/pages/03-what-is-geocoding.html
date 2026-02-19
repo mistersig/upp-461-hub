@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • What is geocoding?</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html" aria-current="page">What is geocoding?</a>
+            <a href="04-data-and-locators.html">Data + locators</a>
+            <a href="05-how-geocoding-works.html">How geocoding works</a>
+            <a href="06-quality-ethics.html">Quality + ethics</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">What is geocoding?</h2>
+        </div>
+
+        <section class="card">
+          <p class="lede"><strong>Geocoding</strong> converts text-based location descriptions (usually postal addresses) into geographic coordinates so they can be mapped and analyzed.</p>
+          <div class="callout">
+            <strong>Definition (plain language)</strong>
+            A geocoder reads an address, finds the best matching street/place in a reference dataset, and returns an estimated point.
+          </div>
+        </section>
+
+        <h2>Why geocoding matters for planners</h2>
+        <section class="grid two">
+          <div class="card">
+            <h3>Practical uses</h3>
+            <ul>
+              <li>Map incident/service calls (311, inspections, permits)</li>
+              <li>Analyze accessibility (distance to clinics, groceries, transit)</li>
+              <li>Target interventions (heat maps, hotspots, equity metrics)</li>
+              <li>Link administrative data to neighborhoods or parcels</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Hidden risks</h3>
+            <ul>
+              <li><strong>False precision:</strong> points can be “close enough” but wrong</li>
+              <li><strong>Bias:</strong> informal addresses may not match well</li>
+              <li><strong>Privacy:</strong> address data can identify people</li>
+            </ul>
+          </div>
+        </section>
+
+        <h2>From a table → a map</h2>
+        <section class="card">
+          <p>GIS can turn non-spatial tables into spatial layers if the table has a geographic attribute:</p>
+          <ul>
+            <li><strong>Shared field</strong> (e.g., state name, tract ID, FIPS) → <strong>Join attributes</strong></li>
+            <li><strong>Coordinates</strong> (lat/long or x/y) → <strong>Display XY</strong></li>
+            <li><strong>Addresses</strong> → <strong>Geocode</strong></li>
+          </ul>
+          <p class="small">We focus on the last case: address-based data.</p>
+        </section>
+
+        <figure class="card">
+          <svg viewBox="0 0 900 220" role="img" aria-label="Diagram showing address text turning into coordinates and a map point" style="width:100%; height:auto;">
+            <defs>
+              <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+                <path d="M0,0 L12,6 L0,12 Z" fill="currentColor"></path>
+              </marker>
+            </defs>
+            <rect x="20" y="50" width="250" height="120" rx="16" ry="16" fill="none" stroke="currentColor" stroke-width="3" opacity="0.75"></rect>
+            <text x="145" y="92" text-anchor="middle" font-size="22" fill="currentColor">Address text</text>
+            <text x="145" y="125" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.85">"125 Oak St"</text>
+            <text x="145" y="150" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.85">"Chicago IL"</text>
+
+            <line x1="290" y1="110" x2="430" y2="110" stroke="currentColor" stroke-width="3" marker-end="url(#arrow)" opacity="0.8"></line>
+
+            <rect x="440" y="50" width="210" height="120" rx="16" ry="16" fill="none" stroke="currentColor" stroke-width="3" opacity="0.75"></rect>
+            <text x="545" y="92" text-anchor="middle" font-size="22" fill="currentColor">Geocoder</text>
+            <text x="545" y="125" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.85">Match +</text>
+            <text x="545" y="150" text-anchor="middle" font-size="18" fill="currentColor" opacity="0.85">interpolate</text>
+
+            <line x1="660" y1="110" x2="800" y2="110" stroke="currentColor" stroke-width="3" marker-end="url(#arrow)" opacity="0.8"></line>
+
+            <rect x="810" y="50" width="70" height="120" rx="16" ry="16" fill="none" stroke="currentColor" stroke-width="3" opacity="0.75"></rect>
+            <circle cx="845" cy="110" r="10" fill="currentColor" opacity="0.85"></circle>
+            <text x="845" y="150" text-anchor="middle" font-size="16" fill="currentColor" opacity="0.85">point</text>
+          </svg>
+          <figcaption class="muted">Geocoding is a pipeline: parse address → match to reference data → estimate a coordinate.</figcaption>
+        </figure>
+
+        <details>
+          <summary>Check yourself: when is geocoding a bad idea?</summary>
+          <div class="card">
+            <p><strong>Good answer:</strong> when you need parcel-level precision but only have a street address range reference, or when addresses are incomplete/informal.</p>
+            <p class="small">If your decision depends on very precise placement, consider parcel data, rooftop geocoding, or field verification.</p>
+          </div>
+        </details>
+
+        <div class="next-row">
+          <a class="btn next" href="04-data-and-locators.html">Next section →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

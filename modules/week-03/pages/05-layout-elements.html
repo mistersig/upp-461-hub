@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Layout elements</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+            <a href="02-graphicacy.html">Graphicacy</a>
+            <a href="03-map-design-principles.html">Map design principles</a>
+            <a href="04-color-accessibility.html">Color + accessibility</a>
+            <a href="05-layout-elements.html" aria-current="page">Layout elements</a>
+            <a href="06-design-choices.html">Design choices</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Layout elements</h2>
+      </div>
+
+      
+<div class="card">
+  <h3>Core map elements</h3>
+  <p>Most layouts combine:</p>
+  <ul>
+    <li><strong>Title</strong> (descriptive: what/where/when)</li>
+    <li><strong>Legend</strong> (only what needs interpretation)</li>
+    <li><strong>Scale</strong> (bar/ratio/verbal) when distances matter</li>
+    <li><strong>Credits & data source</strong> (who made the data/map)</li>
+    <li><strong>North arrow</strong> when orientation isn’t obvious</li>
+  </ul>
+</div>
+
+<div class="card" data-widget="elements">
+  <h3>Try it: choose map elements</h3>
+  <p class="small">Some maps intentionally omit elements (e.g., transit diagrams omit scale). Choose what makes sense for each scenario.</p>
+
+  <div class="grid two">
+    <div>
+      <label class="field">
+        <span>Scenario</span>
+        <select data-scenario>
+          <option value="transit">Transit system map (like CTA)</option>
+          <option value="report">Planning report map (print/PDF)</option>
+          <option value="poster">Wall poster / public display</option>
+        </select>
+      </label>
+
+      <fieldset class="fieldset">
+        <legend>Include these elements</legend>
+        <label class="check"><input type="checkbox" value="title" /> Title</label>
+        <label class="check"><input type="checkbox" value="legend" /> Legend</label>
+        <label class="check"><input type="checkbox" value="scale" /> Scale</label>
+        <label class="check"><input type="checkbox" value="north" /> North arrow</label>
+        <label class="check"><input type="checkbox" value="credits" /> Data source & credits</label>
+        <label class="check"><input type="checkbox" value="text" /> Explanatory text</label>
+      </fieldset>
+
+      <button class="btn" type="button" data-elements-check>Check choices</button>
+      <p class="small" data-elements-out aria-live="polite"></p>
+    </div>
+
+    <div class="card">
+      <h4>Why this matters</h4>
+      <ul class="small">
+        <li><strong>Missing title</strong> = reader confusion.</li>
+        <li><strong>Missing credits</strong> = untrustworthy map.</li>
+        <li><strong>Legend overload</strong> = wasted attention.</li>
+      </ul>
+      <figure class="media">
+        <img src="../assets/slide18_ce7c247f.png" alt="Map layout example with key elements." data-lightbox />
+        <figcaption class="small">Example layout: map frame dominates; supporting elements are readable but not competing.</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Scale: three common forms</h3>
+  <div class="grid two">
+    <ul>
+      <li><strong>Representative fraction:</strong> 1:10,000</li>
+      <li><strong>Scale bar:</strong> graphic bar</li>
+      <li><strong>Verbal:</strong> 1 inch = 500 miles</li>
+    </ul>
+    
+<figure class="media scale-figure">
+  <svg class="scale-svg" viewBox="0 0 760 220" role="img" aria-labelledby="scaleTitle scaleDesc">
+    <title id="scaleTitle">Example scale bars</title>
+    <desc id="scaleDesc">Two graphic scale bars: kilometers and miles, with alternating segments and tick labels.</desc>
+
+    <!-- Km bar -->
+    <text x="40" y="42" class="scale-label">Kilometers</text>
+    <g transform="translate(40,60)">
+      <rect x="0"   y="0" width="120" height="34" class="scale-seg a"></rect>
+      <rect x="120" y="0" width="120" height="34" class="scale-seg b"></rect>
+      <rect x="240" y="0" width="120" height="34" class="scale-seg a"></rect>
+      <rect x="360" y="0" width="120" height="34" class="scale-seg b"></rect>
+
+      <line x1="0"   y1="34" x2="0"   y2="52" class="scale-tick"></line>
+      <line x1="120" y1="34" x2="120" y2="52" class="scale-tick"></line>
+      <line x1="240" y1="34" x2="240" y2="52" class="scale-tick"></line>
+      <line x1="360" y1="34" x2="360" y2="52" class="scale-tick"></line>
+      <line x1="480" y1="34" x2="480" y2="52" class="scale-tick"></line>
+
+      <text x="0"   y="78" class="scale-txt">0</text>
+      <text x="120" y="78" class="scale-txt">1</text>
+      <text x="240" y="78" class="scale-txt">2</text>
+      <text x="360" y="78" class="scale-txt">3</text>
+      <text x="480" y="78" class="scale-txt">4 km</text>
+    </g>
+
+    <!-- Miles bar -->
+    <text x="40" y="150" class="scale-label">Miles</text>
+    <g transform="translate(40,168)">
+      <rect x="0"   y="0" width="160" height="34" class="scale-seg a"></rect>
+      <rect x="160" y="0" width="160" height="34" class="scale-seg b"></rect>
+      <rect x="320" y="0" width="160" height="34" class="scale-seg a"></rect>
+
+      <line x1="0"   y1="34" x2="0"   y2="52" class="scale-tick"></line>
+      <line x1="160" y1="34" x2="160" y2="52" class="scale-tick"></line>
+      <line x1="320" y1="34" x2="320" y2="52" class="scale-tick"></line>
+      <line x1="480" y1="34" x2="480" y2="52" class="scale-tick"></line>
+
+      <text x="0"   y="78" class="scale-txt">0</text>
+      <text x="160" y="78" class="scale-txt">1</text>
+      <text x="320" y="78" class="scale-txt">2</text>
+      <text x="480" y="78" class="scale-txt">3 mi</text>
+    </g>
+  </svg>
+  <figcaption class="small">Transparency can reduce competition from basemaps.</figcaption>
+</figure>
+
+  </div>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="04-color-accessibility.html">← Previous</a>
+          <a class="btn" href="06-design-choices.html">Next →</a>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

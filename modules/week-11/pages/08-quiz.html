@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html">What is geocoding?</a>
+            <a href="04-data-and-locators.html">Data + locators</a>
+            <a href="05-how-geocoding-works.html">How geocoding works</a>
+            <a href="06-quality-ethics.html">Quality + ethics</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Use this to check your understanding before class.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> What are the two key inputs needed for address geocoding?</legend>
+            <label><input type="radio" name="1" value="a"/> A satellite image and a DEM</label>
+            <label><input type="radio" name="1" value="b"/> An address table and a reference database (streets with address ranges)</label>
+            <label><input type="radio" name="1" value="c"/> A PDF map and a compass</label>
+            <label><input type="radio" name="1" value="d"/> Any shapefile; the rest is automatic</label>
+            <div data-why-correct hidden>An address table provides the records to locate, and the reference database provides the streets/ranges used to match and estimate coordinates.</div>
+            <div data-why-wrong hidden>Geocoding needs both your input addresses and a reference dataset that contains street names and address ranges (or other matching geometry).</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="a">
+            <legend><strong>2)</strong> In preprocessing, <em>parsing</em> is best described as…</legend>
+            <label><input type="radio" name="2" value="a"/> Breaking an address into components (number, street name, type, city, ZIP)</label>
+            <label><input type="radio" name="2" value="b"/> Estimating a point location along a street segment</label>
+            <label><input type="radio" name="2" value="c"/> Choosing the final candidate street</label>
+            <label><input type="radio" name="2" value="d"/> Calculating travel time between points</label>
+            <div data-why-correct hidden>Parsing isolates address parts so the geocoder can compare them to reference fields consistently.</div>
+            <div data-why-wrong hidden>Interpolation happens after matching. Matching chooses candidates. Travel time is a network analysis task, not geocoding.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="c">
+            <legend><strong>3)</strong> A <em>match score</em> mainly reflects…</legend>
+            <label><input type="radio" name="3" value="a"/> The distance from your point to downtown</label>
+            <label><input type="radio" name="3" value="b"/> The number of records in your table</label>
+            <label><input type="radio" name="3" value="c"/> How well an input address matches a reference candidate (street name/type/ZIP, etc.)</label>
+            <label><input type="radio" name="3" value="d"/> The accuracy of the GPS sensor used</label>
+            <div data-why-correct hidden>Match scores are based on text/attribute similarity between the input address and candidate features in the reference dataset.</div>
+            <div data-why-wrong hidden>Geocoding match scores aren’t about GPS sensors or your dataset size. They’re about how well the input matches reference candidates.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="b">
+            <legend><strong>4)</strong> In the interpolation step, what is being interpolated?</legend>
+            <label><input type="radio" name="4" value="a"/> A measured value like temperature</label>
+            <label><input type="radio" name="4" value="b"/> The <em>location</em> of an address along a street segment within an address range</label>
+            <label><input type="radio" name="4" value="c"/> The ZIP code boundary</label>
+            <label><input type="radio" name="4" value="d"/> The number of lanes on a road</label>
+            <div data-why-correct hidden>Address interpolation estimates a point’s position along a street segment based on where the address number falls within the from–to range.</div>
+            <div data-why-wrong hidden>This interpolation is about placing a point, not estimating a physical measurement or modifying polygons.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="d">
+            <legend><strong>5)</strong> Which match rate is often considered a reasonable rule-of-thumb for a large dataset (before you inspect errors)?</legend>
+            <label><input type="radio" name="5" value="a"/> 15–20%</label>
+            <label><input type="radio" name="5" value="b"/> 50%</label>
+            <label><input type="radio" name="5" value="c"/> 70%</label>
+            <label><input type="radio" name="5" value="d"/> 85–87%</label>
+            <div data-why-correct hidden>For large, messy administrative datasets, 85–87% can be “good” — but you still must examine unmatched and low-confidence matches.</div>
+            <div data-why-wrong hidden>Lower match rates may indicate address quality issues, reference gaps, or overly strict thresholds. The goal is not perfection, but defensible quality.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="a">
+            <legend><strong>6)</strong> Which input is most likely to fail rooftop/street address geocoding?</legend>
+            <label><input type="radio" name="6" value="a"/> P.O. Box 123, Chicago IL</label>
+            <label><input type="radio" name="6" value="b"/> 123 E Oak St, Chicago IL</label>
+            <label><input type="radio" name="6" value="c"/> 1000 W Madison St, Chicago IL</label>
+            <label><input type="radio" name="6" value="d"/> 2500 S Michigan Ave, Chicago IL</label>
+            <div data-why-correct hidden>P.O. Boxes are mail drop locations and don’t correspond to a street frontage position in a street centerline reference.</div>
+            <div data-why-wrong hidden>Street addresses can usually be matched to a street segment and interpolated, assuming the reference dataset includes the street and ranges.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="c">
+            <legend><strong>7)</strong> What is a key concern when using an online geocoding service for sensitive records?</legend>
+            <label><input type="radio" name="7" value="a"/> Your monitor brightness might change</label>
+            <label><input type="radio" name="7" value="b"/> It always produces perfect results</label>
+            <label><input type="radio" name="7" value="c"/> Privacy and confidentiality (you are sending addresses to a third party)</label>
+            <label><input type="radio" name="7" value="d"/> It prevents you from making maps</label>
+            <div data-why-correct hidden>Online services can log, store, or process addresses under their terms. Consider data sensitivity and policy requirements.</div>
+            <div data-why-wrong hidden>The main issue is not screen settings. Also, online services are not guaranteed accurate or appropriate for all use cases.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        <div class="next-row">
+          <a class="btn next" href="07-summary.html">Back to Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 11 • How geocoding works</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 11 module">UPP 461 • Week 11</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Geocoding</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-addresses-and-standards.html">Addresses + standards</a>
+            <a href="03-what-is-geocoding.html">What is geocoding?</a>
+            <a href="04-data-and-locators.html">Data + locators</a>
+            <a href="05-how-geocoding-works.html" aria-current="page">How geocoding works</a>
+            <a href="06-quality-ethics.html">Quality + ethics</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">How geocoding works</h2>
+        </div>
+
+        <section class="card">
+          <p class="lede">Geocoding is a three-stage process: <strong>preprocessing</strong> → <strong>matching</strong> → <strong>interpolating</strong>.</p>
+          <div class="callout">
+            <strong>Keep in mind</strong>
+            Many results are <em>approximations along a street segment</em>—not rooftop or parcel locations.
+          </div>
+        </section>
+
+        <h2>1) Preprocessing (parsing + standardizing)</h2>
+        <section class="card">
+          <p><strong>Parsing</strong> breaks an address into components. <strong>Standardizing</strong> makes those components consistent (ordering, abbreviations, missing values).</p>
+          <ul>
+            <li><strong>Parsing example:</strong> is <code>St.</code> “Street” or “Saint”?</li>
+            <li><strong>Standardizing example:</strong> convert <code>5th Ave</code>, <code>Fifth Avenue</code>, <code>5TH AV</code> into a consistent form.</li>
+          </ul>
+        </section>
+
+        <details>
+          <summary>Check yourself: parse this address</summary>
+          <div class="card">
+            <p><strong>Address:</strong> <code>125 E Oak St, Apt 2, Pittsburgh, PA 15213</code></p>
+            <ul>
+              <li><strong>Number:</strong> 125</li>
+              <li><strong>Prefix:</strong> E</li>
+              <li><strong>Street name:</strong> Oak</li>
+              <li><strong>Type:</strong> St</li>
+              <li><strong>Unit:</strong> Apt 2</li>
+              <li><strong>City / state / ZIP:</strong> Pittsburgh, PA 15213</li>
+            </ul>
+          </div>
+        </details>
+
+        <h2>2) Matching (candidate streets + match scores)</h2>
+        <section class="card">
+          <p>The geocoder compares your parsed address to the reference database and proposes one or more <strong>candidates</strong>.</p>
+          <ul>
+            <li>A <strong>match score</strong> reflects how well the text matches (street name, type, ZIP, etc.).</li>
+            <li>You can set a <strong>threshold</strong> to accept or reject low-confidence matches.</li>
+            <li>If multiple candidates tie, you may need manual review or better input data.</li>
+          </ul>
+          <p class="small">A stricter threshold can increase confidence but reduce match rate.</p>
+        </section>
+
+        <h2>3) Interpolating (estimating the point location)</h2>
+        <section class="card">
+          <p><strong>Linear interpolation</strong> estimates where the address falls within an address range on a street segment.</p>
+          <ul>
+            <li>If the reference segment has a range (e.g., <code>1001–1299</code>), the address number is placed proportionally along the segment.</li>
+            <li>Often, <strong>odd numbers</strong> are on one side and <strong>even numbers</strong> on the other (but this is not universal).</li>
+          </ul>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/geocode_result_example.png" alt="Example map screenshot showing an address point placed along a street segment."/>
+          <figcaption class="muted">Example: a found address placed along the street where the address number likely falls.</figcaption>
+        </figure>
+
+        <h2>Mini tool: linear interpolation demo</h2>
+        <section class="card">
+          <p class="small">Use this to build intuition. In a real geocoder, the system also checks street name, city, ZIP, and multiple candidates.</p>
+
+          <form data-interp>
+            <div class="grid two">
+              <div class="card" style="margin:0;">
+                <label for="addr"><strong>Address number</strong></label>
+                <input id="addr" name="addr" type="number" inputmode="numeric" placeholder="1149"/>
+                <p class="small muted">Try: <code>1149</code></p>
+              </div>
+              <div class="card" style="margin:0;">
+                <p><strong>Street segment ranges</strong></p>
+                <div class="grid two">
+                  <div>
+                    <label for="lf">Left from</label>
+                    <input id="lf" name="lf" type="number" inputmode="numeric" placeholder="1000"/>
+                  </div>
+                  <div>
+                    <label for="lt">Left to</label>
+                    <input id="lt" name="lt" type="number" inputmode="numeric" placeholder="1298"/>
+                  </div>
+                  <div>
+                    <label for="rf">Right from</label>
+                    <input id="rf" name="rf" type="number" inputmode="numeric" placeholder="1001"/>
+                  </div>
+                  <div>
+                    <label for="rt">Right to</label>
+                    <input id="rt" name="rt" type="number" inputmode="numeric" placeholder="1299"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="next-row" style="justify-content:flex-start; gap:10px;">
+              <button class="btn primary" type="submit" data-interp-run>Estimate position</button>
+              <button class="btn" type="reset">Clear</button>
+              <span class="visually-hidden" data-live aria-live="polite"></span>
+            </div>
+
+            <div data-interp-out></div>
+          </form>
+        </section>
+
+        <h2>Offsetting (making points easier to see)</h2>
+        <section class="card">
+          <p>When multiple points fall on the same street segment, a geocoder can offset them slightly.</p>
+          <ul>
+            <li><strong>End offset:</strong> moves points away from intersections/endpoints</li>
+            <li><strong>Side offset:</strong> nudges points off the centerline to the left/right</li>
+          </ul>
+        </section>
+
+        <figure class="card">
+          <img src="../assets/offset_diagram.png" alt="Diagram showing end offset and side offset from a street segment."/>
+          <figcaption class="muted">Offsets reduce overlap and improve readability.</figcaption>
+        </figure>
+
+        <div class="next-row">
+          <a class="btn next" href="06-quality-ethics.html">Next section →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

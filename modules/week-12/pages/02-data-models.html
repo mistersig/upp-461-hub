@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Data models</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html" aria-current="page">Data models</a>
+            <a href="03-raster-basics.html">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html">Resampling + scope</a>
+            <a href="06-interpolation.html">Interpolation + IDW</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Data models</h2>
+        </div>
+
+        
+        <div class="card">
+          <h3>Data models</h3>
+          <p>GIS commonly uses two “big” data models:</p>
+          <ul>
+            <li><strong>Vector:</strong> discrete features (points/lines/polygons) with attributes.</li>
+            <li><strong>Raster:</strong> a grid of cells (pixels), where each cell stores a value (category or measurement).</li>
+          </ul>
+          <p class="small">Both can represent the same phenomenon — but they support different kinds of analysis.</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Vector → raster</h3>
+            <p class="small">When we “rasterize” polygons, features become a grid. The result depends on cell size (resolution) and how boundaries are handled.</p>
+            <img src="../assets/raster_from_polygons.png" alt="Diagram showing polygons converted into a raster grid (raster from polygons).">
+          </div>
+          <div class="card">
+            <h3>Resolution matters</h3>
+            <p class="small">Coarser cells generalize the pattern. Finer cells capture more detail but increase storage and processing time.</p>
+            <img src="../assets/coarse_resolution.png" alt="Diagram showing input vegetation and a coarse raster resolution representation.">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>When raster is a good fit</h3>
+          <ul>
+            <li>Continuous surfaces: elevation, temperature, pollution, density.</li>
+            <li>Image data: aerial/satellite imagery (multiple bands).</li>
+            <li>Fast overlay math: suitability models, map algebra, cost distance.</li>
+          </ul>
+        </div>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="../index.html">← Start here</a>
+          <a class="btn next" href="03-raster-basics.html">Raster basics →</a>
+        </div>
+        
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

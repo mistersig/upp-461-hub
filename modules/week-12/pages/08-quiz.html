@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 12 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    // Set theme before paint to avoid flash (default: light)
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 12 module">UPP 461 • Week 12</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Raster Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-data-models.html">Data models</a>
+            <a href="03-raster-basics.html">Raster basics</a>
+            <a href="04-map-algebra.html">Map algebra + reclass</a>
+            <a href="05-resampling-scope.html">Resampling + scope</a>
+            <a href="06-interpolation.html">Interpolation + IDW</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Use this to check your understanding before class.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> Which statement best describes a raster dataset?</legend>
+            <label><input type="radio" name="1" value="a"/> A set of points, lines, and polygons with attributes</label>
+            <label><input type="radio" name="1" value="b"/> A grid of cells where each cell stores a value</label>
+            <label><input type="radio" name="1" value="c"/> A table with no geometry</label>
+            <label><input type="radio" name="1" value="d"/> A network of roads and turns</label>
+            <div data-why-correct hidden>Rasters are gridded cells (pixels) storing values (categories or measurements).</div>
+            <div data-why-wrong hidden>Vector features and networks are different data models. Raster = grid of cells.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="c">
+            <legend><strong>2)</strong> If you decrease raster cell size (higher resolution), what usually happens?</legend>
+            <label><input type="radio" name="2" value="a"/> Files get smaller and processing gets faster</label>
+            <label><input type="radio" name="2" value="b"/> Nothing changes</label>
+            <label><input type="radio" name="2" value="c"/> More detail, but larger files and slower processing</label>
+            <label><input type="radio" name="2" value="d"/> The raster becomes vector data</label>
+            <div data-why-correct hidden>Smaller cells increase cell count, which increases storage and compute cost.</div>
+            <div data-why-wrong hidden>Higher resolution generally means more cells, not fewer.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="a">
+            <legend><strong>3)</strong> “NoData” in a raster most accurately means…</legend>
+            <label><input type="radio" name="3" value="a"/> The value is unknown / missing / outside coverage</label>
+            <label><input type="radio" name="3" value="b"/> The value is exactly 0</label>
+            <label><input type="radio" name="3" value="c"/> The cell is the lowest elevation</label>
+            <label><input type="radio" name="3" value="d"/> The cell is automatically ignored in every tool</label>
+            <div data-why-correct hidden>NoData represents missing/undefined values; 0 is a real value if 0 is meaningful in that dataset.</div>
+            <div data-why-wrong hidden>NoData is not “zero.” Tools often treat NoData specially, but behavior varies.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="d">
+            <legend><strong>4)</strong> Reclassification is best described as…</legend>
+            <label><input type="radio" name="4" value="a"/> Converting raster to vector polygons</label>
+            <label><input type="radio" name="4" value="b"/> Changing the projection of a raster</label>
+            <label><input type="radio" name="4" value="c"/> Smoothing a raster with a neighborhood filter</label>
+            <label><input type="radio" name="4" value="d"/> Remapping old values (or ranges) into new classes</label>
+            <div data-why-correct hidden>Reclass remaps values/ranges into new categories or scores.</div>
+            <div data-why-wrong hidden>Projection changes and smoothing are different operations.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="b">
+            <legend><strong>5)</strong> When resampling a categorical land cover raster, which method is usually appropriate?</legend>
+            <label><input type="radio" name="5" value="a"/> Bilinear interpolation</label>
+            <label><input type="radio" name="5" value="b"/> Nearest neighbor</label>
+            <label><input type="radio" name="5" value="c"/> Cubic convolution</label>
+            <label><input type="radio" name="5" value="d"/> IDW</label>
+            <div data-why-correct hidden>Nearest neighbor preserves category codes and avoids creating “mixed” classes.</div>
+            <div data-why-wrong hidden>Bilinear/cubic create new intermediate values, which is bad for categories.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="c">
+            <legend><strong>6)</strong> A focal operation uses…</legend>
+            <label><input type="radio" name="6" value="a"/> Only one input cell at a time</label>
+            <label><input type="radio" name="6" value="b"/> Only the zone polygon boundary</label>
+            <label><input type="radio" name="6" value="c"/> A neighborhood window (e.g., 3×3) around each cell</label>
+            <label><input type="radio" name="6" value="d"/> The entire raster at once</label>
+            <div data-why-correct hidden>Focal (neighborhood) tools compute outputs from a moving window around each cell.</div>
+            <div data-why-wrong hidden>Local uses just the corresponding cell; global uses the whole raster; zonal summarizes within zones.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="d">
+            <legend><strong>7)</strong> In IDW interpolation, increasing the power parameter (<span class="mono">p</span>) tends to…</legend>
+            <label><input type="radio" name="7" value="a"/> Make far points more influential</label>
+            <label><input type="radio" name="7" value="b"/> Make all points equally influential</label>
+            <label><input type="radio" name="7" value="c"/> Remove the need for measured data</label>
+            <label><input type="radio" name="7" value="d"/> Make near points much more influential (spikier surface)</label>
+            <div data-why-correct hidden>Higher p increases distance decay, so nearby points dominate.</div>
+            <div data-why-wrong hidden>IDW still depends on measured points; it doesn’t make influence equal or favor far points.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="07-summary.html">← Summary</a>
+          <span></span>
+        </div>
+        
+        <div class="next-row">
+          <a class="btn next" href="07-summary.html">Back to Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

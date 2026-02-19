@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Normalization</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-choropleth.html">Choropleth basics</a>
+            <a href="03-color-ramps.html">Color ramps</a>
+            <a href="04-classification.html">Classification</a>
+            <a href="05-choosing-method.html">Choosing a method</a>
+            <a href="06-normalization.html" aria-current="page">Normalization</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Normalization</h2>
+        </div>
+
+
+        <div class="card">
+          <h3>Map rates, not counts</h3>
+          <p>When areas vary in population or size, raw totals mostly map “size.” Normalize to a denominator:</p>
+          <ul>
+            <li>Percent / proportion (part ÷ whole)</li>
+            <li>Per-capita rate (count ÷ population)</li>
+            <li>Density (count ÷ area)</li>
+          </ul>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Counts</h3>
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide27_33_47778728.jpg" alt="California counties choropleth map of total population."/>
+          <figcaption class="small">Counts tend to highlight large areas or large populations.</figcaption>
+        </figure>          
+          </div>
+          <div class="card">
+            <h3>Density (per area)</h3>
+
+        <figure class="figure">
+          <img class="zoomable" src="../assets/slide27_34_d87aa06c.jpg" alt="California counties choropleth map of population per square mile."/>
+          <figcaption class="small">Normalizing can reveal a different pattern.</figcaption>
+        </figure>          
+          </div>
+        </div>
+
+        <div class="card" id="norm-demo">
+          <h3>Try it: normalization calculator</h3>
+          <p class="small">Turn a raw count into a comparable rate (so your map is about <em>intensity</em>, not just “big places”).</p>
+
+          <div class="notice info">
+            <div class="small"><strong>Formula:</strong> rate = (count ÷ denominator) × per‑unit</div>
+          </div>
+
+          <div class="grid">
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">Inputs</h4>
+
+              <div class="form-row">
+                <label for="norm-count">1) Count (what happened)</label>
+                <div class="small">Example: number of crashes, crimes, calls, permits, or cases in each area.</div>
+                <input id="norm-count" type="number" value="250" inputmode="numeric"/>
+              </div>
+
+              <div class="form-row">
+                <label for="norm-denom">2) Denominator (what you divide by)</label>
+                <div class="small">Usually <strong>population</strong> (for a per‑capita rate) or <strong>area</strong> (for a density). Must be &gt; 0.</div>
+                <input id="norm-denom" type="number" value="50000" inputmode="numeric"/>
+              </div>
+
+              <div class="form-row">
+                <label for="norm-per">3) Per‑unit (how you want to report the rate)</label>
+                <div class="small">Pick a standard scale that matches your topic (e.g., public health often uses per 100,000).</div>
+                <select id="norm-per">
+                  <option value="100">per 100</option>
+                  <option value="1000" selected>per 1,000</option>
+                  <option value="10000">per 10,000</option>
+                  <option value="100000">per 100,000</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card" style="background: var(--surface);">
+              <h4 class="small">Output</h4>
+              <div data-norm-out aria-live="polite"></div>
+              <div data-norm-tip style="margin-top:.75rem;"></div>
+            </div>
+          </div>
+
+          <div class="callout" role="note">
+            <strong>Caption habit:</strong>
+            <span class="small">Always include units in your legend/title (e.g., “crashes per 1,000 residents” or “cases per 100,000”).</span>
+          </div>
+        </div>
+
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="05-choosing-method.html">← Choosing a method</a>
+          <span></span>
+          <a class="btn next" href="07-summary.html">Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

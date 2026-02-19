@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Map design principles</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+            <a href="02-graphicacy.html">Graphicacy</a>
+            <a href="03-map-design-principles.html" aria-current="page">Map design principles</a>
+            <a href="04-color-accessibility.html">Color + accessibility</a>
+            <a href="05-layout-elements.html">Layout elements</a>
+            <a href="06-design-choices.html">Design choices</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Map design principles</h2>
+      </div>
+
+      
+<div class="card">
+  <h3>Figure–ground effect</h3>
+  <p>Use visual differences (color, size, line weight, pattern, drawing order) so the most important features become the <strong>figure</strong> and everything else becomes <strong>ground</strong>.</p>
+</div>
+
+<div class="card" data-widget="figure-ground">
+  <h3>Try it: figure–ground builder</h3>
+  <p class="small">Adjust settings to make the “message layer” pop without making the map noisy.</p>
+
+  <div class="grid two">
+    <div>
+      <label class="field">
+        <span>Figure color temperature</span>
+        <select data-fg-temp>
+          <option value="warm">Warm (attention-grabbing)</option>
+          <option value="cool">Cool (calmer)</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Ground brightness</span>
+        <select data-ground>
+          <option value="light">Light ground</option>
+          <option value="dark">Dark ground</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Emphasize with outline</span>
+        <input type="checkbox" data-outline />
+      </label>
+
+      <p class="small"><strong>Goal:</strong> Figure is obvious in 1–2 seconds. Ground supports orientation.</p>
+    </div>
+
+    <div>
+      <div class="map-mock" role="img" aria-label="A simple map mockup that updates as you change figure–ground settings.">
+        <div class="mock-ground"></div>
+        <div class="mock-road"></div>
+        <div class="mock-road r2"></div>
+        <div class="mock-figure"></div>
+        <div class="mock-label">Important area</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Contrast tips</h3>
+  <ul>
+    <li><strong>Value (light vs dark):</strong> higher contrast makes features easier to separate.</li>
+    <li><strong>Warm vs cool:</strong> warm colors often “advance,” cool colors often “recede.”</li>
+    <li><strong>Hierarchy:</strong> bright/bold for key features; drab/thin for context.</li>
+  </ul>
+</div>
+
+<div class="grid two">
+  <figure class="media card">
+    <img src="../assets/slide08_cb33b006.png" alt="Example showing poor vs better contrast in map design." data-lightbox />
+    <figcaption class="small">Better contrast improves legibility.</figcaption>
+  </figure>
+  <figure class="media card">
+    <img src="../assets/slide09_912b4abb.png" alt="Example of warm vs cool colors supporting figure–ground." data-lightbox />
+    <figcaption class="small">Warm colors can pull the figure forward.</figcaption>
+  </figure>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="02-graphicacy.html">← Previous</a>
+          <a class="btn" href="04-color-accessibility.html">Next →</a>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,75 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 4</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 4 • Start here</title>
+  <link href="style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="course-links">
-          <a class="course-home" href="index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
-          <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="index.html" aria-label="Go to the start of the Week 4 module">UPP 461 • Week 4</a>
+            <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Mapping Quantitative Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
         </div>
-        <h1>Week 4 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
-      </div>
-
-      <div class="controls" aria-label="Header controls">
-        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
-          Theme: <span data-theme-label>Light</span>
-        </button>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
       </div>
     </div>
-
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
   </header>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="index.html" aria-current="page">Start here</a>
+            <a href="pages/02-choropleth.html">Choropleth basics</a>
+            <a href="pages/03-color-ramps.html">Color ramps</a>
+            <a href="pages/04-classification.html">Classification</a>
+            <a href="pages/05-choosing-method.html">Choosing a method</a>
+            <a href="pages/06-normalization.html">Normalization</a>
+            <a href="pages/07-summary.html">Summary</a>
+            <a href="pages/08-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
+      <main class="main" id="main" tabindex="-1">
+        <div class="main-head">
+          <h2 class="kicker">Start here</h2>
+        </div>
 
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
+        <div class="card">
+          <p><strong>Goal:</strong> make quantitative choropleth maps that are readable, defensible, and honest.</p>
+          <ul>
+            <li>Pick a ramp that matches the data (sequential vs diverging).</li>
+            <li>Choose and justify class breaks using histograms.</li>
+            <li>Normalize when areas differ in population or size (rates/densities vs counts).</li>
+          </ul>
+          <p class="small"><strong>Estimated time:</strong> 20–35 minutes.</p>
+        </div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
+        <div class="grid two">
+          <div class="card">
+            <h3>What you’ll do</h3>
+            <ul class="small">
+              <li>Preview ramps (interactive)</li>
+              <li>Compare quantile / equal interval / Jenks breaks</li>
+              <li>Compute a rate for choropleth mapping</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Rule of thumb</h3>
+            <p class="small">Try to limit choropleth classes to <strong>5–7</strong> colors unless you have a strong reason not to.</p>
+          </div>
+        </div>
+
+        <div class="next-row">
+          <a class="btn next" href="pages/02-choropleth.html">Start →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
     </div>
-  </footer>
+  </div>
 
-  <script src="../../shared/module.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>

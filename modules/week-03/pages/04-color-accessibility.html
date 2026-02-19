@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPP 461 • Week 3 — Communicating Spatial Data — Color + accessibility</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 3 module">UPP 461 • Week 3</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Communicating Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="card">
+        <nav class="nav" aria-label="Module navigation">
+          <a href="../index.html">Start here</a>
+            <a href="02-graphicacy.html">Graphicacy</a>
+            <a href="03-map-design-principles.html">Map design principles</a>
+            <a href="04-color-accessibility.html" aria-current="page">Color + accessibility</a>
+            <a href="05-layout-elements.html">Layout elements</a>
+            <a href="06-design-choices.html">Design choices</a>
+            <a href="07-summary.html">Summary</a>
+            <a href="08-quiz.html">Quick quiz</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <div class="main-head">
+        <h2 class="kicker">Color + accessibility</h2>
+      </div>
+
+      
+<div class="card">
+  <h3>Color basics</h3>
+  <ul>
+    <li><strong>Hue</strong> = the basic color (red, blue, green…).</li>
+    <li><strong>Value</strong> = lightness/darkness (often more important for readability).</li>
+  </ul>
+  <p class="small">Rule of thumb: categorical data → different hues; quantitative data → same hue with different values/saturation.</p>
+</div>
+
+
+<div class="card" data-widget="contrast">
+  <h3>Try it: contrast checker</h3>
+  <p class="small">Pick two colors and check readability. Use the swatches, the sliders, or type a hex code.</p>
+
+  <div class="grid two">
+    <div>
+      <div class="contrast-fields">
+        <div class="contrast-field">
+          <label class="field">
+            <span>Text color (hex)</span>
+            <div class="pick-row">
+              <input type="text" value="#111827" data-contrast-fg inputmode="text" aria-label="Text color hex" />
+              <input type="color" value="#111827" data-contrast-fg-color aria-label="Text color picker" />
+              <button class="ghost" type="button" data-contrast-pick="fg">Pick swatch</button>
+            </div>
+          </label>
+          <label class="field">
+            <span>Adjust lightness</span>
+            <input type="range" min="0" max="100" value="15" data-contrast-fg-l aria-label="Text color lightness" />
+            <span class="small muted" data-contrast-fg-lbl>15%</span>
+          </label>
+        </div>
+
+        <div class="contrast-field">
+          <label class="field">
+            <span>Background color (hex)</span>
+            <div class="pick-row">
+              <input type="text" value="#ffffff" data-contrast-bg inputmode="text" aria-label="Background color hex" />
+              <input type="color" value="#ffffff" data-contrast-bg-color aria-label="Background color picker" />
+              <button class="ghost" type="button" data-contrast-pick="bg">Pick swatch</button>
+            </div>
+          </label>
+          <label class="field">
+            <span>Adjust lightness</span>
+            <input type="range" min="0" max="100" value="100" data-contrast-bg-l aria-label="Background color lightness" />
+            <span class="small muted" data-contrast-bg-lbl>100%</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn" type="button" data-contrast-run>Check</button>
+        <span class="small" data-contrast-out aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="small">Preview</p>
+      <div class="contrast-preview" data-contrast-preview>
+        The quick brown fox jumps over the lazy dog.
+      </div>
+      <p class="small muted">Tip: aim for <strong>AA ≥ 4.5</strong> for normal text. (Large text can pass at 3.0.)</p>
+    </div>
+  </div>
+
+  <!-- Swatch modal -->
+  <div class="modal" data-contrast-modal hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contrastModalTitle">
+      <div class="modal-header">
+        <h4 id="contrastModalTitle">Pick a color</h4>
+        <button class="ghost icon" type="button" data-modal-close aria-label="Close color picker">✕</button>
+      </div>
+      <p class="small">Choose a swatch. You can still fine-tune lightness with the slider after you pick.</p>
+      <div class="swatch-grid" role="list" data-swatch-grid></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-widget="palette">
+
+  <h3>Try it: pick a scheme for the data</h3>
+  <div class="grid two">
+    <div>
+      <label class="field">
+        <span>Data type</span>
+        <select data-palette-type>
+          <option value="categorical">Categorical (types/classes)</option>
+          <option value="sequential">Quantitative (low → high)</option>
+          <option value="diverging">Diverging (below ↔ above a middle)</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Number of classes</span>
+        <input type="number" min="3" max="7" value="5" data-palette-k />
+      </label>
+      <button class="btn" type="button" data-palette-run>Show palette</button>
+      <p class="small">Tip: avoid red–green diverging schemes; use ColorBrewer-style palettes when possible.</p>
+    </div>
+    <div>
+      <div class="palette-row" data-palette-row aria-label="Color palette preview"></div>
+      <p class="small" data-palette-note></p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Accessibility reminders</h3>
+  <ul>
+    <li>Don’t rely on color alone — use labels, patterns, or outlines.</li>
+    <li>Avoid red–green ramps for diverging data (common color-blind issue).</li>
+    <li>Consider cultural meaning and mapping conventions (e.g., red = risk).</li>
+  </ul>
+</div>
+
+<div class="grid two">
+  <figure class="media card">
+    <img src="../assets/slide11_72d2bdb1.png" alt="Color wheel and hue guidance for categorical mapping." data-lightbox />
+    <figcaption class="small">Color wheel: opposite hues differentiate categories.</figcaption>
+  </figure>
+  <figure class="media card">
+    <img src="../assets/slide11_10f0936b.png" alt="Examples of saturated color ramps showing value changes." data-lightbox />
+    <figcaption class="small">Value changes communicate magnitude.</figcaption>
+  </figure>
+</div>
+
+
+      
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="03-map-design-principles.html">← Previous</a>
+          <a class="btn" href="05-layout-elements.html">Next →</a>
+        </div>
+
+      <footer class="footer">
+        <p class="small">If something looks off (spacing, buttons, broken links), use <em>Report a bug</em> below.</p>
+        <a class="bug-link" data-bug-report href="#">Report a bug</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>
