@@ -7,10 +7,10 @@
 const STORAGE_KEY = "upp461_theme";
 
 const weeks = [
-  { week: 1, title: "Week 1 - ", url: "modules/week-01/index.html" },
-  { week: 2, title: "Week 2 - ", url: "modules/week-02/index.html" },
+  { week: 1, title: "Week 1 - Introduction to GIS", url: "modules/week-01/index.html" },
+  { week: 2, title: "Week 2 - Understanding Spatial Data", url: "modules/week-02/index.html" },
   { week: 3, title: "Week 3 - Communicating Spatial Data", url: "modules/week-03/index.html" },
-  { week: 4, title: "Week 4 - ", url: "modules/week-04/index.html" },
+  { week: 4, title: "Week 4 - Mapping Quantitative Data", url: "modules/week-04/index.html" },
   { week: 5, title: "Week 5 - Attributes Tables, Queries & Joins", url: "modules/week-05/index.html" },
   { week: 6, title: "Week 6 - Spatial Reference Systems", url: "modules/week-06/index.html" },
   { week: 7, title: "Week 7 - Data preparation & Interoperability", url: "modules/week-07/index.html" },
