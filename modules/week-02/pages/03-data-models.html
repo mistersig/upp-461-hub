@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Data models</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html" aria-current="page">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Data models: vector vs raster</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Two most common GIS data models:</strong></p>
+          <ul>
+            <li><strong>Vector</strong> — discrete features (points, lines, polygons)</li>
+            <li><strong>Raster</strong> — continuous surfaces or imagery represented as grid cells</li>
+          </ul>
+          <figure>
+            <img class="zoomable" src="../assets/vector_raster_models.png" alt="Diagram comparing vector and raster data models."/>
+            <figcaption class="small">Vector vs raster: both are computational representations of the world.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>Common feature types (examples)</h3>
+          <div class="media-grid" role="list">
+            <figure role="listitem">
+              <img class="zoomable" src="../assets/building_footprints.png" alt="Building footprints represented as polygons."/>
+              <figcaption class="small">Buildings as polygons</figcaption>
+            </figure>
+            <figure role="listitem">
+              <img class="zoomable" src="../assets/rivers_lines.png" alt="Rivers represented as lines."/>
+              <figcaption class="small">Rivers as lines</figcaption>
+            </figure>
+            <figure role="listitem">
+              <img class="zoomable" src="../assets/elevation_gradient.png" alt="Elevation represented as a continuous gradient surface."/>
+              <figcaption class="small">Elevation as a surface (raster)</figcaption>
+            </figure>
+            <figure role="listitem">
+              <img class="zoomable" src="../assets/roads_lines.png" alt="Roads represented as lines."/>
+              <figcaption class="small">Roads as lines…</figcaption>
+            </figure>
+          </div>
+
+          <div class="grid two" style="margin-top:14px;">
+            <div class="card">
+              <h4>Same phenomenon, different models</h4>
+              <p class="small">A road can be represented as a <strong>line</strong> (centerline) or as an <strong>area</strong> (full right-of-way) depending on <strong>scale</strong> and task.</p>
+            </div>
+            <figure class="card" style="margin:0;">
+              <img class="zoomable" src="../assets/roads_areas.png" alt="Roads represented as areas."/>
+              <figcaption class="small">…or roads as areas</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card tryit" data-mini-quiz>
+          <h3>Try it: Vector or raster?</h3>
+          <p class="small">Pick the <strong>best default</strong> model for each planning use case.</p>
+
+          <ol class="mini-list">
+            <li class="mini-item">
+              <label for="m1"><strong>Elevation</strong> for a flood surface model</label>
+              <select id="m1" data-correct="Raster" data-why="Elevation is typically a continuous surface; rasters support neighborhood operations.">
+                <option value="choose">Choose…</option>
+                <option value="Vector">Vector</option>
+                <option value="Raster">Raster</option>
+                <option value="Depends">Depends</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="m2"><strong>Parcel boundaries</strong> for taxation and zoning</label>
+              <select id="m2" data-correct="Vector" data-why="Parcels are discrete legal boundaries; polygons preserve adjacency/containment relationships.">
+                <option value="choose">Choose…</option>
+                <option value="Vector">Vector</option>
+                <option value="Raster">Raster</option>
+                <option value="Depends">Depends</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="m3"><strong>Land cover</strong> from satellite imagery</label>
+              <select id="m3" data-correct="Raster" data-why="Satellite data are rasters; classified land cover is commonly stored as raster cells.">
+                <option value="choose">Choose…</option>
+                <option value="Vector">Vector</option>
+                <option value="Raster">Raster</option>
+                <option value="Depends">Depends</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="m4"><strong>Bus stops</strong> for service coverage</label>
+              <select id="m4" data-correct="Vector" data-why="Stops are discrete locations; points work well for proximity/coverage analysis.">
+                <option value="choose">Choose…</option>
+                <option value="Vector">Vector</option>
+                <option value="Raster">Raster</option>
+                <option value="Depends">Depends</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="m5"><strong>Air temperature</strong> across a metro area</label>
+              <select id="m5" data-correct="Raster" data-why="Temperature varies continuously; rasters handle interpolation and surface operations.">
+                <option value="choose">Choose…</option>
+                <option value="Vector">Vector</option>
+                <option value="Raster">Raster</option>
+                <option value="Depends">Depends</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+          </ol>
+
+          <div class="controls">
+            <button class="primary" type="button" data-mini-grade>Check answers</button>
+            <span class="small" data-mini-score aria-live="polite"></span>
+          </div>
+
+          <div class="notice">
+            <strong>Note:</strong> “Depends” is often true in practice—but for planning workflows you should be able to justify the default choice.
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="02-what-is-gis.html">← What is GIS?</a>
+          <span></span>
+          <a class="btn primary next" href="04-topology.html">Topology →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

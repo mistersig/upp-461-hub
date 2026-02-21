@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Summary</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html" aria-current="page">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Summary</h2>
+        </div>
+
+        <div class="card">
+          <h3>Key takeaways</h3>
+          <ul>
+            <li><strong>Representation is a choice.</strong> Vector and raster both simplify the world—know what assumptions you inherit.</li>
+            <li><strong>Topology rules protect analysis.</strong> Gaps/overlaps/misalignment can create bogus results; not every mismatch is equally important.</li>
+            <li><strong>Measurement scales matter.</strong> Don’t treat categories like measurements.</li>
+            <li><strong>Data structures and file formats matter.</strong> Shapefiles are fragile clusters; geodatabases are built for management.</li>
+            <li><strong>Metadata is your safety net.</strong> If you can’t explain provenance/accuracy, be cautious in interpretation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>If you remember one thing…</h3>
+          <div class="notice good">
+            <strong>Ask “How was this data made?”</strong> before you trust the output of an analysis tool.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Next steps</h3>
+          <ol class="small">
+            <li>Take the quick quiz (below) to check yourself.</li>
+            <li>In ArcGIS Pro: inspect one vector layer and one raster layer—identify coordinate system, field types, and available metadata.</li>
+            <li>Be ready to discuss one example of a “faux” alignment issue and how you’d handle it.</li>
+          </ol>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="07-metadata.html">← Metadata</a>
+          <span></span>
+          <a class="btn primary next" href="09-quiz.html">Quick quiz →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

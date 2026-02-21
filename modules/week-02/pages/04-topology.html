@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Topology</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html" aria-current="page">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Topology</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Topology</strong> describes spatial relationships that don’t change when shapes are stretched: <strong>adjacency</strong>, <strong>connectivity</strong>, and <strong>containment</strong>.</p>
+          <figure>
+            <img class="zoomable" src="../assets/topology_intro.png" alt="Slide defining topology and showing vector topology relationships."/>
+            <figcaption class="small">Topology supports rules like “must not overlap” and “must be contained by.”</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Planar topology (classic example)</h3>
+            <p class="small">When you model polygons as a planar partition, polygons should not overlap. Shared boundaries matter for area calculations.</p>
+          </div>
+          <figure class="card" style="margin:0;">
+            <img class="zoomable" src="../assets/planar_topology.png" alt="Diagram illustrating planar topology with polygons that do not overlap."/>
+            <figcaption class="small">Planar topology: no overlaps</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>Common topology problems</h3>
+          <div class="media-grid">
+            <figure>
+              <img class="zoomable" src="../assets/gaps_overlaps_single_layer.png" alt="Example showing gaps and overlaps within a single polygon layer."/>
+              <figcaption class="small">Gaps/overlaps within one layer</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" src="../assets/gaps_overlaps_across_layers.png" alt="Example showing gaps and overlaps among layers."/>
+              <figcaption class="small">Misalignment across layers</figcaption>
+            </figure>
+          </div>
+
+          <p class="small" style="margin-top:12px;">
+            <strong>Why you should care:</strong> overlaps can double-count area; gaps can “lose” land; misalignment can produce incorrect joins and overlays.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Real errors vs “faux” errors</h3>
+          <div class="grid two">
+            <div class="card">
+              <p class="small"><strong>Real errors</strong> break your data model (e.g., polygons overlap when they shouldn’t).</p>
+              <p class="small"><strong>Faux errors</strong> often come from scale/resolution differences (e.g., one dataset was digitized at a different scale or generalized differently).</p>
+              <p class="small">Your job is to decide what matters for the question you’re asking—and what tolerance is acceptable.</p>
+            </div>
+            <figure class="card" style="margin:0;">
+              <img class="zoomable" src="../assets/faux_errors_misalignment.png" alt="Example of faux errors where layers do not line up perfectly."/>
+              <figcaption class="small">“Faux” errors from misalignment</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card tryit" data-rule-matcher>
+          <h3>Try it: Which topology rule fits?</h3>
+          <p class="small">Scenario: you’re validating a <strong>parcel polygon</strong> layer where parcels should form a complete partition (no overlaps).</p>
+
+          <label for="ruleSel" class="small"><strong>Pick the best rule:</strong></label>
+          <select id="ruleSel" data-correct="Must not overlap">
+            <option value="">Choose…</option>
+            <option value="Must be contained by">Must be contained by</option>
+            <option value="Must not overlap">Must not overlap</option>
+            <option value="Must not have gaps">Must not have gaps</option>
+            <option value="Must be covered by boundary of">Must be covered by boundary of</option>
+          </select>
+
+          <div class="controls" style="margin-top:12px;">
+            <button class="primary" type="button" data-check>Check</button>
+          </div>
+
+          <div data-output class="notice" aria-live="polite">Pick an answer, then click <strong>Check</strong>.</div>
+
+          <div class="small muted" style="margin-top:8px;">
+            Tip: you often need <em>multiple</em> rules (e.g., “must not overlap” <em>and</em> “must not have gaps”) depending on the layer’s purpose.
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="03-data-models.html">← Data models</a>
+          <span></span>
+          <a class="btn primary next" href="05-attributes.html">Attributes & scales →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

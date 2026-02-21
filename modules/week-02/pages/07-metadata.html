@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Metadata</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html" aria-current="page">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Metadata & documentation</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Documentation</strong> and <strong>metadata</strong> explain what a dataset is, how it was made, and how (or whether) it should be used.</p>
+          <div class="notice warn">
+            <strong>Planning reality:</strong> data with missing metadata is a risk—because you can’t judge accuracy, currency, scale, or suitability.
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Minimum metadata you should look for</h3>
+            <ul class="small">
+              <li>Who created it? (agency / author)</li>
+              <li>When was it created/updated?</li>
+              <li>What is the coordinate system?</li>
+              <li>What’s the scale/resolution and known accuracy?</li>
+              <li>Field definitions + codes (domain meanings)</li>
+              <li>Any processing steps (generalization, interpolation, digitizing)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What metadata prevents</h3>
+            <ul class="small">
+              <li>Using parcels as if they were legal boundaries when they’re “approximate”</li>
+              <li>Overlaying layers that look aligned but were digitized at different scales</li>
+              <li>Comparing “population” fields that actually mean different years</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card tryit" data-metadata-builder>
+          <h3>Try it: Build a metadata checklist</h3>
+          <p class="small">Pick items you want to verify for <em>any</em> dataset you use this semester.</p>
+
+          <div class="grid two">
+            <div class="card">
+              <label><input type="checkbox" data-item="Creator/agency + contact info" checked/> Creator/agency + contact info</label><br/>
+              <label><input type="checkbox" data-item="Publication / last updated date" checked/> Publication / last updated date</label><br/>
+              <label><input type="checkbox" data-item="Coordinate system + units (projected vs geographic)" checked/> Coordinate system + units</label><br/>
+              <label><input type="checkbox" data-item="Extent (what area it covers)" checked/> Extent</label><br/>
+              <label><input type="checkbox" data-item="Scale/resolution + stated accuracy"/> Scale/resolution + stated accuracy</label><br/>
+              <label><input type="checkbox" data-item="Field definitions + coded value meanings"/> Field definitions + codes</label><br/>
+              <label><input type="checkbox" data-item="Processing steps (digitizing, interpolation, generalization)"/> Processing steps</label><br/>
+              <label><input type="checkbox" data-item="Known limitations / intended use"/> Known limitations / intended use</label><br/>
+              <label><input type="checkbox" data-item="License / terms of use"/> License / terms of use</label>
+              <div class="controls" style="margin-top:12px;">
+                <button class="primary" type="button" data-build>Build</button>
+                <button type="button" data-copy>Copy</button>
+              </div>
+            </div>
+
+            <div class="card" data-meta-out aria-live="polite">
+              Select items, then click <strong>Build</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="06-data-structures.html">← Data structures & formats</a>
+          <span></span>
+          <a class="btn primary next" href="08-summary.html">Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

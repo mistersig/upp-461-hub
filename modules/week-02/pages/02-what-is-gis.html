@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • What is GIS?</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html" aria-current="page">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">What is GIS?</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>GIS</strong> is a way to <strong>store</strong>, <strong>visualize</strong>, and <strong>analyze</strong> data that are tied to locations on Earth.</p>
+          <p class="small">The big idea for Week 2: <strong>representation choices</strong> (vector vs raster, topology rules, measurement scales) shape what questions you can answer—and how wrong you can be.</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Recap from Week 1</h3>
+            <ul class="small">
+              <li><strong>Coordinate systems matter:</strong> you can’t measure distance/area correctly without the right projection.</li>
+              <li><strong>Data models matter:</strong> the same phenomenon can be represented multiple ways (and not all are appropriate).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Why this week matters</h3>
+            <ul class="small">
+              <li>Topology errors can create bogus results (e.g., double-counted areas).</li>
+              <li>Wrong measurement scales lead to misleading summaries (e.g., averaging category codes).</li>
+              <li>File formats + metadata affect whether data are usable at all.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card tryit">
+          <h3>Try it: “What is my phenomenon?”</h3>
+          <p class="small">Before you map or analyze, answer these three questions:</p>
+          <ol class="small">
+            <li><strong>What exists in the real world?</strong> (objects, boundaries, surfaces, flows…)</li>
+            <li><strong>How am I representing it?</strong> (points/lines/polygons vs grid cells)</li>
+            <li><strong>What am I assuming?</strong> (crisp boundaries? perfect alignment? stable categories?)</li>
+          </ol>
+          <p class="small">We’ll use these repeatedly in planning applications (zoning, land use, transportation, hazards).</p>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="../index.html">← Start here</a>
+          <span></span>
+          <a class="btn primary next" href="03-data-models.html">Data models →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

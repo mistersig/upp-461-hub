@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • Data management</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-geography.html">Geography & why it matters</a>
+            <a href="03-history.html">History snapshots</a>
+            <a href="04-what-is-gis.html">What is GIS?</a>
+            <a href="05-georeferencing.html">Georeferencing</a>
+            <a href="06-course-expectations.html">Course + expectations</a>
+            <a href="07-data-management.html" aria-current="page">Data management</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Data management</h2>
+        </div>
+
+        <div class="card">
+          <h3>Data management (you will thank yourself later)</h3>
+          <figure>
+            <img class="zoomable" src="../assets/data_management.jpeg" alt="Slide summarizing ArcGIS Pro Windows-only and options for Mac users plus virtual lab guidance."/>
+            <figcaption class="small">ArcGIS Pro is Windows-only — plan your workflow early.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>ArcGIS Pro + macOS</h3>
+          <ul class="small">
+            <li><strong>ArcGIS Pro runs on Windows.</strong></li>
+            <li>macOS options: (1) install Windows via virtualization (e.g., Parallels), or (2) use <strong>Remote Desktop</strong> to the Virtual Lab.</li>
+            <li>If you use campus lab computers and your own machine, bring a USB-A/USB-C drive for moving data.</li>
+          </ul>
+          <div class="notice warn">
+            <strong>Reminder:</strong> We do not provide technical support for macOS setup — use the Virtual Lab if you need a reliable path.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>The rules for naming GIS files and folders (ArcGIS-friendly)</h3>
+          <ul>
+            <li>No spaces (use <code>underscores</code>).</li>
+            <li>No special characters like commas, periods, <code>!</code>, <code>@</code>, <code>#</code> (underscores are OK).</li>
+            <li>Begin names with letters, not numbers.</li>
+            <li>Rules apply to the <strong>entire path</strong> (parent folders too).</li>
+          </ul>
+          <div class="notice good">
+            <strong>Good example:</strong> <code>C:\GIS\UPP461_Fall2026\Assignment1\MyData\oakparktracts.gdb</code>
+          </div>
+        </div>
+
+        <div class="card tryit" data-name-checker>
+          <h3>Try it: check a filename/path</h3>
+          <p class="small">Paste a filename or full path and see what to fix.</p>
+
+          <label class="small" for="name"><strong>Filename or path</strong></label>
+          <input id="name" type="text" class="mono" value="C:\GIS\UPP461\Assignment 1\MyData\oak park.gdb" style="max-width: 820px; width:100%;" />
+
+          <div class="controls" style="margin-top:12px;">
+            <button class="primary" type="button" data-check>Check name</button>
+          </div>
+
+          <div data-output class="notice" aria-live="polite" style="margin-top:12px;">Click <strong>Check name</strong> to see suggestions.</div>
+        </div>
+
+        <div class="card">
+          <h3>Workspace & organization (recommended)</h3>
+          <ol class="small">
+            <li>Create a root folder for the course: <code>C:\GIS\UPP461_YourName</code></li>
+            <li>Inside, make one folder per assignment/lab/week.</li>
+            <li>Keep raw downloads separate from cleaned/processed data.</li>
+            <li>When in doubt: duplicate the data before major edits.</li>
+          </ol>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="06-course-expectations.html">← Course + expectations</a>
+          <span></span>
+          <a class="btn primary next" href="08-summary.html">Summary →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

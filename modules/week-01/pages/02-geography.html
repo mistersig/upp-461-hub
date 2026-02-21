@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • Geography & why it matters</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-geography.html" aria-current="page">Geography & why it matters</a>
+            <a href="03-history.html">History snapshots</a>
+            <a href="04-what-is-gis.html">What is GIS?</a>
+            <a href="05-georeferencing.html">Georeferencing</a>
+            <a href="06-course-expectations.html">Course + expectations</a>
+            <a href="07-data-management.html">Data management</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Geography & why it matters</h2>
+        </div>
+
+        <div class="card">
+          <h3>Geography</h3>
+          <p><strong>Geography</strong> is the study of Earth’s landscapes, environments, places, and the spatial relationships between them.</p>
+          <figure>
+            <img class="zoomable" src="../assets/geography_def.png" alt="Slide defining geography as the study of Earth’s landscapes, environments, places, and spatial relationships."/>
+            <figcaption class="small">Geography: places + relationships.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>Tobler’s Law (rule of thumb)</h3>
+          <p class="small">“Everything is related to everything else, but near things are more related than distant things.”</p>
+          <figure>
+            <img class="zoomable" src="../assets/tobler_law.jpeg" alt="Slide featuring Tobler’s Law quotation."/>
+            <figcaption class="small">Why planners care: proximity often shapes access, exposure, and interaction.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card tryit" data-tobler>
+          <h3>Try it: distance → relatedness (illustration)</h3>
+          <p class="small">Move the slider. This is an <em>illustration</em> of distance decay — not a literal measurement.</p>
+
+          <label class="small" for="dist"><strong>Distance:</strong> <span data-tobler-distance>0 km</span></label>
+          <input id="dist" type="range" min="0" max="100" value="10" step="5" style="width:100%; max-width: 620px;" />
+
+          <div data-tobler-out class="notice" aria-live="polite" style="margin-top:12px;">Adjust the slider to see an example.</div>
+
+          <div class="small muted" style="margin-top:10px;">
+            Planning examples: transit ridership, retail access, exposure to hazards, neighborhood spillovers.
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Urban geography</h3>
+            <p class="small">Studies cities and urban areas: spatial structure, development patterns, social dynamics, and interactions with surrounding environments.</p>
+            <figure>
+              <img class="zoomable" src="../assets/urban_geography.png" alt="Slide defining urban geography."/>
+              <figcaption class="small">Urban geography connects space, people, and systems.</figcaption>
+            </figure>
+          </div>
+
+          <div class="card">
+            <h3>Urban planning</h3>
+            <p class="small">A multidisciplinary field focused on the design, development, and management of urban areas to create functional, sustainable, and livable communities.</p>
+            <div class="notice">
+              <strong>Bridge to GIS:</strong> GIS helps planners describe patterns (where?) and test processes (why/how?).
+            </div>
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="../index.html">← Start here</a>
+          <span></span>
+          <a class="btn primary next" href="03-history.html">History snapshots →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

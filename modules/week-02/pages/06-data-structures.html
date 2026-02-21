@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Data structures & formats</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html" aria-current="page">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Data structures & formats</h2>
+        </div>
+
+        <div class="card">
+          <h3>Representation & data structures</h3>
+          <p class="small">GIS commonly organizes information into <strong>thematic layers</strong>—each layer represents one “view” of a theme (parcels, roads, zoning, floodplains…).</p>
+
+          <div class="media-grid">
+            <figure>
+              <img class="zoomable" src="../assets/thematic_layers.jpg" alt="Diagram explaining thematic layers and representation."/>
+              <figcaption class="small">Thematic layers (abstraction)</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" src="../assets/phenomena_abstraction.png" alt="Diagram showing phenomena, abstraction, and computer representation."/>
+              <figcaption class="small">From phenomena → abstraction → computer representation</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Bits, bytes, and why storage matters</h3>
+          <p class="small">Digital spatial data are stored as binary numbers: <strong>bits</strong> (0/1) grouped into <strong>bytes</strong> (8 bits). Raster storage grows fast.</p>
+          <figure>
+            <img class="zoomable" src="../assets/bytes_quick.png" alt="Slide summarizing that bytes are 8 bits and showing how storage grows."/>
+            <figcaption class="small">A quick bit on bytes</figcaption>
+          </figure>
+        </div>
+
+        <div class="card tryit" data-size-estimator>
+          <h3>Try it: Raster size estimator (simple)</h3>
+          <p class="small">Estimate how much raw raster payload you have (before compression/overhead).</p>
+
+          <div class="grid two">
+            <div class="card">
+              <label class="small" for="rows"><strong>Rows</strong></label>
+              <input id="rows" class="mono" type="number" min="1" value="10000" data-rows />
+
+              <label class="small" for="cols" style="margin-top:10px;"><strong>Columns</strong></label>
+              <input id="cols" class="mono" type="number" min="1" value="10000" data-cols />
+
+              <label class="small" for="bpc" style="margin-top:10px;"><strong>Bytes per cell</strong></label>
+              <select id="bpc" data-bytes>
+                <option value="1">1 byte (8-bit)</option>
+                <option value="2" selected>2 bytes (16-bit)</option>
+                <option value="4">4 bytes (32-bit)</option>
+                <option value="8">8 bytes (64-bit)</option>
+              </select>
+
+              <div class="controls" style="margin-top:12px;">
+                <button class="primary" type="button" data-size-calc>Calculate</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div data-size-out class="notice" aria-live="polite">Enter values and click <strong>Calculate</strong>.</div>
+              <p class="small muted">Why this matters: storage and processing time affect what’s feasible for a project (especially with large imagery and surfaces).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Field types (ArcGIS Pro)</h3>
+          <p class="small">Field types affect storage, precision, and what calculations you can do.</p>
+
+          <div class="media-grid">
+            <figure>
+              <img class="zoomable" src="../assets/arcgis_field_types.png" alt="ArcGIS Pro field types list."/>
+              <figcaption class="small">Field types / data types</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" src="../assets/arcgis_number_types.png" alt="ArcGIS Pro numeric field types with examples and precision."/>
+              <figcaption class="small">Numeric types + precision</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>File structures: Shapefile vs File Geodatabase</h3>
+          <p class="small"><strong>Shapefile:</strong> a cluster of files that must stay together (geometry, attributes, index, projection…). If you “mess with” one file, you can break the dataset.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Shapefile</th>
+                  <th>File Geodatabase (GDB)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Multiple files working together (.shp, .dbf, .shx, .prj…)</td>
+                  <td>Single folder-based database with feature classes/tables</td>
+                </tr>
+                <tr>
+                  <td>Very compatible across software</td>
+                  <td>Supports richer rules/domains/topology</td>
+                </tr>
+                <tr>
+                  <td>Field name limits and other legacy constraints</td>
+                  <td>More flexible schema and larger data support</td>
+                </tr>
+                <tr>
+                  <td>Vector only</td>
+                  <td>Can store vector and raster datasets</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="notice">
+            <strong>Practical takeaway:</strong> if you’re doing serious editing, enforcing rules, or managing many related layers, a geodatabase is usually the safer choice.
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="05-attributes.html">← Attributes & scales</a>
+          <span></span>
+          <a class="btn primary next" href="07-metadata.html">Metadata →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

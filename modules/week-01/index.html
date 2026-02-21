@@ -1,75 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>UPP 461 • Week 1</title>
-  <link rel="stylesheet" href="../../shared/module.css" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • Start here</title>
+  <link href="style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="course-links">
-          <a class="course-home" href="index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
-          <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
         </div>
-        <h1>Week 1 (Placeholder)</h1>
-        <p class="small">This module is a scaffold. Replace the placeholder content when your lecture materials are ready.</p>
-      </div>
-
-      <div class="controls" aria-label="Header controls">
-        <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
-          Theme: <span data-theme-label>Light</span>
-        </button>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
       </div>
     </div>
-
-    <nav class="nav" aria-label="Module navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="pages/01-start-here.html">Start here</a>
-      <a href="pages/02-lesson.html">Lesson</a>
-      <a href="pages/03-summary.html">Summary</a>
-      <a href="pages/04-quiz.html">Quick quiz</a>
-    </nav>
   </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="index.html" aria-current="page">Start here</a>
+            <a href="pages/02-geography.html">Geography & why it matters</a>
+            <a href="pages/03-history.html">History snapshots</a>
+            <a href="pages/04-what-is-gis.html">What is GIS?</a>
+            <a href="pages/05-georeferencing.html">Georeferencing</a>
+            <a href="pages/06-course-expectations.html">Course + expectations</a>
+            <a href="pages/07-data-management.html">Data management</a>
+            <a href="pages/08-summary.html">Summary</a>
+            <a href="pages/09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
 
-  <main id="main" class="container" tabindex="-1">
-    <section class="card">
-      <h2>How to use this module</h2>
-      <ul>
-        <li>Use <strong>Start here</strong> to get oriented and see what students should do.</li>
-        <li>Add lesson content on the <strong>Lesson</strong> page (or expand into multiple pages later).</li>
-        <li>Use <strong>Summary</strong> for key takeaways.</li>
-        <li>Use <strong>Quick quiz</strong> for a low-stakes self-check.</li>
-      </ul>
-      <p class="muted">Status: <strong>Placeholder scaffold</strong>. No instructor-only notes appear on student pages.</p>
-    </section>
+      <main class="main" id="main" tabindex="-1">
 
-    <section class="card">
-      <h2>Learning goals</h2>
-      <ul>
-        <li>Understand this week’s core concepts.</li>
-        <li>Practice at least one concrete skill that supports the lab.</li>
-        <li>Address common misconceptions early.</li>
-      </ul>
+        <div class="main-head">
+          <h2 class="kicker">Start here</h2>
+        </div>
 
-      <nav class="pager" aria-label="Section navigation">
-        <a class="btn primary next" href="pages/01-start-here.html" aria-label="Go to Start here">Start here →</a>
-      </nav>
-    </section>
-  </main>
+        <div class="card">
+          <p><strong>Welcome to UPP 461.</strong> This week introduces why geography matters for planning, what GIS is (and isn’t), and how to set yourself up for success in the course.</p>
+          <p class="small"><strong>Estimated time:</strong> 20–35 minutes.</p>
+        </div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-row">
-      <p class="disclaimer">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
-      <a class="link" data-bug-link href="mailto:REPLACE_EMAIL">Report a bug</a>
+        <div class="grid two">
+          <div class="card">
+            <h3>What you’ll learn</h3>
+            <ul class="small">
+              <li>Define <strong>geography</strong> and explain why <strong>location matters</strong></li>
+              <li>Explain <strong>Tobler’s Law</strong> in plain language</li>
+              <li>Describe GIS as both <strong>communication</strong> and <strong>analysis</strong></li>
+              <li>Understand the basics of <strong>georeferencing</strong></li>
+              <li>Apply course <strong>data management</strong> practices (naming rules, folder structure)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What you’ll do</h3>
+            <ul class="small">
+              <li>Use a slider to visualize Tobler’s Law (distance decay)</li>
+              <li>Sort examples into “communicative” vs “analytical” GIS uses</li>
+              <li>Check a filename/path against ArcGIS-friendly naming rules</li>
+              <li>Take a quick quiz (ungraded, for feedback)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card tryit">
+          <h3>Quick setup reminder</h3>
+          <p class="small">ArcGIS Pro is Windows-only. If you use macOS, plan to use the <strong>Virtual Lab</strong> or a Windows setup. Start building good file habits now—GIS projects can break if you lose track of your data.</p>
+        </div>
+
+        <div class="next-row">
+          <a class="btn next" href="pages/02-geography.html">Start →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
     </div>
-  </footer>
+  </div>
 
-  <script src="../../shared/module.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>

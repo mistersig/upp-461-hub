@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • Georeferencing</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-geography.html">Geography & why it matters</a>
+            <a href="03-history.html">History snapshots</a>
+            <a href="04-what-is-gis.html">What is GIS?</a>
+            <a href="05-georeferencing.html" aria-current="page">Georeferencing</a>
+            <a href="06-course-expectations.html">Course + expectations</a>
+            <a href="07-data-management.html">Data management</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Georeferencing</h2>
+        </div>
+
+        <div class="card">
+          <h3>Georeferencing</h3>
+          <p><strong>To georeference</strong> means to associate something with locations in physical space.</p>
+          <p class="small">In GIS, georeferencing often means assigning real-world coordinates to a scanned map or raster image so it aligns with other data.</p>
+          <figure>
+            <img class="zoomable" src="../assets/georeferencing.jpeg" alt="Slide defining georeferencing and describing associating a map or raster with spatial locations."/>
+            <figcaption class="small">Georeferencing connects an image to coordinates.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>Where georeferencing shows up in planning work</h3>
+          <ul class="small">
+            <li>Historic maps and aerial photos (change over time)</li>
+            <li>Hand-drawn plans, sketches, or PDFs that need alignment</li>
+            <li>Digitizing features (roads, parcels, land use) from scanned sources</li>
+          </ul>
+        </div>
+
+        <div class="card tryit">
+          <h3>Try it (mental checklist)</h3>
+          <ol class="small">
+            <li>What’s my target coordinate system?</li>
+            <li>Do I have good control points that are stable over time (intersections, bridges)?</li>
+            <li>How many points do I need, and how well distributed are they?</li>
+            <li>What accuracy is “good enough” for my use case?</li>
+          </ol>
+          <div class="notice warn">
+            <strong>Reminder:</strong> A “matched” image doesn’t mean it’s accurate—always evaluate residual error and fit for use.
+          </div>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="04-what-is-gis.html">← What is GIS?</a>
+          <span></span>
+          <a class="btn primary next" href="06-course-expectations.html">Course + expectations →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

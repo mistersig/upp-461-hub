@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-geography.html">Geography & why it matters</a>
+            <a href="03-history.html">History snapshots</a>
+            <a href="04-what-is-gis.html">What is GIS?</a>
+            <a href="05-georeferencing.html">Georeferencing</a>
+            <a href="06-course-expectations.html">Course + expectations</a>
+            <a href="07-data-management.html">Data management</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Low-stakes self-check for Week 1.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> Geography is primarily the study of…</legend>
+            <label><input type="radio" name="1" value="a"/> Only countries and flags</label>
+            <label><input type="radio" name="1" value="b"/> Places, environments, and spatial relationships</label>
+            <label><input type="radio" name="1" value="c"/> Computer programming</label>
+            <label><input type="radio" name="1" value="d"/> Weather only</label>
+            <div data-why-correct hidden>Geography focuses on places and relationships in space (human + physical).</div>
+            <div data-why-wrong hidden>Geography is broader than countries or weather and includes spatial relationships.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="a">
+            <legend><strong>2)</strong> Tobler’s Law is best summarized as…</legend>
+            <label><input type="radio" name="2" value="a"/> Nearby things tend to be more related than distant things</label>
+            <label><input type="radio" name="2" value="b"/> Distant things are always identical</label>
+            <label><input type="radio" name="2" value="c"/> Maps are always objective</label>
+            <label><input type="radio" name="2" value="d"/> Distance doesn’t matter</label>
+            <div data-why-correct hidden>It’s a rule of thumb: spatial proximity often implies stronger relationships.</div>
+            <div data-why-wrong hidden>The law emphasizes that distance usually matters for similarity and interaction.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="c">
+            <legend><strong>3)</strong> GIS is best described as…</legend>
+            <label><input type="radio" name="3" value="a"/> A single map on paper</label>
+            <label><input type="radio" name="3" value="b"/> A GPS receiver</label>
+            <label><input type="radio" name="3" value="c"/> A way to understand and represent data by spatial properties</label>
+            <label><input type="radio" name="3" value="d"/> A spreadsheet with no locations</label>
+            <div data-why-correct hidden>GIS connects data to place and supports mapping and spatial analysis.</div>
+            <div data-why-wrong hidden>GPS and paper maps are related tools, but GIS is broader and data-driven.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="d">
+            <legend><strong>4)</strong> Which is an <strong>analytical</strong> use of GIS?</legend>
+            <label><input type="radio" name="4" value="a"/> Choosing a color palette</label>
+            <label><input type="radio" name="4" value="b"/> Adding a title to a map</label>
+            <label><input type="radio" name="4" value="c"/> Exporting a PDF</label>
+            <label><input type="radio" name="4" value="d"/> Finding households within 1/4 mile of a grocery store</label>
+            <div data-why-correct hidden>This is a spatial query (buffer/proximity analysis).</div>
+            <div data-why-wrong hidden>Formatting a map is communicative; analysis answers spatial questions.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="b">
+            <legend><strong>5)</strong> To <strong>georeference</strong> means to…</legend>
+            <label><input type="radio" name="5" value="a"/> Remove all coordinates from a map</label>
+            <label><input type="radio" name="5" value="b"/> Associate an image/map with real-world coordinates</label>
+            <label><input type="radio" name="5" value="c"/> Change a map’s colors</label>
+            <label><input type="radio" name="5" value="d"/> Convert vector to raster</label>
+            <div data-why-correct hidden>Georeferencing ties an image to coordinates so it aligns with other spatial data.</div>
+            <div data-why-wrong hidden>Georeferencing is about location alignment, not styling or data model conversion.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="a">
+            <legend><strong>6)</strong> ArcGIS Pro runs natively on…</legend>
+            <label><input type="radio" name="6" value="a"/> Windows</label>
+            <label><input type="radio" name="6" value="b"/> macOS only</label>
+            <label><input type="radio" name="6" value="c"/> iOS</label>
+            <label><input type="radio" name="6" value="d"/> It runs the same everywhere without setup</label>
+            <div data-why-correct hidden>ArcGIS Pro is Windows-only; macOS users typically use a Virtual Lab or virtualization.</div>
+            <div data-why-wrong hidden>macOS requires a workaround; mobile OSs are different app ecosystems.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="c">
+            <legend><strong>7)</strong> Which filename best follows the course ArcGIS rules?</legend>
+            <label><input type="radio" name="7" value="a"/> <span class="mono">Assignment 1/My Data/parks.gdb</span></label>
+            <label><input type="radio" name="7" value="b"/> <span class="mono">1_assignment!/mydata/parks.gdb</span></label>
+            <label><input type="radio" name="7" value="c"/> <span class="mono">assignment1/my_data/parks.gdb</span></label>
+            <label><input type="radio" name="7" value="d"/> <span class="mono">@week1/mydata/parks.gdb</span></label>
+            <div data-why-correct hidden>No spaces, no special characters, and begins with letters.</div>
+            <div data-why-wrong hidden>Spaces and special characters can break ArcGIS paths and tools.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="8" data-answer="b">
+            <legend><strong>8)</strong> Why is good data management important in GIS?</legend>
+            <label><input type="radio" name="8" value="a"/> It makes your basemap prettier</label>
+            <label><input type="radio" name="8" value="b"/> It prevents broken links, lost data, and wasted time</label>
+            <label><input type="radio" name="8" value="c"/> It replaces the need to learn GIS concepts</label>
+            <label><input type="radio" name="8" value="d"/> It guarantees perfect accuracy</label>
+            <div data-why-correct hidden>GIS projects often rely on file paths and linked datasets—organization prevents failures.</div>
+            <div data-why-wrong hidden>Good management helps workflow reliability, but doesn’t guarantee accuracy.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="08-summary.html">← Summary</a>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

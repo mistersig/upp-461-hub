@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 1 • What is GIS?</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 1 module">UPP 461 • Week 1</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Introduction</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-geography.html">Geography & why it matters</a>
+            <a href="03-history.html">History snapshots</a>
+            <a href="04-what-is-gis.html" aria-current="page">What is GIS?</a>
+            <a href="05-georeferencing.html">Georeferencing</a>
+            <a href="06-course-expectations.html">Course + expectations</a>
+            <a href="07-data-management.html">Data management</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">What is GIS?</h2>
+        </div>
+
+        <div class="card">
+          <h3>Modern GIS is everywhere</h3>
+          <figure>
+            <img class="zoomable" src="../assets/modern_gis_phone.jpeg" alt="Slide about modern GIS and phone apps that use location."/>
+            <figcaption class="small">Take out your phone: maps, rideshare, delivery, fitness, social apps… GIS is embedded in daily life.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>So… what is GIS?</h3>
+          <figure>
+            <img class="zoomable" src="../assets/what_is_gis.png" alt="Slide asking 'what is GIS?' and setting up the definition."/>
+            <figcaption class="small">We covered a lot—here’s the core definition.</figcaption>
+          </figure>
+
+          <div class="notice">
+            <strong>GIS (Geographic Information Systems)</strong> is a unique way of understanding and representing data in terms of its <strong>spatial properties</strong>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Why GIS matters (because location matters)</h3>
+          <ul>
+            <li><strong>Where</strong> are things happening?</li>
+            <li><strong>What</strong> is happening there?</li>
+            <li><strong>How</strong> do patterns relate to processes?</li>
+          </ul>
+          <p class="small">Planning examples: crime and poverty, health care access, food/water access, hazards, and environmental exposure.</p>
+        </div>
+
+        <div class="card">
+          <h3>How GIS is used</h3>
+          <div class="grid two">
+            <div class="card">
+              <h4>Communicative</h4>
+              <p class="small">Visualizing, displaying, and explaining patterns.</p>
+            </div>
+            <div class="card">
+              <h4>Analytical</h4>
+              <p class="small">Spatial analysis to solve problems and discover insights.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card tryit" data-mini-quiz>
+          <h3>Try it: communication or analysis?</h3>
+          <p class="small">Pick the best fit for each example (some can be both—choose the dominant purpose).</p>
+
+          <ol class="mini-list">
+            <li class="mini-item">
+              <label for="u1"><strong>Making a map</strong> showing where bus ridership dropped the most</label>
+              <select id="u1" data-correct="Communicative" data-why="The goal is to explain patterns to an audience (storytelling).">
+                <option value="choose">Choose…</option>
+                <option value="Communicative">Communicative</option>
+                <option value="Analytical">Analytical</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="u2"><strong>Finding all households</strong> within 1/4 mile of a grocery store</label>
+              <select id="u2" data-correct="Analytical" data-why="This is a proximity query (buffer/selection) to answer a question.">
+                <option value="choose">Choose…</option>
+                <option value="Communicative">Communicative</option>
+                <option value="Analytical">Analytical</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="u3"><strong>Optimizing a snowplow route</strong> to reduce total travel time</label>
+              <select id="u3" data-correct="Analytical" data-why="Routing and optimization are analysis tasks (network analysis).">
+                <option value="choose">Choose…</option>
+                <option value="Communicative">Communicative</option>
+                <option value="Analytical">Analytical</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="u4"><strong>Publishing an interactive dashboard</strong> for the public to explore inspections</label>
+              <select id="u4" data-correct="Communicative" data-why="Dashboards communicate status and patterns; they may include light analysis but focus on interpretation.">
+                <option value="choose">Choose…</option>
+                <option value="Communicative">Communicative</option>
+                <option value="Analytical">Analytical</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+          </ol>
+
+          <div class="controls">
+            <button class="primary" type="button" data-mini-grade>Check answers</button>
+            <span class="small" data-mini-score aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Example: analysis + communication (CTA ridership)</h3>
+          <p class="small">GIS helps combine data and show inequities in patterns of mobility and access.</p>
+
+          <div class="media-grid">
+            <figure>
+              <img class="zoomable" src="../assets/cta_map.png" alt="Map visual related to CTA ridership differences."/>
+              <figcaption class="small">Visualizing spatial differences in ridership</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" src="../assets/cta_ridership.jpg" alt="Chart or graphic related to CTA ridership trends."/>
+              <figcaption class="small">Ridership patterns over time</figcaption>
+            </figure>
+          </div>
+
+          <p class="small">In practice, this kind of workflow blends data cleaning, spatial joins, and clear communication.</p>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="03-history.html">← History snapshots</a>
+          <span></span>
+          <a class="btn primary next" href="05-georeferencing.html">Georeferencing →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-19</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

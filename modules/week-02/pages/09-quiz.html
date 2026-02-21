@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Quick quiz</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html" aria-current="page">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Quick quiz</h2>
+        </div>
+
+        <div class="card">
+          <p><strong>Quick quiz:</strong> Check your understanding before class.</p>
+          <p class="small">Nothing is graded here; focus on the explanations.</p>
+        </div>
+
+        <form class="card" data-quiz>
+          <div class="visually-hidden" data-live aria-live="polite"></div>
+
+          <fieldset class="card" data-question="1" data-answer="b">
+            <legend><strong>1)</strong> Which data model is usually best for representing <strong>elevation</strong> as a continuous surface?</legend>
+            <label><input type="radio" name="1" value="a"/> Vector (points)</label>
+            <label><input type="radio" name="1" value="b"/> Raster</label>
+            <label><input type="radio" name="1" value="c"/> Table only (no geometry)</label>
+            <label><input type="radio" name="1" value="d"/> It can only be a shapefile</label>
+            <div data-why-correct hidden>Elevation varies continuously; rasters support surface and neighborhood operations.</div>
+            <div data-why-wrong hidden>Vector points can sample elevation, but they do not represent a continuous surface by default.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="2" data-answer="d">
+            <legend><strong>2)</strong> “Roads as lines vs roads as areas” mainly depends on…</legend>
+            <label><input type="radio" name="2" value="a"/> The basemap style</label>
+            <label><input type="radio" name="2" value="b"/> Whether you like polygons more</label>
+            <label><input type="radio" name="2" value="c"/> The file extension</label>
+            <label><input type="radio" name="2" value="d"/> Scale and purpose of the analysis</label>
+            <div data-why-correct hidden>Representation changes with map scale and task (centerlines vs right-of-way).</div>
+            <div data-why-wrong hidden>Basemaps and file extensions don’t determine the correct conceptual model.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="3" data-answer="a">
+            <legend><strong>3)</strong> A common planar topology rule for a polygon partition is…</legend>
+            <label><input type="radio" name="3" value="a"/> Polygons must not overlap</label>
+            <label><input type="radio" name="3" value="b"/> Polygons must be circles</label>
+            <label><input type="radio" name="3" value="c"/> All polygons must have the same area</label>
+            <label><input type="radio" name="3" value="d"/> Polygons must use raster cells</label>
+            <div data-why-correct hidden>Overlaps can double-count area and break partition assumptions.</div>
+            <div data-why-wrong hidden>Shape and area uniformity are not required; rasters are a different data model.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="4" data-answer="c">
+            <legend><strong>4)</strong> Layers don’t align perfectly. Before calling it an “error,” you should consider…</legend>
+            <label><input type="radio" name="4" value="a"/> Whether your monitor is calibrated</label>
+            <label><input type="radio" name="4" value="b"/> Whether the data is in a ZIP file</label>
+            <label><input type="radio" name="4" value="c"/> Differences in scale, resolution, and digitizing/generalization</label>
+            <label><input type="radio" name="4" value="d"/> Whether you are using dark mode</label>
+            <div data-why-correct hidden>Misalignment can be “faux” due to different production methods and scales.</div>
+            <div data-why-wrong hidden>Display choices don’t explain production differences between datasets.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="5" data-answer="b">
+            <legend><strong>5)</strong> Land cover class (forest/water/impervious…) is best described as…</legend>
+            <label><input type="radio" name="5" value="a"/> Interval/ratio</label>
+            <label><input type="radio" name="5" value="b"/> Nominal</label>
+            <label><input type="radio" name="5" value="c"/> Ordinal</label>
+            <label><input type="radio" name="5" value="d"/> Always continuous</label>
+            <div data-why-correct hidden>These are categories; numeric codes are labels, not measurements.</div>
+            <div data-why-wrong hidden>There is no inherent numeric order or meaningful distance between categories.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="6" data-answer="a">
+            <legend><strong>6)</strong> In a shapefile “cluster,” which file commonly stores <strong>attributes</strong>?</legend>
+            <label><input type="radio" name="6" value="a"/> .dbf</label>
+            <label><input type="radio" name="6" value="b"/> .shp</label>
+            <label><input type="radio" name="6" value="c"/> .prj</label>
+            <label><input type="radio" name="6" value="d"/> .shx</label>
+            <div data-why-correct hidden>The .dbf holds the attribute table; the .shp holds geometry.</div>
+            <div data-why-wrong hidden>.prj is projection info; .shx is an index; geometry lives in .shp.</div>
+          </fieldset>
+
+          <fieldset class="card" data-question="7" data-answer="d">
+            <legend><strong>7)</strong> The best reason to care about metadata is that it helps you…</legend>
+            <label><input type="radio" name="7" value="a"/> Make nicer colors</label>
+            <label><input type="radio" name="7" value="b"/> Avoid learning projections</label>
+            <label><input type="radio" name="7" value="c"/> Increase your computer’s RAM</label>
+            <label><input type="radio" name="7" value="d"/> Judge fitness for use (accuracy, currency, limitations)</label>
+            <div data-why-correct hidden>Metadata helps you evaluate whether a dataset is appropriate for a decision or analysis.</div>
+            <div data-why-wrong hidden>Metadata doesn’t change system performance or replace technical understanding.</div>
+          </fieldset>
+
+          <div class="controls">
+            <button class="primary" type="submit">Grade quiz</button>
+            <button type="button" data-reset>Clear</button>
+          </div>
+
+          <div id="feedback" data-feedback aria-label="Quiz feedback"></div>
+        </form>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="08-summary.html">← Summary</a>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

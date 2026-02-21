@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>UPP 461 • Week 2 • Attributes & scales</title>
+  <link href="../style.css" rel="stylesheet"/>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <div class="course-links">
+            <a class="course-home" href="../index.html" aria-label="Go to the start of the Week 2 module">UPP 461 • Week 2</a>
+            <a class="course-exit" href="../../../index.html" aria-label="Go to course home">Home</a>
+          </div>
+          <h1>Understanding Spatial Data</h1>
+          <p class="small">For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</p>
+        </div>
+        <div class="controls" aria-label="Header controls">
+          <button class="ghost" type="button" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+            Theme: <span data-theme-label>Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <nav class="nav" aria-label="Module navigation">
+            <a href="../index.html">Start here</a>
+            <a href="02-what-is-gis.html">What is GIS?</a>
+            <a href="03-data-models.html">Data models</a>
+            <a href="04-topology.html">Topology</a>
+            <a href="05-attributes.html" aria-current="page">Attributes & scales</a>
+            <a href="06-data-structures.html">Data structures & formats</a>
+            <a href="07-metadata.html">Metadata</a>
+            <a href="08-summary.html">Summary</a>
+            <a href="09-quiz.html">Quick quiz</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+
+        <div class="main-head">
+          <h2 class="kicker">Attributes & measurement scales</h2>
+        </div>
+
+        <div class="card">
+          <p>GIS features are usually stored as <strong>geometry</strong> (coordinates) + <strong>attributes</strong> (fields/values).</p>
+          <figure>
+            <img class="zoomable" src="../assets/coords_attributes.png" alt="Diagram illustrating feature coordinates and attributes."/>
+            <figcaption class="small">Geometry tells you where; attributes tell you what.</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <h3>Measurement scales (why they matter)</h3>
+          <p class="small">A variable’s scale affects what operations make sense.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Scale</th>
+                  <th>What it means</th>
+                  <th>Safe operations</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Nominal</strong></td>
+                  <td>Categories with no order</td>
+                  <td>Counts, mode</td>
+                  <td>Land cover class</td>
+                </tr>
+                <tr>
+                  <td><strong>Ordinal</strong></td>
+                  <td>Ordered categories (spacing unknown)</td>
+                  <td>Ranks, median, percentiles</td>
+                  <td>“Low / Medium / High” index</td>
+                </tr>
+                <tr>
+                  <td><strong>Interval / Ratio</strong></td>
+                  <td>Numeric with meaningful differences (and often a true zero)</td>
+                  <td>Arithmetic (mean, sum), modeling</td>
+                  <td>Population density, income, elevation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="notice warn">
+            <strong>Common mistake:</strong> averaging category codes (e.g., land cover 1–8) as if they were measurements.
+          </div>
+        </div>
+
+        <div class="card tryit" data-mini-quiz>
+          <h3>Try it: Classify the variable</h3>
+          <p class="small">Choose the best measurement scale.</p>
+
+          <ol class="mini-list">
+            <li class="mini-item">
+              <label for="s1"><strong>Land cover class</strong> (forest, water, impervious…)</label>
+              <select id="s1" data-correct="Nominal" data-why="Categories don’t have a true numeric order; codes are labels.">
+                <option value="choose">Choose…</option>
+                <option value="Nominal">Nominal</option>
+                <option value="Ordinal">Ordinal</option>
+                <option value="Interval/Ratio">Interval/Ratio</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="s2"><strong>Standard of Living Index</strong> (low → high)</label>
+              <select id="s2" data-correct="Ordinal" data-why="It’s ordered, but spacing between categories is not guaranteed equal.">
+                <option value="choose">Choose…</option>
+                <option value="Nominal">Nominal</option>
+                <option value="Ordinal">Ordinal</option>
+                <option value="Interval/Ratio">Interval/Ratio</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="s3"><strong>Population density</strong> (people per square mile)</label>
+              <select id="s3" data-correct="Interval/Ratio" data-why="Numeric with meaningful differences; arithmetic summaries make sense.">
+                <option value="choose">Choose…</option>
+                <option value="Nominal">Nominal</option>
+                <option value="Ordinal">Ordinal</option>
+                <option value="Interval/Ratio">Interval/Ratio</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+
+            <li class="mini-item">
+              <label for="s4"><strong>Temperature</strong> in °C</label>
+              <select id="s4" data-correct="Interval/Ratio" data-why="Often treated as interval (no true zero), but many GIS tools treat it as continuous numeric.">
+                <option value="choose">Choose…</option>
+                <option value="Nominal">Nominal</option>
+                <option value="Ordinal">Ordinal</option>
+                <option value="Interval/Ratio">Interval/Ratio</option>
+              </select>
+              <div class="small" data-mini-feedback aria-live="polite"></div>
+            </li>
+          </ol>
+
+          <div class="controls">
+            <button class="primary" type="button" data-mini-grade>Check answers</button>
+            <span class="small" data-mini-score aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Example: population density</h3>
+          <figure>
+            <img class="zoomable" src="../assets/pop_density.png" alt="Map showing U.S. population density."/>
+            <figcaption class="small">Density is an interval/ratio variable (rates support arithmetic).</figcaption>
+          </figure>
+        </div>
+
+        <div class="pager" aria-label="Page navigation">
+          <a class="btn" href="04-topology.html">← Topology</a>
+          <span></span>
+          <a class="btn primary next" href="06-data-structures.html">Data structures & formats →</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <div><strong>Disclaimer:</strong> For educational purposes only. Not for navigation, surveying, engineering design, or legal boundary determination.</div>
+            <a class="bug-link" data-bug-report href="#">Report a bug</a>
+          </div>
+          <div class="small">Last updated: 2026-02-18</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>
